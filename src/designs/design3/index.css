@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 font-['Outfit'] overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20;
+  }
+
+  .text-cinematic {
+    @apply tracking-tighter leading-[0.9] font-black;
+  }
+
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-2 bg-slate-200 border border-slate-200;
+  }
+
+  .bento-item {
+    @apply bg-white p-8 lg:p-12 transition-all duration-500 hover:z-10 relative overflow-hidden;
+  }
+
+  .bento-item-dark {
+    @apply bg-slate-900 text-white p-8 lg:p-12 transition-all duration-500 hover:z-10 relative overflow-hidden;
+  }
+
+  .tech-border {
+    @apply border border-slate-100;
+  }
+
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+}
+
+/* Custom Scrollbar for a technical feel */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 transition-colors hover:bg-[#0B96AC];
+}
+
+.selection-teal {
+  @apply selection:bg-[#0B96AC]/20 selection:text-[#0B96AC];
+}

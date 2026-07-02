@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+*.local
+.env
+.vite
+.next
+build
+out
+.gemini
+.temp
+tmp
