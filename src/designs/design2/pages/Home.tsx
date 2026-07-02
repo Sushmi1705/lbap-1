@@ -517,7 +517,7 @@ const Home = () => {
                 className="bg-slate-50 border border-slate-200/60 rounded-xl overflow-hidden shadow-sm aspect-[3/4] animate-border-shimmer"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" 
+                  src="/bystronic_laser.png" 
                   alt="Laser Cutting" 
                   className="w-full h-full object-cover"
                 />
@@ -530,7 +530,7 @@ const Home = () => {
                 className="bg-slate-50 border border-slate-200/60 rounded-xl overflow-hidden shadow-sm aspect-[3/4] mt-12 animate-border-shimmer"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-46a2a5aee158?auto=format&fit=crop&q=80&w=800" 
+                  src="/zeiss_cmm.png" 
                   alt="Quality Control" 
                   className="w-full h-full object-cover"
                 />
