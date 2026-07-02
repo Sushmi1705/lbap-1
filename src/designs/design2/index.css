@@ -23,9 +23,29 @@ body {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-panel-dark {
+  background: rgba(7, 11, 25, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-light {
+  background: rgba(250, 250, 250, 0.65);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.glow-radial-blue {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 167, 255, 0.12) 0%, rgba(0, 167, 255, 0) 100%);
+}
+
+.glow-radial-orange {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 92, 0, 0.12) 0%, rgba(255, 92, 0, 0) 100%);
 }
 
 .container-custom {
@@ -42,7 +62,7 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #070B19;
 }
 ::-webkit-scrollbar-thumb {
   background: #1E293B;
@@ -77,16 +97,16 @@ body {
 /* Shimmer pulse effect */
 @keyframes border-shimmer {
   0% {
-    border-color: rgba(0, 167, 255, 0.1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 167, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
   }
   50% {
-    border-color: rgba(0, 167, 255, 0.35);
-    box-shadow: 0 10px 15px -3px rgba(0, 167, 255, 0.03), 0 4px 6px -4px rgba(0, 167, 255, 0.03);
+    border-color: rgba(0, 167, 255, 0.25);
+    box-shadow: 0 10px 15px -3px rgba(0, 167, 255, 0.02);
   }
   100% {
-    border-color: rgba(0, 167, 255, 0.1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 167, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
   }
 }
 

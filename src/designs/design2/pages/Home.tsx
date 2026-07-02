@@ -233,7 +233,7 @@ const Home = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="/product" 
-                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#00A7FF] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
+                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#FF5C00]/90 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-md shadow-[#FF5C00]/20 transition-all duration-300"
                 >
                   Explore Solutions <ArrowRight className="w-4 h-4" />
                 </motion.a>
@@ -242,7 +242,7 @@ const Home = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="/machineries" 
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-all duration-300 shadow-sm"
                 >
                   Technical Data
                 </motion.a>
@@ -255,16 +255,16 @@ const Home = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-md max-w-xs space-y-4 animate-border-shimmer"
+                className="p-8 glass-panel-dark border border-white/10 rounded-xl shadow-2xl max-w-xs space-y-4 text-white"
               >
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-ping"></span>
+                    <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-pulse shadow-sm shadow-[#FF5C00]/50"></span>
                     Live Production Feed
                   </h4>
                   <span className="text-[9px] font-mono text-slate-400">PLANT_01</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-semibold">
+                <p className="text-xs text-slate-200 leading-relaxed font-medium">
                   Batch L97 #6254 progressive stamping run is currently in final verification. Quality pass: 100%.
                 </p>
                 <div className="pt-2 flex justify-between items-center text-[8px] font-mono text-slate-400">

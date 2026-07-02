@@ -37,9 +37,9 @@ const Footer = () => {
                 Laxmi Balaji Automotive Products Pvt. Ltd. (LBAP) is one of the premier manufacturers and suppliers of heavy-duty Pressed components, Fabricated Parts, and robotic Sub-assemblies matching Tier-1 global quality benchmarks.
               </p>
 
-              <div className="flex items-center gap-2 font-mono text-[9px] text-[#00A7FF] font-bold bg-[#00A7FF]/5 border border-[#00A7FF]/10 w-fit px-3 py-1.5 rounded-md">
+              <div className="flex items-center gap-2 font-sans text-[10px] text-[#00A7FF] font-bold bg-[#00A7FF]/5 border border-[#00A7FF]/10 w-fit px-3 py-1.5 rounded-md">
                 <Activity className="w-3.5 h-3.5 animate-pulse text-[#FF5C00]" />
-                REG_ID // ISO_9001:2015 // APPROVED
+                ISO 9001:2015 Certified Plant
               </div>
             </div>
 
@@ -78,8 +78,8 @@ const Footer = () => {
                     className="w-28 h-28 object-contain"
                   />
                 </div>
-                <span className="text-[9px] font-mono font-bold text-slate-450 tracking-wider block uppercase">
-                  [ SCAN FOR AUDIT CERT ]
+                <span className="text-[9px] font-sans font-bold text-slate-500 tracking-wider block uppercase">
+                  Scan for Audit Certificate
                 </span>
               </div>
             </div>

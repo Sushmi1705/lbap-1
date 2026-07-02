@@ -262,8 +262,8 @@ const About = () => {
                   Years of Sector Reputation
                 </span>
                 
-                <div className="absolute -bottom-3.5 bg-slate-50 px-3 py-1 border border-slate-200/60 rounded text-[9px] font-mono text-slate-500 shadow-sm">
-                  [ HOSUR // PLANT_01 ]
+                <div className="absolute -bottom-3.5 bg-slate-50 px-3 py-1 border border-slate-200/60 rounded text-[9px] font-sans font-bold text-slate-500 shadow-sm">
+                  Hosur Plant
                 </div>
               </motion.div>
             </div>
@@ -312,8 +312,8 @@ const About = () => {
             >
               <div>
                 <div className="flex justify-between items-center mb-8">
-                  <span className="text-[9px] font-mono text-slate-400 tracking-widest uppercase">
-                    METRICS // PRIMARY_FOOTPRINT
+                  <span className="text-[9px] font-sans font-bold text-slate-400 tracking-widest uppercase">
+                    Primary Infrastructure Metrics
                   </span>
                   <div className="w-8 h-8 rounded bg-slate-50 border border-slate-100 flex items-center justify-center text-[#00A7FF]">
                     <Layers className="w-4 h-4" />
@@ -366,7 +366,7 @@ const About = () => {
                 <div className="absolute right-[-20px] bottom-[-20px] opacity-10 text-white select-none">
                   <Globe className="w-36 h-36" />
                 </div>
-                <span className="text-[9px] font-mono opacity-80 tracking-widest block mb-4">[ OPERATIONAL NODES ]</span>
+                <span className="text-[9px] font-mono opacity-80 tracking-widest block mb-4">Operational Nodes</span>
                 <h3 className="text-5xl font-black font-mono tracking-tighter mb-2 text-white">
                   12
                 </h3>
@@ -458,13 +458,13 @@ const About = () => {
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#00A7FF]/80 animate-scan-sweep pointer-events-none z-10"></div>
 
                 {/* Dynamic Coordinate Tag */}
-                <div className="absolute top-4 left-4 bg-white border border-slate-250 rounded-md px-3 py-1 font-mono text-[9px] text-[#00A7FF] flex items-center gap-2 shadow-sm font-bold">
+                <div className="absolute top-4 left-4 bg-white border border-slate-200 rounded-md px-3 py-1 font-sans text-[9px] text-[#00A7FF] flex items-center gap-2 shadow-sm font-bold">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF5C00] animate-ping"></span>
-                  [ DET_CAD_AXIS: 142.34 / 89.12 ]
+                  CAD Axis Calibration
                 </div>
 
-                <div className="absolute top-4 right-4 text-[9px] font-mono text-slate-400 font-bold">
-                  SYS_VER: v4.01 // Hosur
+                <div className="absolute top-4 right-4 text-[9px] font-sans text-slate-400 font-bold">
+                  System Version 4.01
                 </div>
 
                 {/* Detailed CAD drawing */}
@@ -532,9 +532,9 @@ const About = () => {
                 </svg>
 
                 {/* Footnotes */}
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between font-mono text-[8px] text-slate-450 border-t border-slate-200/60 pt-3">
-                  <span>STAGE: [ S01: PIERCE // S02: DRAW // S03: STRIP ]</span>
-                  <span>TOLERANCE LIMITS: +/-0.02mm // CAL_OK</span>
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between font-sans text-[8px] text-slate-500 border-t border-slate-200/60 pt-3">
+                  <span>Staging: Pierce, Draw, Strip</span>
+                  <span>Tolerance: +/-0.02mm</span>
                 </div>
               </motion.div>
             </div>
@@ -619,8 +619,8 @@ const About = () => {
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-white border border-slate-200 p-8 lg:p-12 relative overflow-hidden shadow-sm animate-border-shimmer"
               >
                 {/* Decorative coordinate watermark */}
-                <div className="absolute right-4 bottom-4 font-mono text-[9px] text-slate-100 select-none uppercase tracking-widest font-black pointer-events-none">
-                  [ TRANSIT_LOG // {timelineData[selectedTimelineIndex].year} ]
+                <div className="absolute right-4 bottom-4 font-sans text-[9px] text-slate-200 select-none uppercase tracking-widest font-black pointer-events-none">
+                  Year {timelineData[selectedTimelineIndex].year}
                 </div>
 
                 <div className="lg:col-span-8 flex flex-col justify-between space-y-6">
@@ -811,8 +811,8 @@ const About = () => {
                 </svg>
 
                 {/* Map HUD details overlay */}
-                <div className="absolute bottom-4 left-4 bg-white/95 border border-slate-200 rounded px-3 py-1.5 font-mono text-[8px] text-slate-505 shadow-sm">
-                  COORDINATES_LOCK: [LAT_12.74, LNG_77.82] // ACTIVE_REGION: <span className="text-[#00A7FF] uppercase font-bold">{activeRegion}</span>
+                <div className="absolute bottom-4 left-4 bg-white/95 border border-slate-200 rounded px-3 py-1.5 font-sans text-[8px] text-slate-500 shadow-sm">
+                   Coordinates: Lat 12.74, Lng 77.82 | Active Region: <span className="text-[#00A7FF] uppercase font-bold">{activeRegion}</span>
                 </div>
               </div>
             </div>
@@ -899,9 +899,9 @@ const About = () => {
                     "{leader.quote}"
                   </p>
 
-                  <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-[8px]">
+                  <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-sans text-[9px]">
                     <Activity className="w-3 h-3 text-[#00A7FF]" />
-                    MEMBER_ACTIVE // SIGN_OFF: OK
+                    Active Member
                   </div>
                 </div>
 
@@ -924,8 +924,8 @@ const About = () => {
             transition={springTransition}
             className="bg-[#F1F5F9]/50 border border-slate-200/60 rounded-2xl p-10 lg:p-16 text-center space-y-8 shadow-sm animate-border-shimmer"
           >
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#00A7FF]/5 border border-[#00A7FF]/15 rounded-md text-[10px] font-mono tracking-widest text-[#00A7FF] uppercase font-bold">
-              SCALING LOGISTICS // REQUEST_CAPACITY
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#00A7FF]/5 border border-[#00A7FF]/15 rounded-md text-[10px] font-sans tracking-widest text-[#00A7FF] uppercase font-bold">
+              Scaling Logistics & Capacity
             </span>
             
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 uppercase tracking-tight leading-none">

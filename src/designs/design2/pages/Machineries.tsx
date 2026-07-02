@@ -299,10 +299,9 @@ const Machineries = () => {
               </div>
             </div>
 
-            {/* Right side: Interactive Spec Panels */}
             <div className="lg:col-span-4 h-full">
-              <div className="bg-slate-50 border border-slate-200/80 p-8 rounded-xl h-full shadow-sm animate-border-shimmer relative min-h-[220px] flex flex-col justify-between">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-[#00A7FF]"></div>
+              <div className="bg-[#070B19] border border-white/10 p-8 rounded-xl h-full shadow-2xl relative min-h-[220px] flex flex-col justify-between text-white">
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF]"></div>
                 
                 <AnimatePresence mode="wait">
                   {activeZone ? (
@@ -316,19 +315,19 @@ const Machineries = () => {
                     >
                       <div>
                         <span className="text-[#00A7FF] text-[9px] font-mono font-bold uppercase tracking-[0.25em] mb-1 block">ZONE DETAILS</span>
-                        <h4 className="text-base font-bold text-slate-900 uppercase tracking-tight">{zoneDetails[activeZone].title}</h4>
+                        <h4 className="text-base font-bold text-white uppercase tracking-tight">{zoneDetails[activeZone].title}</h4>
                       </div>
                       <div className="space-y-2">
                         <div>
                           <p className="text-[8px] font-bold text-slate-400 uppercase tracking-wider">Operational Units</p>
-                          <p className="text-xs text-slate-800 font-bold">{zoneDetails[activeZone].machines}</p>
+                          <p className="text-xs text-slate-100 font-bold">{zoneDetails[activeZone].machines}</p>
                         </div>
                         <div>
                           <p className="text-[8px] font-bold text-slate-400 uppercase tracking-wider">Specifications Matrix</p>
-                          <p className="text-xs text-slate-650 font-medium font-sans leading-relaxed">{zoneDetails[activeZone].specs}</p>
+                          <p className="text-xs text-slate-300 font-medium font-sans leading-relaxed">{zoneDetails[activeZone].specs}</p>
                         </div>
                       </div>
-                      <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[9px] font-mono">
+                      <div className="pt-4 border-t border-white/10 flex justify-between items-center text-[9px] font-mono">
                         <span className="text-slate-400">OEE Rating Target</span>
                         <span className="text-[#00A7FF] font-bold">{zoneDetails[activeZone].nominal}</span>
                       </div>
@@ -340,9 +339,9 @@ const Machineries = () => {
                       animate={{ opacity: 1 }}
                       className="flex flex-col items-center justify-center text-center space-y-3 py-6 h-full"
                     >
-                      <Layers className="w-8 h-8 text-slate-350 stroke-[1.5]" />
-                      <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Select a Zone</h4>
-                      <p className="text-[11px] text-slate-400 font-sans max-w-[200px] leading-relaxed">
+                      <Layers className="w-8 h-8 text-slate-500 stroke-[1.5]" />
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Select a Zone</h4>
+                      <p className="text-[11px] text-slate-500 font-sans max-w-[200px] leading-relaxed">
                         Hover or click any segment of the factory floor to inspect active machinery specs.
                       </p>
                     </motion.div>

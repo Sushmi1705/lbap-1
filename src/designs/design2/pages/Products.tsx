@@ -258,15 +258,15 @@ const Products = () => {
 
             </div>
 
-            {/* Floating Catalog Widget */}
+            {/* Floating Stats */}
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
               <motion.div 
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-md max-w-xs space-y-4 animate-border-shimmer"
+                className="p-8 glass-panel-dark border border-white/10 rounded-xl shadow-2xl max-w-xs space-y-4 text-white"
               >
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     Engineering Stats
@@ -275,19 +275,19 @@ const Products = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-500">Active Press Cells</span>
-                    <span className="text-slate-800">12 Primary Lines</span>
+                    <span className="text-slate-400">Active Press Cells</span>
+                    <span className="text-white">12 Primary Lines</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-500">Max Pressure Force</span>
-                    <span className="text-slate-800">1000 Tons</span>
+                    <span className="text-slate-400">Max Pressure Force</span>
+                    <span className="text-white">1000 Tons</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-500">Tolerance Limits</span>
+                    <span className="text-slate-400">Tolerance Limits</span>
                     <span className="text-[#00A7FF]">±0.02 mm</span>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
+                <div className="pt-3 border-t border-white/10 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
                   <span>QA LEVEL: ISO_9001</span>
                   <span>CAL_OK</span>
                 </div>
@@ -336,7 +336,7 @@ const Products = () => {
                       {activeCategory === cat.id && (
                         <motion.div 
                           layoutId="activeProductCategoryTab"
-                          className="absolute inset-0 bg-[#000EDD] rounded-lg z-[-1] shadow"
+                          className="absolute inset-0 bg-[#FF5C00] rounded-lg z-[-1] shadow"
                           transition={springTransitionFast}
                         />
                       )}
@@ -349,7 +349,7 @@ const Products = () => {
             {/* Spec Table Explorer Area */}
             <motion.div variants={fadeInUp} className="lg:col-span-9 space-y-8">
               
-              <div className="bg-white border border-slate-255 p-8 lg:p-10 rounded-xl shadow-sm animate-border-shimmer relative overflow-hidden">
+              <div className="bg-white border border-slate-200/60 p-8 lg:p-10 rounded-xl shadow-sm animate-border-shimmer relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-[#00A7FF]"></div>
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
@@ -376,7 +376,7 @@ const Products = () => {
                         {activeMaterial === tab.id && (
                           <motion.div 
                             layoutId="activeProductMaterialTab"
-                            className="absolute inset-0 bg-[#00A7FF] rounded shadow-sm z-[-1]"
+                            className="absolute inset-0 bg-[#FF5C00] rounded shadow-sm z-[-1]"
                             transition={springTransitionFast}
                           />
                         )}
@@ -396,7 +396,7 @@ const Products = () => {
                     className="overflow-x-auto border border-slate-200/80 rounded-xl bg-white shadow-sm"
                   >
                     <table className="w-full text-left">
-                      <thead className="bg-[#000EDD] text-white border-b border-[#000EDD]/10">
+                      <thead className="bg-[#070B19] text-white border-b border-[#070B19]/10">
                         <tr>
                           <th className="p-6 text-[10px] font-bold tracking-widest uppercase">STEEL GRADE</th>
                           <th className="p-6 text-[10px] font-bold tracking-widest uppercase">THICKNESS (MM)</th>
