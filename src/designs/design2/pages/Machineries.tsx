@@ -231,8 +231,8 @@ const Machineries = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            {/* Left side: Blueprint Container */}
-            <div className="lg:col-span-8">
+            {/* Left side: Blueprint Container (Desktop only) */}
+            <div className="hidden lg:block lg:col-span-8">
               <div className="relative aspect-[21/9] bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm animate-border-shimmer">
                 {/* CAD Grid pattern */}
                 <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #00A7FF 0, #00A7FF 1px, transparent 0, transparent 50%)', backgroundSize: '24px 24px' }}></div>
@@ -297,6 +297,29 @@ const Machineries = () => {
                   <span className="text-[8px] font-mono text-slate-300 uppercase tracking-widest italic font-bold">LOGISTICS</span>
                 </div>
               </div>
+            </div>
+
+            {/* Mobile/Tablet Zone Selector (Grid list) */}
+            <div className="block lg:hidden w-full space-y-3">
+              {[
+                { id: 'zoneA', name: 'Zone A - Stamping Hub' },
+                { id: 'zoneB', name: 'Zone B - Robotic Welding Cluster' },
+                { id: 'zoneC', name: 'Zone C - Metrology & QC Lab' },
+                { id: 'zoneD', name: 'Zone D - Final Assembly' }
+              ].map((zone) => (
+                <button
+                  key={zone.id}
+                  onClick={() => setActiveZone(activeZone === zone.id ? null : zone.id as any)}
+                  className={`w-full py-4 px-6 border rounded-lg text-left transition-all duration-300 ${
+                    activeZone === zone.id 
+                      ? 'bg-[#FF5C00] text-white border-[#FF5C00] shadow-md shadow-[#FF5C00]/20' 
+                      : 'bg-white border-slate-200/80 text-slate-800 hover:border-[#00A7FF]'
+                  }`}
+                >
+                  <span className={`text-[10px] font-mono block uppercase ${activeZone === zone.id ? 'text-white/80' : 'text-slate-400'}`}>Telemetry Option</span>
+                  <span className="text-sm font-bold block">{zone.name}</span>
+                </button>
+              ))}
             </div>
 
             <div className="lg:col-span-4 h-full">
