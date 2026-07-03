@@ -154,7 +154,7 @@ const Products = () => {
     <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned Products Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#00084d] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Automated Robotic Welding Line */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -168,7 +168,7 @@ const Products = () => {
             className="w-full h-full object-cover object-center opacity-90"
           />
           {/* Logo color tint overlay - faded dark blue with variable transparency for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00084d]/80 via-[#00084d]/55 to-[#00084d]/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#03072c]/80 via-[#03072c]/55 to-[#03072c]/25"></div>
           {/* Bottom blend block */}
           <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FAFAFA] to-transparent"></div>
         </motion.div>
@@ -396,7 +396,7 @@ const Products = () => {
                     className="overflow-x-auto border border-slate-200/80 rounded-xl bg-white shadow-sm"
                   >
                     <table className="w-full text-left">
-                      <thead className="bg-[#070B19] text-white border-b border-[#070B19]/10">
+                      <thead className="bg-[#020522] text-white border-b border-[#020522]/10">
                         <tr>
                           <th className="p-6 text-[10px] font-bold tracking-widest uppercase">STEEL GRADE</th>
                           <th className="p-6 text-[10px] font-bold tracking-widest uppercase">THICKNESS (MM)</th>

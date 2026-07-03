@@ -5,8 +5,11 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #000EDD;
-  --color-accent: #00A7FF;
+  --color-primary: #000EDD;       /* Deep Royal Blue (Logo) */
+  --color-secondary: #FF5C00;     /* Safety Orange (Logo) */
+  --color-accent: #00A7FF;        /* Sky Blue / Cyan (Logo) */
+  --color-bg-dark: #03072c;       /* Midnight Brand Blue */
+  --color-bg-card: #020522;       /* Slate-Midnight Brand Blue */
   --color-bg-light: #FFFFFF;
   --color-bg-subtle: #F8FAFC;
   --color-text-dark: #0F172A;
@@ -62,7 +65,7 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070B19;
+  background: #020522;
 }
 ::-webkit-scrollbar-thumb {
   background: #1E293B;

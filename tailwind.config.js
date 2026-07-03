@@ -7,6 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+        branddark: 'var(--color-bg-dark)',
+        brandcard: 'var(--color-bg-card)',
         lbap: {
           teal: '#0B96AC',
           dark: '#191C1E',
