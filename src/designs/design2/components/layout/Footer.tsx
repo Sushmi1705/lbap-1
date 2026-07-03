@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
             
             {/* Column 1: Brand & About Us (span 4) */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="lg:col-span-4 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-6 bg-[#000EDD] rounded-full"></div>
                 <div className="w-1.5 h-6 bg-[#00A7FF] rounded-full"></div>
@@ -44,11 +44,11 @@ const Footer = () => {
             </div>
 
             {/* Column 2: Quick Links (span 2) */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
               <h4 className="text-[11px] font-bold text-slate-900 tracking-[0.25em] uppercase">
                 Quick Navigation
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 flex flex-col items-center lg:items-start">
                 {['HOME', 'ABOUT US', 'PRODUCT', 'CAREER', 'CLIENT', 'CONTACT US'].map((link) => (
                   <li key={link}>
                     <motion.a 
@@ -66,11 +66,11 @@ const Footer = () => {
             </div>
 
             {/* Column 3: Digital QR (span 2) */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
               <h4 className="text-[11px] font-bold text-slate-900 tracking-[0.25em] uppercase">
                 Digital ID
               </h4>
-              <div className="space-y-3.5">
+              <div className="space-y-3.5 flex flex-col items-center lg:items-start">
                 <div className="bg-white p-3 border border-slate-200/60 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden w-fit animate-border-shimmer">
                   <img 
                     src="/footer_qr_code_1778314288081.png" 
@@ -85,13 +85,13 @@ const Footer = () => {
             </div>
 
             {/* Column 4: Contact details (span 4) */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="lg:col-span-4 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
               <h4 className="text-[11px] font-bold text-slate-900 tracking-[0.25em] uppercase">
                 Corporate Office
               </h4>
               
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
+              <ul className="space-y-4 flex flex-col items-center lg:items-start">
+                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 mt-0.5 border border-[#00A7FF]/10">
                     <MapPin className="w-4 h-4 text-[#000EDD]" />
                   </div>
@@ -100,7 +100,7 @@ const Footer = () => {
                   </span>
                 </li>
                 
-                <li className="flex items-center gap-3">
+                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 border border-[#00A7FF]/10">
                     <Mail className="w-4 h-4 text-[#00A7FF]" />
                   </div>
@@ -109,7 +109,7 @@ const Footer = () => {
                   </span>
                 </li>
                 
-                <li className="flex items-center gap-3">
+                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 border border-[#00A7FF]/10">
                     <Phone className="w-4 h-4 text-[#FF5C00]" />
                   </div>
@@ -118,7 +118,7 @@ const Footer = () => {
                   </span>
                 </li>
                 
-                <li className="flex items-center gap-3">
+                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 border border-[#00A7FF]/10">
                     <Clock className="w-4 h-4" />
                   </div>
