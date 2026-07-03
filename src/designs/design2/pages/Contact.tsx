@@ -246,7 +246,7 @@ const Contact = () => {
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
                 <div>
                   <h2 className="text-2xl font-black text-slate-800 uppercase tracking-tight">Global Inquiry Hub</h2>
-                  <p className="text-slate-400 text-[11px] font-medium font-sans mt-1">Configure your request parameters for immediate dispatch.</p>
+                  <p className="text-slate-400 text-xs font-medium font-sans mt-1">Configure your request parameters for immediate dispatch.</p>
                 </div>
 
                 {/* Form selector buttons */}
@@ -260,7 +260,7 @@ const Contact = () => {
                       key={tab.id}
                       type="button"
                       onClick={() => setQueryType(tab.id)}
-                      className="px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-wider relative transition-all rounded z-10"
+                      className="px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider relative transition-all rounded z-10"
                     >
                       <span className={queryType === tab.id ? 'text-white font-extrabold transition-colors' : 'text-slate-500'}>
                         {tab.label}
@@ -287,7 +287,7 @@ const Contact = () => {
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <h3 className="text-sm font-bold text-slate-800 uppercase tracking-widest">Inquiry Submitted Successfully</h3>
-                  <p className="text-[11px] font-sans max-w-sm mx-auto leading-relaxed">
+                  <p className="text-xs font-sans max-w-sm mx-auto leading-relaxed">
                     Our technical sales team has received your parameters and will compile a specialized report within our 4.2-hour limit.
                   </p>
                 </motion.div>
@@ -295,16 +295,16 @@ const Contact = () => {
                 <form onSubmit={handleFormSubmit} className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Select Region</label>
-                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-xs font-bold text-slate-700 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg appearance-none cursor-pointer">
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Select Region</label>
+                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg appearance-none cursor-pointer">
                         <option>South East Asia (HQ)</option>
                         <option>EMEA Region</option>
                         <option>Americas</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Technical Requirement</label>
-                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-xs font-bold text-slate-700 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg appearance-none cursor-pointer">
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Technical Requirement</label>
+                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg appearance-none cursor-pointer">
                         <option>Sheet Metal Fabrication</option>
                         <option>Heavy Pressing (Tool & Die)</option>
                         <option>Robotic Weld Assembly</option>
@@ -314,25 +314,25 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Full Name</label>
-                      <input type="text" required placeholder="Engineering Lead / Manager" className="w-full bg-white border border-slate-250 p-4 text-xs font-semibold text-slate-850 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg" />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+                      <input type="text" required placeholder="Engineering Lead / Manager" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg" />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Corporate Email</label>
-                      <input type="email" required placeholder="sales@company.com" className="w-full bg-white border border-slate-255 p-4 text-xs font-semibold text-slate-855 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg" />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Corporate Email</label>
+                      <input type="email" required placeholder="sales@company.com" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg" />
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Technical Specifications / Project Scope</label>
-                    <textarea required rows={6} placeholder="Detail the dimensions, material grades, tolerance margins, and estimated annual volume..." className="w-full bg-white border border-slate-255 p-4 text-xs font-semibold text-slate-855 outline-none focus:border-[#00A7FF]/50 transition-colors resize-none rounded-lg"></textarea>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Technical Specifications / Project Scope</label>
+                    <textarea required rows={6} placeholder="Detail the dimensions, material grades, tolerance margins, and estimated annual volume..." className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:border-[#00A7FF]/50 transition-colors resize-none rounded-lg"></textarea>
                   </div>
 
                   <div className="flex flex-col md:flex-row items-center gap-6 pt-4">
-                    <button type="submit" className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-xs font-bold uppercase tracking-wider transition-colors rounded shadow-sm border border-transparent hover:border-[#FF5C00]">
+                    <button type="submit" className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-colors rounded shadow-sm border border-transparent hover:border-[#FF5C00]">
                       Submit RFQ <Send className="w-4 h-4" />
                     </button>
-                    <span className="text-[9px] font-mono text-slate-400">
+                    <span className="text-xs font-mono text-slate-400">
                       Typical response time: <span className="text-[#00A7FF] font-bold">4.2 hours</span>
                     </span>
                   </div>
