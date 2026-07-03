@@ -22,7 +22,7 @@ const Header = () => {
       <div className="container-custom flex justify-between items-center relative">
         <div className="flex items-center gap-3">
           {/* Brand Logo Symbol - Official Logo Image */}
-          <img src="/logo.png" alt="Laxmi Balaji Logo" className="h-12 w-auto object-contain" />
+          <img src="/logo.png" alt="Laxmi Balaji Logo" className="h-20 w-auto object-contain" />
         </div>
         
         {/* Desktop Navigation Links */}
