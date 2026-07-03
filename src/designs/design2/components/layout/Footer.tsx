@@ -25,11 +25,8 @@ const Footer = () => {
             
             {/* Column 1: Brand & About Us (span 4) */}
             <div className="lg:col-span-4 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <div className="flex items-center gap-3 justify-center lg:justify-start w-full">
-                <img src="/logo.png" alt="Laxmi Balaji Logo" className="w-8 h-8 object-contain" />
-                <span className="text-lg font-black tracking-wider text-slate-900 font-sans uppercase">
-                  LAXMI BALAJI
-                </span>
+              <div className="flex items-center justify-center lg:justify-start w-full">
+                <img src="/logo.png" alt="Laxmi Balaji Logo" className="h-16 w-auto object-contain" />
               </div>
               
               <p className="text-[13px] text-slate-550 leading-[1.8] font-medium font-sans max-w-sm">
