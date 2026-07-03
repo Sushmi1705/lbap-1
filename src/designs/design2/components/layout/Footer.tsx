@@ -25,7 +25,7 @@ const Footer = () => {
             
             {/* Column 1: Brand & About Us (span 4) */}
             <div className="lg:col-span-4 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center lg:justify-start w-full">
                 <div className="w-1.5 h-6 bg-[#000EDD] rounded-full"></div>
                 <div className="w-1.5 h-6 bg-[#00A7FF] rounded-full"></div>
                 <span className="text-lg font-black tracking-wider text-slate-900 font-sans uppercase">
@@ -48,16 +48,16 @@ const Footer = () => {
               <h4 className="text-[11px] font-bold text-slate-900 tracking-[0.25em] uppercase">
                 Quick Navigation
               </h4>
-              <ul className="space-y-3 flex flex-col items-center lg:items-start">
+              <ul className="space-y-3 flex flex-col items-start lg:items-start w-fit mx-auto lg:mx-0">
                 {['HOME', 'ABOUT US', 'PRODUCT', 'CAREER', 'CLIENT', 'CONTACT US'].map((link) => (
                   <li key={link}>
                     <motion.a 
                       whileHover={{ x: 6, color: "#00A7FF" }}
                       transition={linkTransition}
                       href="#" 
-                      className="text-[12px] text-slate-500 hover:text-[#00A7FF] transition-colors font-bold uppercase tracking-wider flex items-center gap-1 group"
+                      className="text-[12px] text-slate-500 hover:text-[#00A7FF] transition-colors font-bold uppercase tracking-wider flex items-center gap-1 group justify-start lg:justify-start"
                     >
-                      <ChevronRight className="w-3 h-3 text-[#FF5C00] opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ChevronRight className="w-3 h-3 text-[#FF5C00] opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
                       {link}
                     </motion.a>
                   </li>
@@ -90,7 +90,7 @@ const Footer = () => {
                 Corporate Office
               </h4>
               
-              <ul className="space-y-4 flex flex-col items-center lg:items-start w-full">
+              <ul className="space-y-4 flex flex-col items-start lg:items-start w-fit mx-auto lg:mx-0">
                 <li className="flex items-start gap-3 text-left w-full max-w-[280px] sm:max-w-sm">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 mt-0.5 border border-[#00A7FF]/10">
                     <MapPin className="w-4 h-4 text-[#000EDD]" />
