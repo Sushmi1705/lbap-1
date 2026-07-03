@@ -310,7 +310,7 @@ const Home = () => {
               Precision at Scale. Rigor at Volume.
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
-            <p className="text-slate-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <p className="text-slate-500 text-sm sm:text-base mt-4 font-medium font-sans leading-relaxed max-w-xl">
               Our automated fabrication and mechanical press technologies deliver tight tolerancing on complex designs.
             </p>
           </motion.div>
@@ -396,7 +396,7 @@ const Home = () => {
               Strategic Value Pillars
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4 mx-auto"></div>
-            <p className="text-slate-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <p className="text-slate-500 text-sm sm:text-base mt-4 font-medium font-sans leading-relaxed max-w-xl">
               We leverage clean production grids, complete component tracking, and co-design engineering to optimize performance bounds.
             </p>
           </div>
@@ -439,16 +439,16 @@ const Home = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
                 transition={springTransitionFast}
-                className="bg-slate-50/50 border border-slate-200/60 rounded-xl p-6 relative overflow-hidden flex flex-col justify-between h-[280px] shadow-sm hover:shadow-md hover:border-[#00A7FF]/20 transition-all duration-300 animate-border-shimmer"
+                className="bg-slate-50/50 border border-slate-200/60 rounded-xl p-6 relative overflow-hidden flex flex-col justify-between h-[290px] shadow-sm hover:shadow-md hover:border-[#00A7FF]/20 transition-all duration-300 animate-border-shimmer"
               >
                 <div>
                   <div className="w-8 h-8 rounded bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#00A7FF] mb-5">
                     <pillar.icon className="w-4 h-4" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-2.5">{pillar.title}</h4>
-                  <p className="text-slate-500 text-[11px] font-sans font-medium leading-relaxed">{pillar.desc}</p>
+                  <h4 className="text-base font-bold text-slate-800 uppercase tracking-tight mb-2.5">{pillar.title}</h4>
+                  <p className="text-slate-500 text-xs font-sans font-medium leading-relaxed">{pillar.desc}</p>
                 </div>
-                <span className="text-[8px] font-mono text-slate-400 block mt-4">{pillar.tag}</span>
+                <span className="text-[10px] font-mono text-slate-400 block mt-4">{pillar.tag}</span>
               </motion.div>
             ))}
           </motion.div>
