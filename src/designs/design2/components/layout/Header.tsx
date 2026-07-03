@@ -80,17 +80,17 @@ const Header = () => {
 
       {/* Mobile Drawer Menu Overlay */}
       {isOpen && (
-        <div className="lg:hidden w-full absolute top-[100%] left-0 bg-white/98 backdrop-blur-xl border-b border-slate-200/60 shadow-lg py-5 px-6 space-y-4 flex flex-col z-[99] animate-fade-in">
+        <div className="lg:hidden w-full absolute top-[100%] left-0 bg-white border-b border-slate-200/80 shadow-xl py-6 px-6 space-y-4 flex flex-col z-[99] animate-fade-in">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) => 
-                `transition-all duration-300 py-2 border-b border-slate-100 font-bold text-xs uppercase tracking-wider block ${
+                `transition-all duration-300 py-2.5 border-b border-slate-100 font-bold text-xs uppercase tracking-wider block ${
                   isActive 
                     ? 'text-[#000EDD]' 
-                    : 'text-slate-500 hover:text-slate-900'
+                    : 'text-slate-750 hover:text-[#000EDD]'
                 }`
               }
             >
