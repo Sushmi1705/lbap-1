@@ -38,7 +38,7 @@ const Header = () => {
         <div className="flex items-center gap-3">
           {/* Brand Logo Symbol - Official Logo Image */}
           <div className={`transition-all duration-300 rounded-full border border-slate-200/60 p-1 bg-white shadow-sm flex items-center justify-center shrink-0 ${
-            scrolled ? 'h-12 w-12' : 'h-16 w-16'
+            scrolled ? 'h-16 w-16' : 'h-20 w-20'
           }`}>
             <img src="/logo.png" alt="Laxmi Balaji Logo" className="h-full w-full object-contain" />
           </div>
