@@ -90,8 +90,8 @@ const Footer = () => {
                 Corporate Office
               </h4>
               
-              <ul className="space-y-4 flex flex-col items-center lg:items-start">
-                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+              <ul className="space-y-4 flex flex-col items-center lg:items-start w-full">
+                <li className="flex items-start gap-3 text-left w-full max-w-[280px] sm:max-w-sm">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 mt-0.5 border border-[#00A7FF]/10">
                     <MapPin className="w-4 h-4 text-[#000EDD]" />
                   </div>
@@ -100,7 +100,7 @@ const Footer = () => {
                   </span>
                 </li>
                 
-                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+                <li className="flex items-center gap-3 text-left w-full max-w-[280px] sm:max-w-sm">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 border border-[#00A7FF]/10">
                     <Mail className="w-4 h-4 text-[#00A7FF]" />
                   </div>
@@ -109,7 +109,7 @@ const Footer = () => {
                   </span>
                 </li>
                 
-                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+                <li className="flex items-center gap-3 text-left w-full max-w-[280px] sm:max-w-sm">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 border border-[#00A7FF]/10">
                     <Phone className="w-4 h-4 text-[#FF5C00]" />
                   </div>
@@ -118,7 +118,7 @@ const Footer = () => {
                   </span>
                 </li>
                 
-                <li className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+                <li className="flex items-center gap-3 text-left w-full max-w-[280px] sm:max-w-sm">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 border border-[#00A7FF]/10">
                     <Clock className="w-4 h-4" />
                   </div>
