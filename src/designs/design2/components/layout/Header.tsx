@@ -26,7 +26,7 @@ const Header = () => {
         </div>
         
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest">
+        <div className="hidden lg:flex items-center gap-8 text-[13px] font-bold uppercase tracking-wider">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -45,7 +45,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Request Quote Button */}
-        <button className="hidden lg:block bg-[#000EDD] hover:bg-[#FF5C00] text-white px-6 py-2.5 text-[10px] font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15 hover:shadow-[#FF5C00]/20">
+        <button className="hidden lg:block bg-[#000EDD] hover:bg-[#FF5C00] text-white px-6 py-2.5 text-[12px] font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15 hover:shadow-[#FF5C00]/20">
           Request Quote
         </button>
 
@@ -68,7 +68,7 @@ const Header = () => {
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) => 
-                `transition-all duration-300 py-2 border-b border-slate-100 font-bold text-xs uppercase tracking-widest block ${
+                `transition-all duration-300 py-2 border-b border-slate-100 font-bold text-sm uppercase tracking-wider block ${
                   isActive 
                     ? 'text-[#00A7FF]' 
                     : 'text-slate-500 hover:text-slate-900'
@@ -80,7 +80,7 @@ const Header = () => {
           ))}
           <button 
             onClick={() => setIsOpen(false)}
-            className="bg-[#000EDD] hover:bg-[#FF5C00] text-white w-full py-3 text-[10px] font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15"
+            className="bg-[#000EDD] hover:bg-[#FF5C00] text-white w-full py-3 text-xs font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15"
           >
             Request Quote
           </button>
