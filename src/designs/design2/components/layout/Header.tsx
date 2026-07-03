@@ -21,12 +21,8 @@ const Header = () => {
     <nav className="sticky top-0 w-full z-[100] py-3.5 bg-white/75 backdrop-blur-md border-b border-slate-200/40 shadow-sm">
       <div className="container-custom flex justify-between items-center relative">
         <div className="flex items-center gap-3">
-          {/* Brand Logo Symbol - Sky Blue outer, Royal Blue core, Orange center */}
-          <div className="w-8.5 h-8.5 rounded-full border-2 border-[#000EDD] flex items-center justify-center p-1 relative overflow-hidden bg-white shadow-sm">
-            <div className="w-full h-full bg-[#00A7FF] rounded-full flex items-center justify-center">
-              <div className="w-2.5 h-2.5 bg-[#FF5C00] rounded-full shadow-sm"></div>
-            </div>
-          </div>
+          {/* Brand Logo Symbol - Official Logo Image */}
+          <img src="/logo.png" alt="Laxmi Balaji Logo" className="w-9 h-9 object-contain" />
           <span className="font-extrabold text-sm tracking-widest uppercase text-slate-900">Laxmi Balaji</span>
         </div>
         
