@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,11 +37,10 @@ const Header = () => {
     }`}>
       <div className="container-custom flex justify-between items-center relative">
         <div className="flex items-center gap-3">
-          {/* Brand Logo Symbol - Official Logo Image */}
-          <div className={`transition-all duration-300 rounded-full border border-slate-200/60 p-1 bg-white shadow-sm flex items-center justify-center shrink-0 ${
-            scrolled ? 'h-16 w-16' : 'h-20 w-20'
+          <div className={`transition-all duration-300 flex items-center justify-center shrink-0 ${
+            scrolled ? 'h-14 w-28' : 'h-18 w-36'
           }`}>
-            <img src="/logo.png" alt="Laxmi Balaji Logo" className="h-full w-full object-contain" />
+            <img src="/logo.png" alt="LAB Automotive Logo" className="h-full w-full object-contain" />
           </div>
         </div>
         
@@ -64,9 +64,13 @@ const Header = () => {
         </div>
 
         {/* Desktop Request Quote Button */}
-        <button className="hidden lg:block bg-[#000EDD] hover:bg-[#FF5C00] text-white px-6 py-2.5 text-[11px] font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15 hover:shadow-[#FF5C00]/20 hover:-translate-y-0.5 active:translate-y-0">
+        <motion.button 
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="hidden lg:block bg-[#000EDD] hover:bg-[#FF5C00] text-white px-6 py-2.5 text-[11px] font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15 hover:shadow-[#FF5C00]/20 hover:-translate-y-0.5 active:translate-y-0"
+        >
           Request Quote
-        </button>
+        </motion.button>
 
         {/* Mobile Hamburger toggle */}
         <button 
@@ -79,32 +83,41 @@ const Header = () => {
       </div>
 
       {/* Mobile Drawer Menu Overlay */}
-      {isOpen && (
-        <div className="lg:hidden w-full absolute top-[100%] left-0 bg-white border-b border-slate-200/80 shadow-xl py-6 px-6 space-y-4 flex flex-col z-[99] animate-fade-in">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => 
-                `transition-all duration-300 py-2.5 border-b border-slate-100 font-bold text-xs uppercase tracking-wider block ${
-                  isActive 
-                    ? 'text-[#000EDD]' 
-                    : 'text-slate-750 hover:text-[#000EDD]'
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-          <button 
-            onClick={() => setIsOpen(false)}
-            className="bg-[#000EDD] hover:bg-[#FF5C00] text-white w-full py-3.5 text-xs font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden w-full absolute top-[100%] left-0 bg-white border-b border-slate-200/80 shadow-xl py-6 px-6 space-y-4 flex flex-col z-[99] overflow-hidden"
           >
-            Request Quote
-          </button>
-        </div>
-      )}
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) => 
+                  `transition-all duration-300 py-2.5 border-b border-slate-100 font-bold text-xs uppercase tracking-wider block ${
+                    isActive 
+                      ? 'text-[#000EDD]' 
+                      : 'text-slate-750 hover:text-[#000EDD]'
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+            <motion.button 
+              whileTap={{ scale: 0.96 }}
+              onClick={() => setIsOpen(false)}
+              className="bg-[#000EDD] hover:bg-[#FF5C00] text-white w-full py-3.5 text-xs font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15"
+            >
+              Request Quote
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

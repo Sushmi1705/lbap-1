@@ -15,9 +15,16 @@ export default {
           border: '#E2E8F0',
           light: '#F8FAFC'
         },
+        brand: {
+          blue: '#000EDD',
+          orange: '#FF5C00',
+          cyan: '#00A7FF',
+          dark: '#03072c'
+        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
       },
       fontSize: {
         'xs': ['0.8125rem', { lineHeight: '1.25rem' }],   // 13px (was 12px)

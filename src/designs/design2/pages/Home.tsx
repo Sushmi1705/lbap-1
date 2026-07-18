@@ -18,7 +18,9 @@ import {
   CheckCircle2,
   TrendingUp,
   Workflow,
-  Sparkles
+  Sparkles,
+  Target,
+  Compass
 } from 'lucide-react';
 
 // Animated Counter component
@@ -288,6 +290,122 @@ const Home = () => {
             {['VOLT-AUTO', 'NEXUS-MOTORS', 'APEX-PARTS', 'TITAN-ENGINEERING', 'FLUX-DYNAMICS', 'CORE-TECH'].map((p) => (
               <span key={p} className="text-xs font-mono font-black tracking-widest text-slate-800">{p}</span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Welcome & Corporate Mandate Section --- */}
+      <section className="py-24 bg-white border-b border-slate-200/60 relative overflow-hidden">
+        <div className="absolute left-0 top-0 w-96 h-96 bg-[#00A7FF]/3 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="container-custom relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            {/* Left Column: Welcome & Technocrat Profile (span 5) */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="lg:col-span-5 space-y-6"
+            >
+              <div>
+                <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+                  Welcome to Laxmi Balaji
+                </span>
+                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight leading-tight">
+                  Sterling Quality in Stamping & Assembly
+                </h2>
+                <div className="w-20 h-[3px] bg-[#FF5C00] mt-4"></div>
+              </div>
+              
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
+                Founded and managed by technocrats with over two decades of experience in the automotive industry across Development, Quality, and SCM, we supply pressed components, fabricated parts, and modular assemblies matching global quality benchmarks.
+              </p>
+
+              <div className="p-6 bg-slate-50 border border-slate-200/60 rounded-xl space-y-4">
+                <h4 className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Leadership & Experience</h4>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-[#00A7FF]/5 border border-[#00A7FF]/10 rounded-lg flex items-center justify-center text-[#00A7FF] shrink-0">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h5 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Managed by Technocrats</h5>
+                    <p className="text-[11px] text-slate-500 font-sans mt-0.5 leading-relaxed">
+                      Leveraging 20+ years of technical capability to exceed performance and reliability parameters.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Mission, Vision, and Values Cards (span 7) */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8"
+            >
+              {/* Mission Card */}
+              <motion.div 
+                variants={fadeInUp}
+                whileHover={{ y: -5 }}
+                className="bg-white border border-slate-200/60 p-8 rounded-xl shadow-sm hover:shadow-md hover:border-[#00A7FF]/20 transition-all duration-300 relative group overflow-hidden animate-border-shimmer"
+              >
+                <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-[#00A7FF] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-xl z-20"></div>
+                <div className="w-8 h-8 rounded bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#00A7FF] mb-5">
+                  <Target className="w-4.5 h-4.5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 uppercase tracking-tight mb-3">Our Mission</h3>
+                <p className="text-slate-505 text-xs leading-relaxed font-sans font-medium">
+                  The continuous development of a company that partners customers in their progress... delivering products on time, every time, always surpassing expectations.
+                </p>
+              </motion.div>
+
+              {/* Vision Card */}
+              <motion.div 
+                variants={fadeInUp}
+                whileHover={{ y: -5 }}
+                className="bg-white border border-slate-200/60 p-8 rounded-xl shadow-sm hover:shadow-md hover:border-[#00A7FF]/20 transition-all duration-300 relative group overflow-hidden animate-border-shimmer"
+              >
+                <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-[#FF5C00] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-xl z-20"></div>
+                <div className="w-8 h-8 rounded bg-[#FF5C00]/5 border border-[#FF5C00]/10 flex items-center justify-center text-[#FF5C00] mb-5">
+                  <Compass className="w-4.5 h-4.5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 uppercase tracking-tight mb-3">Our Vision</h3>
+                <p className="text-slate-550 text-xs leading-relaxed font-sans font-medium">
+                  Laying the foundations today for a technologically abreast and promising future, aligning current actions with tomorrow's technical excellence.
+                </p>
+              </motion.div>
+
+              {/* Values Card */}
+              <motion.div 
+                variants={fadeInUp}
+                whileHover={{ y: -4 }}
+                className="sm:col-span-2 bg-[#03072c] border border-white/10 p-8 rounded-xl shadow-sm relative group overflow-hidden text-white"
+              >
+                <div className="absolute right-[-20px] bottom-[-20px] opacity-5 select-none pointer-events-none">
+                  <Settings className="w-40 h-40 animate-spin" style={{ animationDuration: '20s' }} />
+                </div>
+                <h3 className="text-xs font-bold text-[#00A7FF] uppercase tracking-widest mb-6">Core Corporate Values</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+                  {[
+                    { val: "Personal Integrity", desc: "Honesty & Ethic" },
+                    { val: "Social Responsibility", desc: "Green Stamping" },
+                    { val: "Trust & Accountability", desc: "OEM Assurance" },
+                    { val: "Team Work", desc: "Robotic Sync" },
+                    { val: "Knowledge Enhancement", desc: "R&D Focus" }
+                  ].map((v, idx) => (
+                    <div key={idx} className="border-l border-white/10 pl-3">
+                      <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-200">{v.val}</span>
+                      <span className="text-[8px] font-mono text-slate-400 mt-1 block">{v.desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+            </motion.div>
+
           </div>
         </div>
       </section>

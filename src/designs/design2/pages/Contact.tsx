@@ -296,7 +296,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Select Region</label>
-                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg appearance-none cursor-pointer">
+                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg appearance-none cursor-pointer">
                         <option>South East Asia (HQ)</option>
                         <option>EMEA Region</option>
                         <option>Americas</option>
@@ -304,7 +304,7 @@ const Contact = () => {
                     </div>
                     <div className="space-y-3">
                       <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Technical Requirement</label>
-                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg appearance-none cursor-pointer">
+                      <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg appearance-none cursor-pointer">
                         <option>Sheet Metal Fabrication</option>
                         <option>Heavy Pressing (Tool & Die)</option>
                         <option>Robotic Weld Assembly</option>
@@ -315,23 +315,28 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Full Name</label>
-                      <input type="text" required placeholder="Engineering Lead / Manager" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg" />
+                      <input type="text" required placeholder="Engineering Lead / Manager" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg" />
                     </div>
                     <div className="space-y-3">
                       <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Corporate Email</label>
-                      <input type="email" required placeholder="sales@company.com" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:border-[#00A7FF]/50 transition-colors rounded-lg" />
+                      <input type="email" required placeholder="sales@company.com" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg" />
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Technical Specifications / Project Scope</label>
-                    <textarea required rows={6} placeholder="Detail the dimensions, material grades, tolerance margins, and estimated annual volume..." className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:border-[#00A7FF]/50 transition-colors resize-none rounded-lg"></textarea>
+                    <textarea required rows={6} placeholder="Detail the dimensions, material grades, tolerance margins, and estimated annual volume..." className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all resize-none rounded-lg"></textarea>
                   </div>
 
                   <div className="flex flex-col md:flex-row items-center gap-6 pt-4">
-                    <button type="submit" className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-colors rounded shadow-sm border border-transparent hover:border-[#FF5C00]">
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      type="submit" 
+                      className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all rounded shadow-md shadow-[#000EDD]/15 border border-transparent hover:border-[#FF5C00]"
+                    >
                       Submit RFQ <Send className="w-4 h-4" />
-                    </button>
+                    </motion.button>
                     <span className="text-xs font-mono text-slate-400">
                       Typical response time: <span className="text-[#00A7FF] font-bold">4.2 hours</span>
                     </span>

@@ -56,7 +56,7 @@ const Home = () => {
          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/5 rounded-full filter blur-[100px] pointer-events-none"></div>
          
          <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" 
+            src="http://lbap.in/img/banner/1.jpg" 
             alt="Advanced Robotic Assembly" 
             className="absolute inset-0 w-full h-full object-cover brightness-[0.2] contrast-[1.1] scale-105"
          />
@@ -248,7 +248,7 @@ const Home = () => {
 
                   <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/5 group">
                      <img 
-                        src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop" 
+                        src="http://lbap.in/img/abt.jpg" 
                         alt="High Tech Factory Machine" 
                         className="w-full h-full object-cover brightness-[0.7] transition-all duration-700 group-hover:scale-105"
                      />
@@ -361,7 +361,7 @@ const Home = () => {
                {/* Supply Chain Card */}
                <div className="relative rounded-xl overflow-hidden bg-[#0F1319] border border-white/5 flex flex-col justify-end min-h-[400px] group transition-all duration-300 hover:border-[#0B96AC]/50">
                   <img 
-                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop" 
+                    src="http://lbap.in/img/machinieries/10.jpg" 
                     alt="Industrial Warehouse Logistics" 
                     className="absolute inset-0 w-full h-full object-cover grayscale opacity-10 group-hover:scale-105 group-hover:opacity-20 transition-all duration-700"
                   />
@@ -457,7 +457,7 @@ const Home = () => {
                      
                      <div className="relative aspect-video overflow-hidden rounded bg-slate-950">
                         <img 
-                           src="https://images.unsplash.com/photo-1565173153515-05e83693e506?q=80&w=1200&auto=format&fit=crop" 
+                           src="http://lbap.in/img/banner/2.jpg" 
                            alt="Telemetry Quality Analysis" 
                            className="w-full h-full object-cover opacity-40"
                         />
