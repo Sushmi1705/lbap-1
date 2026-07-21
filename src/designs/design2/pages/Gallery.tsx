@@ -202,7 +202,7 @@ const Gallery = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#footage"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   <Play className="w-4 h-4" /> Watch technical loops
                 </motion.a>

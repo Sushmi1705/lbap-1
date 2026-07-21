@@ -215,7 +215,7 @@ const Career = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#culture"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   View pathways
                 </motion.a>
@@ -303,7 +303,7 @@ const Career = () => {
             </div>
 
             {/* R&D Sandbox Box - Solid Royal Blue Background */}
-            <div className="lg:col-span-5 bg-[#000EDD] p-12 lg:p-16 rounded-xl flex flex-col justify-between text-white shadow-sm relative overflow-hidden">
+            <div className="lg:col-span-5 bg-[#1B3F8F] p-12 lg:p-16 rounded-xl flex flex-col justify-between text-white shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
               
               <div className="space-y-4">
@@ -389,7 +389,7 @@ const Career = () => {
                 variants={fadeInUp}
                 className={`p-10 border transition-all rounded-xl relative overflow-hidden group flex flex-col justify-between ${
                   item.active 
-                    ? 'bg-[#00A7FF] border-[#000EDD] text-white shadow-lg shadow-[#00A7FF]/15' 
+                    ? 'bg-[#00A7FF] border-[#1B3F8F] text-white shadow-lg shadow-[#00A7FF]/15' 
                     : 'bg-white border-slate-200/60 text-slate-800'
                 }`}
               >
@@ -517,7 +517,7 @@ const Career = () => {
                             </div>
                           </div>
                         </div>
-                        <button className="whitespace-nowrap px-10 py-3.5 bg-[#00A7FF] hover:bg-[#000EDD] text-white text-xs font-bold uppercase tracking-widest transition-colors rounded">
+                        <button className="whitespace-nowrap px-10 py-3.5 bg-[#00A7FF] hover:bg-[#1B3F8F] text-white text-xs font-bold uppercase tracking-widest transition-colors rounded">
                           APPLY NOW
                         </button>
                       </div>

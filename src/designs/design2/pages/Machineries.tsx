@@ -165,7 +165,7 @@ const Machineries = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#reliability"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   <Download className="w-4 h-4" /> View reliability stats
                 </motion.a>
@@ -428,7 +428,7 @@ const Machineries = () => {
             </div>
 
             {/* Capacity Download Deck - Clean Solid Royal Blue Layout */}
-            <div className="bg-[#000EDD] p-10 text-white rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden">
+            <div className="bg-[#1B3F8F] p-10 text-white rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
               <div>
                 <span className="text-[#00A7FF] text-sm font-bold uppercase tracking-widest mb-4 block">TECHNICAL RESOURCE</span>
@@ -441,7 +441,7 @@ const Machineries = () => {
                 <div className="bg-white/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-white/10">
                   <Download className="w-6 h-6 text-white" />
                 </div>
-                <button className="w-full bg-white text-[#000EDD] hover:bg-[#00A7FF] hover:text-white py-3.5 text-sm font-bold uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2 shadow-sm border border-transparent hover:border-[#FF5C00]">
+                <button className="w-full bg-white text-[#1B3F8F] hover:bg-[#00A7FF] hover:text-white py-3.5 text-sm font-bold uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2 shadow-sm border border-transparent hover:border-[#FF5C00]">
                   Download capacity PDF <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

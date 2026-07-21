@@ -182,8 +182,8 @@ const AutomotivePressComponents = () => {
                       <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">High Precision</span>
                     </div>
                     <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                      <div className="w-9 h-9 bg-[#000EDD]/10 rounded-lg flex items-center justify-center shrink-0">
-                        <CheckCircle2 className="w-4 h-4 text-[#000EDD]" />
+                      <div className="w-9 h-9 bg-[#1B3F8F]/10 rounded-lg flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-4 h-4 text-[#1B3F8F]" />
                       </div>
                       <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">Quality Tested</span>
                     </div>

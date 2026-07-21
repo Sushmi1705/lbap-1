@@ -153,7 +153,7 @@ const Contact = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#locations"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   Find plant coordinates
                 </motion.a>
@@ -333,7 +333,7 @@ const Contact = () => {
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       type="submit" 
-                      className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all rounded shadow-sm shadow-[#000EDD]/15 border border-transparent hover:border-[#FF5C00]"
+                      className="flex items-center gap-2 bg-[#1B3F8F] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all rounded shadow-sm shadow-[#1B3F8F]/15 border border-transparent hover:border-[#FF5C00]"
                     >
                       Submit RFQ <Send className="w-4 h-4" />
                     </motion.button>
@@ -394,7 +394,7 @@ const Contact = () => {
             <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
               <div className="space-y-6">
-                <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#1B3F8F] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                   <Headphones className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 tracking-tight">Technical Support</h3>
@@ -411,7 +411,7 @@ const Contact = () => {
             <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
               <div className="space-y-6">
-                <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#1B3F8F] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                   <ShoppingCart className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 tracking-tight">Procurement</h3>
@@ -428,7 +428,7 @@ const Contact = () => {
             <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
               <div className="space-y-6">
-                <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#1B3F8F] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                   <Truck className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 tracking-tight">Machinery Sales</h3>

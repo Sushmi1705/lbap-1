@@ -37,7 +37,7 @@ const NonAutomotiveParts = () => {
       {/* Page Hero Banner */}
       <section className="relative bg-[#03072c] py-14 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.07)_1px,transparent_1px)] [background-size:24px_24px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#000EDD]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#1B3F8F]/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={springFast}>
             <div className="flex items-center gap-2 text-slate-400 text-xs font-semibold uppercase tracking-widest mb-4">
@@ -46,7 +46,7 @@ const NonAutomotiveParts = () => {
               <span className="text-[#00A7FF]">Non Automotive Parts</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              Non <span className="text-[#000EDD]">Automotive</span> Parts
+              Non <span className="text-[#1B3F8F]">Automotive</span> Parts
             </h1>
             <p className="text-slate-400 mt-3 text-sm font-medium max-w-xl">
               Precision Pressure Turned Components for non-automotive applications — light weight, dimensionally accurate and corrosion free.
@@ -133,7 +133,7 @@ const NonAutomotiveParts = () => {
                 <div className="p-8 md:p-10">
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
-                      <span className="text-[#000EDD] text-xs font-bold uppercase tracking-widest mb-2 block">Product Overview</span>
+                      <span className="text-[#1B3F8F] text-xs font-bold uppercase tracking-widest mb-2 block">Product Overview</span>
                       <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                         NON AUTOMOTIVE PARTS
                       </h2>
@@ -142,7 +142,7 @@ const NonAutomotiveParts = () => {
                       {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-[#FF5C00] text-[#FF5C00]" />)}
                     </div>
                   </div>
-                  <div className="w-16 h-1 bg-[#000EDD] mb-6 rounded-full" />
+                  <div className="w-16 h-1 bg-[#1B3F8F] mb-6 rounded-full" />
 
                   <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
                     We entered in to manufacturing of Precision Pressure Turned Components for Non-Automotive applications. These are light weight components that can be carried easily. Our precision components are engineered for industrial sectors requiring dimensional accuracy, corrosion resistance, and long-term durability.
@@ -157,8 +157,8 @@ const NonAutomotiveParts = () => {
                       <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">ISO Certified</span>
                     </div>
                     <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                      <div className="w-9 h-9 bg-[#000EDD]/10 rounded-lg flex items-center justify-center shrink-0">
-                        <Zap className="w-4 h-4 text-[#000EDD]" />
+                      <div className="w-9 h-9 bg-[#1B3F8F]/10 rounded-lg flex items-center justify-center shrink-0">
+                        <Zap className="w-4 h-4 text-[#1B3F8F]" />
                       </div>
                       <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">High Precision</span>
                     </div>
@@ -173,7 +173,7 @@ const NonAutomotiveParts = () => {
                   {/* Features */}
                   <div className="mb-8">
                     <h3 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
-                      <span className="w-4 h-0.5 bg-[#000EDD] inline-block rounded" />
+                      <span className="w-4 h-0.5 bg-[#1B3F8F] inline-block rounded" />
                       Features
                     </h3>
                     <ul className="space-y-3">

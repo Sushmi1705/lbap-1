@@ -138,7 +138,7 @@ const CSR = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#metrics"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   View compliance metrics
                 </motion.a>
@@ -237,7 +237,7 @@ const CSR = () => {
                 className="bg-white border border-slate-200/60 p-8 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative"
               >
                 {/* Top color accent divider - Solid Royal Blue */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#000EDD] z-20"></div>
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#1B3F8F] z-20"></div>
 
                 <div className="space-y-6">
                   <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#00A7FF] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
@@ -270,7 +270,7 @@ const CSR = () => {
           <div className="flex flex-col lg:flex-row gap-8 overflow-hidden rounded-xl border border-slate-200/60 shadow-sm animate-border-shimmer">
             
             {/* Left side details in Solid Brand Royal Blue */}
-            <div className="lg:w-1/2 bg-[#000EDD] p-12 lg:p-20 flex flex-col justify-center text-white relative">
+            <div className="lg:w-1/2 bg-[#1B3F8F] p-12 lg:p-20 flex flex-col justify-center text-white relative">
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
               
               <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-[0.4em] mb-4 block">COMMUNITY IMPACT</span>
@@ -392,7 +392,7 @@ const CSR = () => {
 
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-3xl font-black text-[#000EDD] font-mono tracking-tight">{milestone.year}</span>
+                    <span className="text-3xl font-black text-[#1B3F8F] font-mono tracking-tight">{milestone.year}</span>
                     <span className={`text-xs font-bold uppercase tracking-wider px-2 py-1 border rounded ${milestone.statusClass}`}>
                       {milestone.status}
                     </span>
@@ -447,7 +447,7 @@ const CSR = () => {
           
           <motion.div variants={fadeInUp} className="overflow-hidden border border-slate-200/80 rounded-xl bg-white shadow-sm animate-border-shimmer">
             <table className="w-full text-left">
-              <thead className="bg-[#000EDD] text-white border-b border-[#000EDD]/10">
+              <thead className="bg-[#1B3F8F] text-white border-b border-[#1B3F8F]/10">
                 <tr>
                   <th className="p-6 text-xs font-bold tracking-widest uppercase">ENVIRONMENTAL PARAMETER</th>
                   <th className="p-6 text-xs font-bold tracking-widest uppercase">UNIT INDEX</th>

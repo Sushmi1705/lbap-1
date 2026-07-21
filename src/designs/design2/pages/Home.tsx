@@ -323,7 +323,7 @@ const Home = () => {
         <div className="container-custom relative z-10 flex flex-col md:flex-row items-center gap-6">
           
           <div className="whitespace-nowrap shrink-0 md:border-r border-slate-200 md:pr-6 z-20 bg-white">
-            <h3 className="text-sm font-black uppercase tracking-widest bg-gradient-to-r from-[#000EDD] to-[#00A7FF] bg-clip-text text-transparent flex items-center gap-3">
+            <h3 className="text-sm font-black uppercase tracking-widest bg-gradient-to-r from-[#1B3F8F] to-[#00A7FF] bg-clip-text text-transparent flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-[#FF5C00] animate-pulse shadow-[0_0_10px_rgba(255,92,0,0.6)]"></span>
               Partners in Precision Engineering
             </h3>
@@ -408,9 +408,9 @@ const Home = () => {
                 whileHover={{ y: -5 }}
                 className="bg-white border border-slate-100 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.15)] transition-all duration-500 relative group overflow-hidden"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00A7FF] to-[#000EDD] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl z-20"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00A7FF] to-[#1B3F8F] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl z-20"></div>
                 <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-[#00A7FF]/5 rounded-full blur-3xl group-hover:bg-[#00A7FF]/10 transition-all duration-500 pointer-events-none"></div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#000EDD] mb-6 group-hover:scale-110 group-hover:bg-[#000EDD] group-hover:text-white transition-all duration-500 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#1B3F8F] mb-6 group-hover:scale-110 group-hover:bg-[#1B3F8F] group-hover:text-white transition-all duration-500 shadow-sm">
                   <Target className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-3 relative z-10">Our Mission</h3>
@@ -499,24 +499,24 @@ const Home = () => {
                 Our automated fabrication and mechanical press technologies deliver tight tolerancing on complex designs.
               </p>
 
-              {/* Slider Controls */}
-              <div className="flex items-center gap-4 mt-10">
+              {/* Slider Controls - desktop only (shown in left panel) */}
+              <div className="hidden lg:flex items-center gap-4 mt-10">
                 <button 
                   onClick={() => setActiveService(prev => prev === 0 ? 2 : prev - 1)}
-                  className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#000EDD] hover:border-[#000EDD] hover:bg-blue-50 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,167,255,0.15)]"
+                  className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#1B3F8F] hover:border-[#1B3F8F] hover:bg-blue-50 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,167,255,0.15)]"
                 >
                   <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={() => setActiveService(prev => prev === 2 ? 0 : prev + 1)}
-                  className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#000EDD] hover:border-[#000EDD] hover:bg-blue-50 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,167,255,0.15)]"
+                  className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#1B3F8F] hover:border-[#1B3F8F] hover:bg-blue-50 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,167,255,0.15)]"
                 >
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
 
-              {/* Slider Indicators */}
-              <div className="flex items-center gap-2 mt-8">
+              {/* Slider Indicators - desktop only */}
+              <div className="hidden lg:flex items-center gap-2 mt-8">
                 {[0, 1, 2].map((idx) => (
                   <button 
                     key={idx}
@@ -580,7 +580,7 @@ const Home = () => {
                         <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#00A7FF]/5 rounded-full blur-3xl group-hover:bg-[#FF5C00]/5 transition-colors duration-500"></div>
                         
                         <div className="relative z-10 flex flex-col sm:flex-row gap-8 sm:gap-12 items-start">
-                          <div className="w-20 h-20 shrink-0 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center text-[#000EDD] group-hover:bg-[#FF5C00] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                          <div className="w-20 h-20 shrink-0 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center text-[#1B3F8F] group-hover:bg-[#FF5C00] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                             <item.icon className="w-10 h-10" />
                           </div>
                           
@@ -602,6 +602,33 @@ const Home = () => {
                     ))}
                   </motion.div>
                 </AnimatePresence>
+              </div>
+
+              {/* Slider Controls - mobile only (shown below the card) */}
+              <div className="flex lg:hidden items-center justify-between mt-6">
+                <div className="flex items-center gap-3">
+                  <button 
+                    onClick={() => setActiveService(prev => prev === 0 ? 2 : prev - 1)}
+                    className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#1B3F8F] hover:border-[#1B3F8F] hover:bg-blue-50 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+                  >
+                    <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                  </button>
+                  <button 
+                    onClick={() => setActiveService(prev => prev === 2 ? 0 : prev + 1)}
+                    className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#1B3F8F] hover:border-[#1B3F8F] hover:bg-blue-50 transition-all group shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+                  >
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+                <div className="flex items-center gap-2">
+                  {[0, 1, 2].map((idx) => (
+                    <button 
+                      key={idx}
+                      onClick={() => setActiveService(idx)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${activeService === idx ? 'w-8 bg-[#FF5C00]' : 'w-4 bg-slate-200 hover:bg-slate-300'}`}
+                    ></button>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -677,7 +704,7 @@ const Home = () => {
                   <h4 className="text-lg font-extrabold text-slate-900 tracking-tight mb-3">{pillar.title}</h4>
                   <p className="text-slate-500 text-sm font-sans font-medium leading-relaxed group-hover:text-slate-600 transition-colors">{pillar.desc}</p>
                 </div>
-                <span className="text-[11px] font-bold text-[#000EDD] uppercase tracking-widest block mt-4 relative z-10">{pillar.tag}</span>
+                <span className="text-[11px] font-bold text-[#1B3F8F] uppercase tracking-widest block mt-4 relative z-10">{pillar.tag}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -703,7 +730,7 @@ const Home = () => {
                 <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
                   MANUFACTURING METALLURGY
                 </span>
-                <h2 className="text-3xl font-black text-[#000EDD] tracking-tight leading-tight">
+                <h2 className="text-3xl font-black text-[#1B3F8F] tracking-tight leading-tight">
                   Mass Production Without Compromise
                 </h2>
                 <div className="w-20 h-[3px] bg-[#FF5C00] mt-4"></div>
@@ -810,8 +837,8 @@ const Home = () => {
               { label: "COUNTRIES EXPORTED", value: 12, suffix: "+" }
             ].map((stat, i) => (
               <motion.div key={i} variants={fadeInUp} className="border-l-2 border-slate-100 pl-8 space-y-2 relative group hover:border-slate-200 transition-colors duration-300">
-                <div className="absolute left-[-2px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00A7FF] to-[#000EDD] scale-y-0 origin-top group-hover:scale-y-100 transition-transform duration-500"></div>
-                <h3 className="text-5xl font-black tracking-tighter bg-gradient-to-br from-[#000EDD] to-[#00A7FF] bg-clip-text text-transparent">
+                <div className="absolute left-[-2px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00A7FF] to-[#1B3F8F] scale-y-0 origin-top group-hover:scale-y-100 transition-transform duration-500"></div>
+                <h3 className="text-5xl font-black tracking-tighter bg-gradient-to-br from-[#1B3F8F] to-[#00A7FF] bg-clip-text text-transparent">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </h3>
                 <p className="text-sm font-bold uppercase tracking-widest text-slate-400 leading-tight group-hover:text-slate-600 transition-colors">
@@ -883,7 +910,7 @@ const Home = () => {
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF5C00] to-[#E05000] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20"></div>
 
                 <div className="relative z-10">
-                  <span className="text-sm font-mono font-black text-[#000EDD] tracking-wider block mb-3 group-hover:text-[#FF5C00] transition-colors">
+                  <span className="text-sm font-mono font-black text-[#1B3F8F] tracking-wider block mb-3 group-hover:text-[#FF5C00] transition-colors">
                     {cert.code}
                   </span>
                   <h4 className="text-lg font-bold text-slate-900 tracking-tight leading-snug">
@@ -943,7 +970,7 @@ const Home = () => {
                       {activeCategory === cat.id && (
                         <motion.div 
                           layoutId="activeHomeMachineryTab"
-                          className="absolute inset-0 bg-[#000EDD] rounded-lg z-[-1] shadow"
+                          className="absolute inset-0 bg-[#1B3F8F] rounded-lg z-[-1] shadow"
                           transition={springTransitionFast}
                         />
                       )}
@@ -969,7 +996,7 @@ const Home = () => {
                   className="overflow-hidden border border-slate-100 rounded-2xl bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)]"
                 >
                   <table className="w-full text-left">
-                    <thead className="bg-gradient-to-r from-[#000EDD] to-[#03072c] text-white border-b border-transparent">
+                    <thead className="bg-gradient-to-r from-[#1B3F8F] to-[#03072c] text-white border-b border-transparent">
                       <tr>
                         <th className="p-6 text-xs font-bold tracking-widest uppercase">EQUIPMENT</th>
                         <th className="p-6 text-xs font-bold tracking-widest uppercase">CAPACITY</th>
@@ -1013,13 +1040,13 @@ const Home = () => {
             variants={fadeInUp}
             className="space-y-8"
           >
-            <span className="text-[#000EDD] text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3">
+            <span className="text-[#1B3F8F] text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3">
               <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-pulse"></span>
               Ready to Scale Your Production?
             </span>
             <h2 className="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-[1.1]">
               Precision Engineering. <br/>
-              <span className="text-[#000EDD]">Global Scale.</span>
+              <span className="text-[#1B3F8F]">Global Scale.</span>
             </h2>
             <p className="text-slate-500 text-lg font-medium max-w-2xl mx-auto leading-relaxed font-sans">
               Connect with our engineering team to discuss your tier-1 automotive structural requirements, custom robotic weld assemblies, or progressive stamping needs.

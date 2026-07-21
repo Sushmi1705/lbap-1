@@ -250,7 +250,7 @@ const Products = () => {
                   whileHover={{ y: -3, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   <FileDown className="w-4 h-4" /> Download catalog PDF
                 </motion.button>
@@ -503,7 +503,7 @@ const Products = () => {
                       </div>
                     </div>
 
-                    <button className="w-full py-3.5 bg-[#00A7FF] hover:bg-[#000EDD] text-white text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 rounded">
+                    <button className="w-full py-3.5 bg-[#00A7FF] hover:bg-[#1B3F8F] text-white text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 rounded">
                       ADD TO RFQ LIST
                     </button>
                   </div>
@@ -521,7 +521,7 @@ const Products = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             <div className="p-8 bg-white border border-slate-200/60 rounded-xl space-y-4 shadow-sm animate-border-shimmer">
-              <div className="w-10 h-10 rounded-lg bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD]">
+              <div className="w-10 h-10 rounded-lg bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#1B3F8F]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">IATF 16949 Compliant</h4>

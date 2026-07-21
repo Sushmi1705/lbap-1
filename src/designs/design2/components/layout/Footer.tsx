@@ -10,7 +10,7 @@ const Footer = () => {
       
       {/* Top 4px Brand Colors Solid Stripe Ribbon */}
       <div className="flex w-full h-[4px]">
-        <div className="bg-[#000EDD] flex-1"></div>
+        <div className="bg-[#1B3F8F] flex-1"></div>
         <div className="bg-[#00A7FF] flex-1"></div>
         <div className="bg-[#FF5C00] flex-1"></div>
       </div>
@@ -89,7 +89,7 @@ const Footer = () => {
               <ul className="space-y-4 flex flex-col items-start lg:items-start w-fit mx-auto lg:mx-0">
                 <li className="flex items-start gap-3 text-left w-full max-w-[280px] sm:max-w-sm">
                   <div className="w-8 h-8 rounded-lg bg-[#00A7FF]/5 flex items-center justify-center text-[#00A7FF] shrink-0 mt-0.5 border border-[#00A7FF]/10">
-                    <MapPin className="w-4 h-4 text-[#000EDD]" />
+                    <MapPin className="w-4 h-4 text-[#1B3F8F]" />
                   </div>
                   <span className="text-[13px] text-slate-600 leading-relaxed font-medium font-sans">
                     Plot No. 16-C, 3rd Cross, SIPCOT Industrial Complex - Phase 2, Hosur-635126, Tamil Nadu
