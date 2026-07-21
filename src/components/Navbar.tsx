@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
   return (
     <>
       {/* --- Top Notice bar --- */}
-      <div className="bg-slate-950 border-b border-white/5 py-2 px-6 text-[9px] tracking-[0.2em] font-mono text-slate-500 hidden md:block z-50 relative">
+      <div className="py-20 glass-panel-dark text-white border-t border-white/5 relative py-2 px-6 text-[9px] tracking-[0.2em] font-mono text-slate-500 hidden md:block z-50 relative">
         <div className="max-w-[1440px] mx-auto flex justify-between items-center">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-slate-400">
@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
       </div>
 
       {/* --- Sticky Cyber-Industrial Navigation --- */}
-      <nav className="bg-slate-950/85 backdrop-blur-lg border-b border-white/5 py-4 px-6 sticky top-0 z-[100] transition-all duration-300">
+      <nav className="bg-brand-900/85 backdrop-blur-lg border-b border-white/5 py-4 px-6 sticky top-0 z-[100] transition-all duration-300">
         <div className="max-w-[1440px] mx-auto flex justify-between items-center">
           {/* Logo Brand */}
           <Link to="/" className="flex items-center group cursor-pointer">
@@ -77,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
           
           {/* CTA & Mobile Controls */}
           <div className="flex items-center gap-4">
-             <Link to="/contact" className="relative group overflow-hidden bg-slate-900 hover:bg-[#0B96AC] text-white px-5 py-2.5 text-[9px] font-bold uppercase tracking-widest rounded border border-white/10 hover:border-[#0B96AC] transition-all duration-300 shadow-lg hover:shadow-[#0B96AC]/20 hidden sm:inline-flex">
+             <Link to="/contact" className="relative group overflow-hidden bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 text-[9px] font-bold uppercase tracking-widest rounded border border-white/10 hover:border-brand-500 transition-all duration-300 shadow-lg hover:shadow-brand-500/20 hidden sm:inline-flex">
                <span className="relative z-10 flex items-center gap-2">
                  Request Technical Quote <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                </span>
@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
              {/* Hamburger Toggle Button */}
              <button
                onClick={() => setIsMobileOpen(!isMobileOpen)}
-               className="lg:hidden w-10 h-10 bg-white/5 border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-white hover:border-[#0B96AC] transition-all"
+               className="fixed bottom-8 right-8 z-[90] bg-brand-500 text-white p-3 rounded-full shadow-lg shadow-brand-500/25 hover:bg-brand-600 hover:scale-105 transition-all border border-brand-500/20"
              >
                 {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
              </button>
@@ -101,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
                animate={{ opacity: 1, y: 0 }}
                exit={{ opacity: 0, y: -20 }}
                transition={{ duration: 0.3, ease: "easeInOut" }}
-               className="absolute top-full left-0 right-0 bg-slate-950 border-b border-white/10 p-6 flex flex-col gap-6 lg:hidden"
+               className="absolute top-full left-0 right-0 bg-brand-900 border-b border-white/10 p-6 flex flex-col gap-6 lg:hidden"
              >
                 <div className="flex flex-col gap-4">
                    {navLinks.map((link) => (
@@ -121,7 +121,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage }) => {
                 <Link 
                   to="/contact" 
                   onClick={() => setIsMobileOpen(false)}
-                  className="w-full bg-[#0B96AC] text-center text-white py-3 text-[10px] font-bold uppercase tracking-widest rounded shadow-lg shadow-[#0B96AC]/15"
+                  className="w-full bg-brand-500 text-center text-white py-3 text-[10px] font-bold uppercase tracking-widest rounded shadow-lg shadow-brand-500/15"
                 >
                    Request Technical Quote
                 </Link>

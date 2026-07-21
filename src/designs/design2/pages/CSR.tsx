@@ -38,10 +38,10 @@ const CSR = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned CSR Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Seedling growth inside a modern greenhouse (Natural colors with logo color overlays) */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -152,23 +152,23 @@ const CSR = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-md w-full max-w-xs space-y-5 animate-border-shimmer"
+                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-sm w-full max-w-xs space-y-5 animate-border-shimmer"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
+                  <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     CO2 DECARBONIZATION
                   </h4>
-                  <span className="text-[9px] font-mono text-slate-400">ACTIVE</span>
+                  <span className="text-sm font-mono text-slate-400">ACTIVE</span>
                 </div>
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col pr-6 border-r border-slate-100">
                     <span className="text-4xl font-black text-slate-900 leading-none">2,190</span>
-                    <span className="text-[8px] font-mono text-slate-400 mt-2">DAYS TO ZERO</span>
+                    <span className="text-xs font-mono text-slate-400 mt-2">DAYS TO ZERO</span>
                   </div>
                   <div className="flex-grow">
-                    <div className="flex justify-between items-center text-[9px] font-bold mb-2">
-                      <span className="text-slate-505">CARBON RE-OFFSET</span>
+                    <div className="flex justify-between items-center text-sm font-bold mb-2">
+                      <span className="text-slate-500">CARBON RE-OFFSET</span>
                       <span className="text-[#00A7FF]">64%</span>
                     </div>
                     <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -176,7 +176,7 @@ const CSR = () => {
                     </div>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-xs justify-between">
                   <span>LBAP GREEN HUB, SECTOR 4</span>
                 </div>
               </motion.div>
@@ -186,18 +186,18 @@ const CSR = () => {
       </section>
 
       {/* --- 2. Green Factory Initiatives Section --- */}
-      <section id="initiatives" className="py-24 bg-[#FAFAFA] border-b border-slate-200/60 relative">
+      <section id="initiatives" className="py-20 bg-slate-50 border-b border-slate-200/60 relative">
         <div className="container-custom">
           
           <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               ECOSYSTEM COMMITMENT
             </span>
-            <h2 className="text-3xl font-black text-slate-905 uppercase tracking-tight">
+            <h2 className="text-3xl font-black text-slate-905 tracking-tight">
               Green Factory Initiatives
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
-            <p className="text-slate-505 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <p className="text-slate-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
               Our stamping facilities operate under a closed-loop metallurgy and water recycling system to minimize ecological footprints.
             </p>
           </div>
@@ -234,7 +234,7 @@ const CSR = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransitionFast}
-                className="bg-white border border-slate-200/60 p-8 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-md transition-all duration-300 animate-border-shimmer relative"
+                className="bg-white border border-slate-200/60 p-8 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative"
               >
                 {/* Top color accent divider - Solid Royal Blue */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#000EDD] z-20"></div>
@@ -243,18 +243,18 @@ const CSR = () => {
                   <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#00A7FF] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                     <item.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 uppercase tracking-tight">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-slate-800 tracking-tight">{item.title}</h3>
                   <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-medium">{item.desc}</p>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-6 border-t border-slate-100 pt-6 mt-8">
                   <div>
                     <p className="text-xl font-black text-[#00A7FF]">{item.stat1}</p>
-                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{item.stat1Label}</p>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">{item.stat1Label}</p>
                   </div>
                   <div>
                     <p className="text-xl font-black text-slate-800">{item.stat2}</p>
-                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{item.stat2Label}</p>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">{item.stat2Label}</p>
                   </div>
                 </div>
               </motion.div>
@@ -265,7 +265,7 @@ const CSR = () => {
       </section>
 
       {/* --- 3. Community Technical Training Impact Section --- */}
-      <section className="py-24 bg-white border-b border-slate-200/60">
+      <section className="py-20 bg-white border-b border-slate-200/60">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-8 overflow-hidden rounded-xl border border-slate-200/60 shadow-sm animate-border-shimmer">
             
@@ -273,7 +273,7 @@ const CSR = () => {
             <div className="lg:w-1/2 bg-[#000EDD] p-12 lg:p-20 flex flex-col justify-center text-white relative">
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
               
-              <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">COMMUNITY IMPACT</span>
+              <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-[0.4em] mb-4 block">COMMUNITY IMPACT</span>
               <h2 className="text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight uppercase mb-6">
                 Precision Skills for <br />the Next Generation
               </h2>
@@ -327,18 +327,18 @@ const CSR = () => {
       </section>
 
       {/* --- 4. Sustainability Roadmap to 2030 --- */}
-      <section className="py-24 bg-white border-b border-slate-200/60 relative">
+      <section className="py-20 bg-white border-b border-slate-200/60 relative">
         <div className="container-custom">
           
           <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               DECARBONIZATION TIMELINE
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight tracking-tight">
               Sustainability Roadmap to 2030
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
-            <p className="text-slate-505 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <p className="text-slate-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
               Our structured path towards achieving fully carbon-neutral mechanical stamping and assembly operations across our corporate footprint.
             </p>
           </div>
@@ -370,7 +370,7 @@ const CSR = () => {
                 title: "Scope 3 Supply Chain Audit",
                 desc: "Initiate joint carbon audits with steel and aluminum coil suppliers, prioritizing sourcing of certified low-carbon recycled metals.",
                 status: "PLANNED",
-                statusClass: "text-slate-505 bg-slate-55 border-slate-100"
+                statusClass: "text-slate-500 bg-slate-55 border-slate-100"
               },
               {
                 year: "2030",
@@ -385,7 +385,7 @@ const CSR = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransitionFast}
-                className="bg-white border border-slate-200/60 p-8 rounded-xl shadow-sm animate-border-shimmer relative flex flex-col justify-between group"
+                className="bg-white/70 backdrop-blur-2xl border border-white/60 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,167,255,0.08)] transition-all duration-500 shadow-sm animate-border-shimmer relative flex flex-col justify-between group"
               >
                 {/* Top divider - Solid brand Sky Blue */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-xl z-20"></div>
@@ -393,12 +393,12 @@ const CSR = () => {
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <span className="text-3xl font-black text-[#000EDD] font-mono tracking-tight">{milestone.year}</span>
-                    <span className={`text-[8px] font-bold uppercase tracking-wider px-2 py-1 border rounded ${milestone.statusClass}`}>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-2 py-1 border rounded ${milestone.statusClass}`}>
                       {milestone.status}
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800 uppercase tracking-tight">{milestone.title}</h4>
-                  <p className="text-slate-505 text-xs leading-relaxed font-sans font-medium">{milestone.desc}</p>
+                  <h4 className="text-sm font-bold text-slate-800 tracking-tight">{milestone.title}</h4>
+                  <p className="text-slate-500 text-xs leading-relaxed font-sans font-medium">{milestone.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -408,7 +408,7 @@ const CSR = () => {
       </section>
 
       {/* --- 5. Environmental Metric SCADA Table Section --- */}
-      <section id="metrics" className="py-24 bg-[#FAFAFA]">
+      <section id="metrics" className="py-20 bg-slate-50">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -419,10 +419,10 @@ const CSR = () => {
           
           <motion.div variants={fadeInUp} className="flex flex-col md:flex-row justify-between items-start mb-12 gap-8">
             <div>
-              <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-2 block">
+              <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-2 block">
                 COMPLIANCE INDEX
               </span>
-              <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight">
+              <h3 className="text-2xl font-black text-slate-900 tracking-tight">
                 Environmental Metrics Monitoring
               </h3>
               <p className="text-slate-500 text-xs sm:text-sm mt-3 font-medium font-sans">
@@ -432,11 +432,11 @@ const CSR = () => {
             
             <div className="flex gap-10 bg-white border border-slate-200/60 px-6 py-4 rounded-xl shadow-sm animate-border-shimmer">
               <div>
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">SCADA NODE ID</p>
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1.5">SCADA NODE ID</p>
                 <p className="text-xs font-bold text-slate-800 font-mono">LBAP-HQ-G1</p>
               </div>
               <div className="border-l border-slate-100 pl-10">
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">NODE STATUS</p>
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1.5">NODE STATUS</p>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                   <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-wider">OPTIMAL</span>
@@ -449,11 +449,11 @@ const CSR = () => {
             <table className="w-full text-left">
               <thead className="bg-[#000EDD] text-white border-b border-[#000EDD]/10">
                 <tr>
-                  <th className="p-6 text-[10px] font-bold tracking-widest uppercase">ENVIRONMENTAL PARAMETER</th>
-                  <th className="p-6 text-[10px] font-bold tracking-widest uppercase">UNIT INDEX</th>
-                  <th className="p-6 text-[10px] font-bold tracking-widest uppercase">REGULATORY LIMIT</th>
-                  <th className="p-6 text-[10px] font-bold tracking-widest uppercase">LBAP CURRENT VALUE</th>
-                  <th className="p-6 text-[10px] font-bold tracking-widest uppercase">COMPLIANCE STATUS</th>
+                  <th className="p-6 text-xs font-bold tracking-widest uppercase">ENVIRONMENTAL PARAMETER</th>
+                  <th className="p-6 text-xs font-bold tracking-widest uppercase">UNIT INDEX</th>
+                  <th className="p-6 text-xs font-bold tracking-widest uppercase">REGULATORY LIMIT</th>
+                  <th className="p-6 text-xs font-bold tracking-widest uppercase">LBAP CURRENT VALUE</th>
+                  <th className="p-6 text-xs font-bold tracking-widest uppercase">COMPLIANCE STATUS</th>
                 </tr>
               </thead>
               <tbody>
@@ -471,7 +471,7 @@ const CSR = () => {
                     <td className="p-6 text-xs text-slate-500 font-medium font-sans">{row.threshold}</td>
                     <td className="p-6 text-xs text-[#00A7FF] font-bold font-mono">{row.value}</td>
                     <td className="p-6">
-                      <span className={`text-[9px] font-bold tracking-widest uppercase py-1 px-3 border rounded ${row.complianceColor}`}>
+                      <span className={`text-sm font-bold tracking-widest uppercase py-1 px-3 border rounded ${row.complianceColor}`}>
                         {row.status}
                       </span>
                     </td>

@@ -1,12 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
       colors: {
+        brand: {
+          DEFAULT: '#0B96AC', // primary teal from logo
+          50: '#e5f7fb',
+          100: '#cdeff7',
+          200: '#9be0ef',
+          300: '#68d0e6',
+          400: '#35c1de',
+          500: '#0B96AC',
+          600: '#0a8196',
+          700: '#086680',
+          800: '#075069',
+          900: '#053953'
+        },
+        accent: '#00A7FF', // secondary bright blue from logo assets
+        orange: '#FF5C00',
+        dark: '#03072c',
         lbap: {
           teal: '#0B96AC',
           dark: '#191C1E',
@@ -14,31 +31,18 @@ export default {
           muted: '#595959',
           border: '#E2E8F0',
           light: '#F8FAFC'
-        },
-        brand: {
-          blue: '#000EDD',
-          orange: '#FF5C00',
-          cyan: '#00A7FF',
-          dark: '#03072c'
         }
       },
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(135deg, #0B96AC 0%, #00A7FF 100%)'
+      },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        outfit: ['Outfit', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif']
       },
-      fontSize: {
-        'xs': ['0.8125rem', { lineHeight: '1.25rem' }],   // 13px (was 12px)
-        'sm': ['0.9375rem', { lineHeight: '1.5rem' }],    // 15px (was 14px)
-        'base': ['1.0625rem', { lineHeight: '1.625rem' }], // 17px (was 16px)
-        'lg': ['1.1875rem', { lineHeight: '1.75rem' }],    // 19px (was 18px)
-        'xl': ['1.375rem', { lineHeight: '1.875rem' }],   // 22px (was 20px)
-        '2xl': ['1.625rem', { lineHeight: '2.125rem' }],   // 26px (was 24px)
-        '3xl': ['2rem', { lineHeight: '2.5rem' }],        // 32px (was 30px)
-        '4xl': ['2.5rem', { lineHeight: '3rem' }],        // 40px (was 36px)
-        '5xl': ['3.25rem', { lineHeight: '3.75rem' }],    // 52px (was 48px)
-        '6xl': ['4.25rem', { lineHeight: '4.75rem' }],    // 68px (was 60px)
-      },
-    },
+      boxShadow: {
+        glow: '0 0 12px rgba(11,150,172,0.6)'
+      }
+    }
   },
-  plugins: [],
-}
+  plugins: []
+};

@@ -53,10 +53,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned Contact Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Technical Drafting / Blueprint Reviews */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -167,30 +167,30 @@ const Contact = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-md max-w-xs space-y-4 z-10 animate-border-shimmer"
+                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-sm max-w-xs space-y-4 z-10 animate-border-shimmer"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
+                  <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     INQUIRY NODE
                   </h4>
-                  <span className="text-[9px] font-mono text-slate-400">ACTIVE</span>
+                  <span className="text-sm font-mono text-slate-400">ACTIVE</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-505">Response Speed</span>
+                    <span className="text-slate-500">Response Speed</span>
                     <span className="text-[#00A7FF] font-bold">&lt; 4 Hours</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-505">Division Status</span>
+                    <span className="text-slate-500">Division Status</span>
                     <span className="text-slate-800">Fully Staffed</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-555">Security Gate</span>
+                    <span className="text-slate-600">Security Gate</span>
                     <span className="text-slate-800">AES-256 Synced</span>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-xs justify-between">
                   <span>SSL_SECURE</span>
                   <span>NODE_04</span>
                 </div>
@@ -201,7 +201,7 @@ const Contact = () => {
       </section>
 
       {/* --- 2. Inquiry Form & Sidebar Section --- */}
-      <section id="inquiry" className="py-24 bg-white border-b border-slate-200/60">
+      <section id="inquiry" className="py-20 bg-white border-b border-slate-200/60">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
@@ -209,9 +209,9 @@ const Contact = () => {
             <div className="lg:col-span-4 space-y-8">
               
               {/* Specialized Divisions Card */}
-              <div className="bg-white border border-slate-200/60 p-8 rounded-xl shadow-sm animate-border-shimmer relative overflow-hidden">
+              <div className="bg-white/70 backdrop-blur-2xl border border-white/60 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,167,255,0.08)] transition-all duration-500 shadow-sm animate-border-shimmer relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#00A7FF] mb-8">Specialized Divisions</h4>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-[#00A7FF] mb-8">Specialized Divisions</h4>
                 <ul className="space-y-6">
                   <li className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-800 border-b border-slate-100 pb-4 cursor-pointer hover:text-[#00A7FF] transition-colors group">
                     <span>Technical Support</span> 
@@ -231,8 +231,8 @@ const Contact = () => {
               {/* Global Reach info */}
               <div className="p-8 border border-slate-200/60 bg-slate-50/50 rounded-xl shadow-sm animate-border-shimmer relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-6">Global Reach</h4>
-                <p className="text-xs text-slate-505 leading-relaxed font-sans font-medium">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Global Reach</h4>
+                <p className="text-xs text-slate-500 leading-relaxed font-sans font-medium">
                   LBAP operates from 12 strategic production plants across the Asia-Pacific region. This geographic layout ensures optimal JIT lineside deliveries and zero supply docks bottlenecks.
                 </p>
               </div>
@@ -245,7 +245,7 @@ const Contact = () => {
               
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
                 <div>
-                  <h2 className="text-2xl font-black text-slate-800 uppercase tracking-tight">Global Inquiry Hub</h2>
+                  <h2 className="text-2xl font-black text-slate-800 tracking-tight">Global Inquiry Hub</h2>
                   <p className="text-slate-400 text-xs font-medium font-sans mt-1">Configure your request parameters for immediate dispatch.</p>
                 </div>
 
@@ -281,7 +281,7 @@ const Contact = () => {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="py-16 text-center text-slate-400 space-y-4"
+                  className="py-20 text-center text-slate-400 space-y-4"
                 >
                   <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/15 flex items-center justify-center text-[#00A7FF] rounded-full mx-auto animate-bounce">
                     <CheckCircle2 className="w-6 h-6" />
@@ -295,7 +295,7 @@ const Contact = () => {
                 <form onSubmit={handleFormSubmit} className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Select Region</label>
+                      <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Select Region</label>
                       <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg appearance-none cursor-pointer">
                         <option>South East Asia (HQ)</option>
                         <option>EMEA Region</option>
@@ -303,7 +303,7 @@ const Contact = () => {
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Technical Requirement</label>
+                      <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Technical Requirement</label>
                       <select className="w-full bg-slate-50 border border-slate-200 p-4 text-sm font-bold text-slate-700 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg appearance-none cursor-pointer">
                         <option>Sheet Metal Fabrication</option>
                         <option>Heavy Pressing (Tool & Die)</option>
@@ -314,17 +314,17 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+                      <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Full Name</label>
                       <input type="text" required placeholder="Engineering Lead / Manager" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg" />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Corporate Email</label>
+                      <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Corporate Email</label>
                       <input type="email" required placeholder="sales@company.com" className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all rounded-lg" />
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Technical Specifications / Project Scope</label>
+                    <label className="text-sm font-bold uppercase tracking-wider text-slate-500">Technical Specifications / Project Scope</label>
                     <textarea required rows={6} placeholder="Detail the dimensions, material grades, tolerance margins, and estimated annual volume..." className="w-full bg-white border border-slate-200 p-4 text-sm font-semibold text-slate-800 outline-none focus:ring-2 focus:ring-[#00A7FF]/20 focus:border-[#00A7FF] transition-all resize-none rounded-lg"></textarea>
                   </div>
 
@@ -333,7 +333,7 @@ const Contact = () => {
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       type="submit" 
-                      className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all rounded shadow-md shadow-[#000EDD]/15 border border-transparent hover:border-[#FF5C00]"
+                      className="flex items-center gap-2 bg-[#000EDD] hover:bg-[#00A7FF] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all rounded shadow-sm shadow-[#000EDD]/15 border border-transparent hover:border-[#FF5C00]"
                     >
                       Submit RFQ <Send className="w-4 h-4" />
                     </motion.button>
@@ -350,14 +350,14 @@ const Contact = () => {
       </section>
 
       {/* --- 3. World Coordinates Map Section --- */}
-      <section id="locations" className="py-24 bg-[#FAFAFA] border-b border-slate-200/60">
+      <section id="locations" className="py-20 bg-slate-50 border-b border-slate-200/60">
         <div className="container-custom">
           
           <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               COORDINATES
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight tracking-tight">
               Manufacturing HQ & Plant Nodes
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
@@ -372,13 +372,13 @@ const Contact = () => {
               loading="lazy"
             />
             
-            <div className="absolute bottom-10 left-10 bg-white/95 backdrop-blur-sm p-6 shadow-xl border-l-4 border-[#FF5C00] rounded-r-lg max-w-xs space-y-2 z-20">
-              <h4 className="text-[9px] font-bold uppercase tracking-widest text-[#FF5C00] flex items-center gap-1">
+            <div className="absolute bottom-10 left-10 bg-white/95 backdrop-blur-sm p-6 shadow-md border-l-4 border-[#FF5C00] rounded-r-lg max-w-xs space-y-2 z-20">
+              <h4 className="text-sm font-bold uppercase tracking-widest text-[#FF5C00] flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 MANUFACTURING HQ
               </h4>
               <h3 className="text-base font-bold text-slate-800 tracking-tight uppercase">SIPCOT Phase II, Hosur</h3>
-              <p className="text-[8px] text-slate-400 font-mono">Plot No. 16-C, 3rd Cross, Hosur-635126, TN</p>
+              <p className="text-xs text-slate-400 font-mono">Plot No. 16-C, 3rd Cross, Hosur-635126, TN</p>
             </div>
           </div>
 
@@ -386,58 +386,58 @@ const Contact = () => {
       </section>
 
       {/* --- 4. Technical Support Divisions Cards --- */}
-      <section className="py-24 bg-white">
+      <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Technical Support */}
-            <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-md transition-all duration-300 animate-border-shimmer relative">
+            <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                   <Headphones className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 uppercase tracking-tight">Technical Support</h3>
-                <p className="text-slate-555 text-xs leading-relaxed font-sans font-medium">
+                <h3 className="text-lg font-bold text-slate-800 tracking-tight">Technical Support</h3>
+                <p className="text-slate-600 text-xs leading-relaxed font-sans font-medium">
                   Dedicated lineside coordinates for active progressive die layouts, QA corrections, and automated tolerances queries.
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 mt-8">
-                <span className="text-[10px] font-mono font-bold text-[#00A7FF] tracking-widest block uppercase">LINE: +1 (800) LBAP-TECH</span>
+                <span className="text-xs font-mono font-bold text-[#00A7FF] tracking-widest block uppercase">LINE: +1 (800) LBAP-TECH</span>
               </div>
             </div>
 
             {/* Procurement */}
-            <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-md transition-all duration-300 animate-border-shimmer relative">
+            <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                   <ShoppingCart className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 uppercase tracking-tight">Procurement</h3>
-                <p className="text-slate-555 text-xs leading-relaxed font-sans font-medium">
+                <h3 className="text-lg font-bold text-slate-800 tracking-tight">Procurement</h3>
+                <p className="text-slate-600 text-xs leading-relaxed font-sans font-medium">
                   Supply chain audits, raw material sourcing docks coordination, and progressive metal coils vendor registration limits.
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 mt-8">
-                <span className="text-[10px] font-mono font-bold text-[#00A7FF] tracking-widest block uppercase">EMAIL: procurement@lbap.com</span>
+                <span className="text-xs font-mono font-bold text-[#00A7FF] tracking-widest block uppercase">EMAIL: procurement@lbap.com</span>
               </div>
             </div>
 
             {/* Machinery Sales */}
-            <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-md transition-all duration-300 animate-border-shimmer relative">
+            <div className="bg-white border border-slate-200/60 p-10 flex flex-col justify-between h-full group overflow-hidden rounded-xl shadow-sm hover:border-[#00A7FF]/25 hover:shadow-sm transition-all duration-300 animate-border-shimmer relative">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-[#00A7FF]/5 border border-[#00A7FF]/10 flex items-center justify-center text-[#000EDD] rounded-lg group-hover:bg-[#00A7FF] group-hover:text-white transition-all duration-300">
                   <Truck className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 uppercase tracking-tight">Machinery Sales</h3>
-                <p className="text-slate-555 text-xs leading-relaxed font-sans font-medium">
+                <h3 className="text-lg font-bold text-slate-800 tracking-tight">Machinery Sales</h3>
+                <p className="text-slate-600 text-xs leading-relaxed font-sans font-medium">
                   Acquisition coordinates of certified high-tonnage progressive press lines, Bystronic fiber lasers, and coordinate metrology tables.
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 mt-8">
-                <span className="text-[10px] font-mono font-bold text-[#00A7FF] tracking-widest block uppercase">LINE: +1 (800) LBAP-MACH</span>
+                <span className="text-xs font-mono font-bold text-[#00A7FF] tracking-widest block uppercase">LINE: +1 (800) LBAP-MACH</span>
               </div>
             </div>
 

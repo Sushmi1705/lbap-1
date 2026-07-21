@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { 
   ArrowRight, 
   Settings, 
@@ -18,7 +18,9 @@ import {
   CheckCircle2,
   TrendingUp,
   Workflow,
-  Sparkles
+  Sparkles,
+  Target,
+  Compass
 } from 'lucide-react';
 
 // Animated Counter component
@@ -71,7 +73,7 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
   }, [inView, value]);
 
   return (
-    <span ref={elementRef} className="font-mono font-black text-[#000EDD]">
+    <span ref={elementRef} className="font-mono font-black text-[#1E3A8A]">
       {count.toLocaleString()}{suffix}
     </span>
   );
@@ -80,6 +82,11 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
 const About = () => {
   const [selectedTimelineIndex, setSelectedTimelineIndex] = useState(0);
   const [activeRegion, setActiveRegion] = useState<'apac' | 'emea' | 'americas'>('apac');
+
+  const { scrollY } = useScroll();
+  const heroBgY = useTransform(scrollY, [0, 1000], [0, 300]);
+  const statsTiltX = useTransform(scrollY, [0, 500], [0, 15]);
+  const statsTiltY = useTransform(scrollY, [0, 500], [0, -15]);
 
   const springTransition = { type: "spring", stiffness: 70, damping: 18 };
   const springTransitionFast = { type: "spring", stiffness: 200, damping: 22 };
@@ -101,6 +108,12 @@ const About = () => {
       y: 0,
       transition: springTransition
     }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.1, 1],
+    opacity: [0.5, 0.8, 0.5],
+    transition: { duration: 8, repeat: Infinity, ease: "easeInOut" }
   };
 
   const timelineData = [
@@ -163,16 +176,17 @@ const About = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-zinc-50 text-zinc-800 font-sans selection:bg-[#2563EB]/20 selection:text-[#2563EB] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned About Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
-        {/* Background - Industrial stamping plant (Natural colors with logo color overlays) */}
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#0F172A] border-b border-white/10 overflow-hidden">
+        {/* Background - Industrial stamping plant with scroll-linked parallax */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          style={{ y: heroBgY, scale: 1.15 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute inset-0 z-0 pointer-events-none origin-top"
         >
           <img 
             src="/about_hero_bg.png" 
@@ -180,14 +194,14 @@ const About = () => {
             className="w-full h-full object-cover object-center opacity-90"
           />
           {/* Logo color tint overlay - faded dark blue with variable transparency for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03072c]/80 via-[#03072c]/55 to-[#03072c]/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/80 via-[#0F172A]/55 to-[#0F172A]/25"></div>
           {/* Bottom blend block */}
           <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FAFAFA] to-transparent"></div>
         </motion.div>
 
         {/* Subtle decorative grid lines */}
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-1"></div>
-        <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#00A7FF]/10 rounded-full blur-[120px] pointer-events-none z-1"></div>
+        <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#2563EB]/10 rounded-full blur-[120px] pointer-events-none z-1"></div>
 
         <div className="container-custom relative z-10">
           <motion.div 
@@ -207,14 +221,14 @@ const About = () => {
               >
                 <span>Crafting The Future of</span>
                 <br />
-                <span className="text-[#00A7FF] drop-shadow-sm">
+                <span className="text-[#2563EB] drop-shadow-sm">
                   Industrial Precision
                 </span>
               </motion.h1>
 
               <motion.p 
                 variants={fadeInUp}
-                className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-medium font-sans"
+                className="text-zinc-200 text-sm sm:text-base leading-relaxed max-w-2xl font-medium font-sans"
               >
                 Laxmi Balaji Automotive Products Pvt. Ltd. (LBAP) represents three decades of zero-defect metal stamping, clinical tool design, and robotic component sub-assemblies. As a Tier-1 partner to global automotive OEMs, we design for performance, safety, and scale.
               </motion.p>
@@ -229,7 +243,7 @@ const About = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#timeline" 
-                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#00A7FF] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
+                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#2563EB] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
                 >
                   Explore Our Legacy <ArrowRight className="w-4 h-4" />
                 </motion.a>
@@ -238,7 +252,7 @@ const About = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#reach" 
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#000EDD] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1E3A8A] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   Global Operations
                 </motion.a>
@@ -246,23 +260,25 @@ const About = () => {
             </div>
 
             {/* Hero Interactive Stats Circle */}
-            <div className="lg:col-span-4 flex justify-center lg:justify-end">
+            <div className="lg:col-span-4 flex justify-center lg:justify-end" style={{ perspective: "1000px" }}>
               <motion.div 
                 variants={fadeInUp}
-                whileHover={{ scale: 1.03, rotate: 1 }}
-                transition={springTransition}
-                className="relative w-64 h-64 rounded-full border border-slate-200/80 flex flex-col items-center justify-center p-8 bg-white backdrop-blur-md shadow-md hover:shadow-xl hover:border-[#00A7FF]/30 transition-all duration-300 animate-border-shimmer"
+                style={{ rotateX: statsTiltX, rotateY: statsTiltY }}
+                whileHover={{ scale: 1.05, rotateX: 0, rotateY: 0 }}
+                transition={springTransitionFast}
+                className="relative w-64 h-64 rounded-full border border-zinc-200/80 flex flex-col items-center justify-center p-8 bg-white backdrop-blur-md shadow-2xl hover:shadow-[0_20px_50px_rgba(0,167,255,0.25)] hover:border-[#2563EB]/50 transition-all duration-500 animate-border-shimmer group z-20"
               >
-                <div className="absolute inset-0 rounded-full border border-dashed border-[#00A7FF]/20 animate-[spin_100s_linear_infinite]"></div>
+                <div className="absolute inset-0 rounded-full border border-dashed border-[#2563EB]/30 animate-[spin_40s_linear_infinite] group-hover:border-[#FF5C00]/50 transition-colors duration-500"></div>
+                <div className="absolute inset-2 rounded-full border border-dashed border-[#1E3A8A]/10 animate-[spin_60s_linear_infinite_reverse]"></div>
                 
                 <span className="text-6xl font-black tracking-tighter leading-none">
                   <AnimatedCounter value={30} suffix="+" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#00A7FF] mt-4 text-center leading-normal">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] mt-4 text-center leading-normal">
                   Years of Sector Reputation
                 </span>
                 
-                <div className="absolute -bottom-3.5 bg-slate-50 px-3 py-1 border border-slate-200/60 rounded text-[9px] font-sans font-bold text-slate-500 shadow-sm">
+                <div className="absolute -bottom-3.5 bg-zinc-50 px-3 py-1 border border-zinc-200/60 rounded text-sm font-sans font-bold text-zinc-500 shadow-sm">
                   Hosur Plant
                 </div>
               </motion.div>
@@ -271,9 +287,93 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+      {/* --- Purpose, Vision, Mission Section --- */}
+      <section className="py-24 bg-zinc-50 border-b border-zinc-200/60 relative overflow-hidden">
+        {/* Decorative Grid Patterns */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.05)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0"></div>
+        <motion.div 
+          animate={pulseAnimation}
+          className="absolute right-0 top-0 w-[600px] h-[600px] bg-[#2563EB]/5 rounded-full blur-[120px] pointer-events-none z-0"
+        ></motion.div>
 
+        <div className="container-custom relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
+              OUR DRIVING FORCE
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight">
+              Purpose. Vision. Mission.
+            </h2>
+            <div className="w-20 h-1 bg-[#FF5C00] mt-6 mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Purpose Card */}
+            <motion.div 
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className="bg-white border border-zinc-100 p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.15)] transition-all duration-500 relative group overflow-hidden flex flex-col items-center text-center"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-[2rem] z-20"></div>
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#2563EB]/5 rounded-full blur-3xl group-hover:bg-[#2563EB]/10 transition-all duration-500 pointer-events-none"></div>
+              <div className="w-16 h-16 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-[#1E3A8A] mb-8 group-hover:scale-110 group-hover:bg-[#1E3A8A] group-hover:text-white transition-all duration-500 shadow-sm">
+                <Sparkles className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-zinc-900 tracking-tight mb-4 relative z-10">Our Purpose</h3>
+              <p className="text-zinc-500 text-base leading-relaxed font-sans font-medium relative z-10">
+                Engineering Quality Automotive Excellence, Empowering Lives.
+              </p>
+            </motion.div>
+
+            {/* Vision Card */}
+            <motion.div 
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -5 }}
+              className="bg-white border border-zinc-100 p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(255,92,0,0.15)] transition-all duration-500 relative group overflow-hidden flex flex-col items-center text-center"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FF5C00] to-[#E05000] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-[2rem] z-20"></div>
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#FF5C00]/5 rounded-full blur-3xl group-hover:bg-[#FF5C00]/10 transition-all duration-500 pointer-events-none"></div>
+              <div className="w-16 h-16 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-[#FF5C00] mb-8 group-hover:scale-110 group-hover:bg-[#FF5C00] group-hover:text-white transition-all duration-500 shadow-sm">
+                <Compass className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-zinc-900 tracking-tight mb-4 relative z-10">Our Vision</h3>
+              <p className="text-zinc-500 text-base leading-relaxed font-sans font-medium relative z-10">
+                To transform an automotive manufacturing company into a globally respected organization built on standards, systems, and people. By creating products and opportunities that leave a lasting impact.
+              </p>
+            </motion.div>
+
+            {/* Mission Card */}
+            <motion.div 
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ y: -5 }}
+              className="bg-white border border-zinc-100 p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.15)] transition-all duration-500 relative group overflow-hidden flex flex-col items-center text-center"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-[2rem] z-20"></div>
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#2563EB]/5 rounded-full blur-3xl group-hover:bg-[#2563EB]/10 transition-all duration-500 pointer-events-none"></div>
+              <div className="w-16 h-16 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-[#1E3A8A] mb-8 group-hover:scale-110 group-hover:bg-[#1E3A8A] group-hover:text-white transition-all duration-500 shadow-sm">
+                <Target className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-zinc-900 tracking-tight mb-4 relative z-10">Our Mission</h3>
+              <p className="text-zinc-500 text-base leading-relaxed font-sans font-medium relative z-10">
+                To engineer dependable automotive solutions through world-class processes, advanced technology, skilled teams, and a culture of continuous improvement. Delivering global-standard value to customers and communities.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
       {/* --- Global Infrastructure (Bento Grid) --- */}
-      <section className="py-24 bg-[#FAFAFA] border-b border-slate-200/60 relative">
+      <section className="py-20 bg-zinc-50 border-b border-zinc-200/60 relative">
         <div className="container-custom">
           
           <motion.div 
@@ -283,14 +383,14 @@ const About = () => {
             variants={staggerContainer}
             className="mb-16 max-w-2xl"
           >
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
               OPERATIONAL HORIZONS
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight tracking-tight">
               Global Scale, Clinical Systems
             </h2>
-            <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
-            <p className="text-slate-505 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <div className="w-20 h-[3px] bg-[#2563EB] mt-4"></div>
+            <p className="text-zinc-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
               Our massive industrial footprint is engineered to achieve seamless component scalability with micro-level tolerance guarantees.
             </p>
           </motion.div>
@@ -308,47 +408,47 @@ const About = () => {
               variants={fadeInUp}
               whileHover={{ y: -5, scale: 1.005 }}
               transition={springTransitionFast}
-              className="md:col-span-8 bg-white border border-slate-200/60 p-8 lg:p-12 rounded-xl flex flex-col justify-between group hover:border-[#00A7FF]/20 hover:shadow-lg transition-all duration-300 shadow-sm animate-border-shimmer"
+              className="md:col-span-8 bg-white border border-zinc-200/60 p-8 lg:p-12 rounded-xl flex flex-col justify-between group hover:border-[#2563EB]/20 hover:shadow-lg transition-all duration-300 shadow-sm animate-border-shimmer"
             >
               <div>
                 <div className="flex justify-between items-center mb-8">
-                  <span className="text-[9px] font-sans font-bold text-slate-400 tracking-widest uppercase">
+                  <span className="text-sm font-sans font-bold text-zinc-400 tracking-widest uppercase">
                     Primary Infrastructure Metrics
                   </span>
-                  <div className="w-8 h-8 rounded bg-slate-50 border border-slate-100 flex items-center justify-center text-[#00A7FF]">
+                  <div className="w-8 h-8 rounded bg-zinc-50 border border-zinc-100 flex items-center justify-center text-[#2563EB]">
                     <Layers className="w-4 h-4" />
                   </div>
                 </div>
-                <h4 className="text-slate-550 text-xs font-bold uppercase tracking-widest mb-2">TOTAL MANUFACTURING FLOOR</h4>
+                <h4 className="text-zinc-600 text-xs font-bold uppercase tracking-widest mb-2">TOTAL MANUFACTURING FLOOR</h4>
                 <div className="flex items-baseline gap-3 mb-6">
                   <span className="text-6xl lg:text-7xl font-black tracking-tighter">
                     <AnimatedCounter value={2.4} suffix="" />
                   </span>
-                  <span className="text-xl font-bold text-[#000EDD] font-mono">M SQ. FT.</span>
+                  <span className="text-xl font-bold text-[#1E3A8A] font-mono">M SQ. FT.</span>
                 </div>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed max-w-xl font-sans">
+                <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed max-w-xl font-sans">
                   Encompassing climate-controlled testing areas, automated robotic welding modules, and massive structural mechanical stamping arrays.
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 border-t border-slate-100 pt-6 mt-8">
+              <div className="grid grid-cols-3 gap-4 border-t border-zinc-100 pt-6 mt-8">
                 <div>
                   <h5 className="text-xl font-bold font-mono">
                     <AnimatedCounter value={28} />
                   </h5>
-                  <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider leading-tight">Primary Assembly</p>
+                  <p className="text-sm font-bold text-zinc-400 uppercase tracking-wider leading-tight">Primary Assembly</p>
                 </div>
-                <div className="border-x border-slate-100 px-4">
+                <div className="border-x border-zinc-100 px-4">
                   <h5 className="text-xl font-bold font-mono">
                     0<AnimatedCounter value={4} />
                   </h5>
-                  <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider leading-tight">Component Hubs</p>
+                  <p className="text-sm font-bold text-zinc-400 uppercase tracking-wider leading-tight">Component Hubs</p>
                 </div>
                 <div>
                   <h5 className="text-xl font-bold font-mono">
                     0<AnimatedCounter value={5} />
                   </h5>
-                  <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider leading-tight">R&D Laboratories</p>
+                  <p className="text-sm font-bold text-zinc-400 uppercase tracking-wider leading-tight">R&D Laboratories</p>
                 </div>
               </div>
             </motion.div>
@@ -356,22 +456,23 @@ const About = () => {
             {/* Info Cards Column */}
             <div className="md:col-span-4 flex flex-col gap-6">
               
-              {/* Bento Card 2: Active Locations (Solid Royal Blue Card) */}
+              {/* Bento Card 2: Active Locations */}
               <motion.div 
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.015 }}
                 transition={springTransitionFast}
-                className="bg-[#000EDD] p-8 rounded-xl text-white shadow-md relative overflow-hidden group hover:shadow-lg transition-all duration-300"
+                className="bg-white border border-zinc-100 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.15)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between"
               >
-                <div className="absolute right-[-20px] bottom-[-20px] opacity-10 text-white select-none">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl z-20"></div>
+                <div className="absolute right-[-20px] bottom-[-20px] opacity-[0.03] text-[#1E3A8A] group-hover:opacity-10 transition-opacity duration-500 select-none pointer-events-none">
                   <Globe className="w-36 h-36" />
                 </div>
-                <span className="text-[9px] font-mono opacity-80 tracking-widest block mb-4">Operational Nodes</span>
-                <h3 className="text-5xl font-black font-mono tracking-tighter mb-2 text-white">
+                <span className="text-sm font-mono text-zinc-400 tracking-widest block mb-4">OPERATIONAL NODES</span>
+                <h3 className="text-5xl font-black font-mono tracking-tighter mb-2 text-zinc-900 group-hover:text-[#1E3A8A] transition-colors duration-300">
                   12
                 </h3>
-                <h4 className="text-xs font-bold uppercase tracking-wider mb-2">Active Worldwide Plants</h4>
-                <p className="text-white/90 text-[11px] leading-relaxed font-sans font-medium">
+                <h4 className="text-xs font-bold text-[#2563EB] uppercase tracking-wider mb-2 relative z-10">Active Worldwide Plants</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed font-sans font-medium relative z-10">
                   Strategically localized plants aligned with the requirements of major international OEMs.
                 </p>
               </motion.div>
@@ -381,19 +482,19 @@ const About = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.015 }}
                 transition={springTransitionFast}
-                className="bg-white border border-slate-200/60 p-8 rounded-xl group hover:border-[#00A7FF]/20 hover:shadow-lg transition-all duration-300 flex flex-col justify-between shadow-sm animate-border-shimmer relative"
+                className="bg-white/70 backdrop-blur-2xl border border-white/60 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,167,255,0.08)] transition-all duration-500 group hover:border-[#2563EB]/20 hover:shadow-lg transition-all duration-300 flex flex-col justify-between shadow-sm animate-border-shimmer relative"
               >
                 {/* Accent line on top of card using Orange */}
                 <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-[#FF5C00] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-xl z-20"></div>
 
                 <div>
-                  <span className="text-[9px] font-mono text-slate-400 tracking-widest block mb-4">HUMAN RESOURCES</span>
+                  <span className="text-sm font-mono text-zinc-400 tracking-widest block mb-4">HUMAN RESOURCES</span>
                   <h3 className="text-4xl font-black font-mono tracking-tighter mb-2">
                     <AnimatedCounter value={4500} suffix="+" />
                   </h3>
-                  <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Technical Specialists</h4>
+                  <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1.5">Technical Specialists</h4>
                 </div>
-                <p className="text-slate-500 text-[11px] leading-relaxed font-sans pt-4 border-t border-slate-100 mt-2">
+                <p className="text-zinc-500 text-sm leading-relaxed font-sans pt-4 border-t border-zinc-100 mt-2">
                   Consisting of materials engineering experts, SCM planners, and QA controllers.
                 </p>
               </motion.div>
@@ -405,7 +506,7 @@ const About = () => {
       </section>
 
       {/* --- Technical Blueprint Component --- */}
-      <section className="py-24 bg-white relative border-b border-slate-200/60">
+      <section className="py-20 bg-white relative border-b border-zinc-200/60">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
@@ -414,29 +515,39 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={springTransition}
-              className="lg:col-span-5 space-y-6"
+              className="lg:col-span-5 space-y-8"
             >
-              <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] block">
-                METALLURGICAL LOGIC
-              </span>
-              <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight leading-tight">
-                In-House CAD Synthesis & Tooling Room
-              </h2>
-              <div className="w-20 h-[3px] bg-[#00A7FF] mt-1"></div>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans mt-3">
+              <div>
+                <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest block mb-3">
+                  METALLURGICAL LOGIC
+                </span>
+                <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight leading-[1.1]">
+                  In-House CAD Synthesis <br/> & Tooling Room
+                </h2>
+                <div className="w-20 h-1 bg-[#FF5C00] mt-6"></div>
+              </div>
+              
+              <p className="text-zinc-500 text-base leading-relaxed font-medium font-sans">
                 By eliminating third-party design vendors, we manage tool fabrication from conceptual drawing down to final press calibrators. Our tool designers utilize advanced progressive stress-simulations to optimize material yield and structural stability.
               </p>
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center gap-3 text-xs text-slate-700 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+              
+              <div className="space-y-4 pt-4 border-t border-zinc-100">
+                <div className="flex items-center gap-4 text-sm text-zinc-700 font-bold">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
                   <span>Dimensional tolerance bounds matching 0.002mm limits</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-700 font-medium">
-                  <Cpu className="w-4 h-4 text-teal-600 shrink-0" />
+                <div className="flex items-center gap-4 text-sm text-zinc-700 font-bold">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                    <Cpu className="w-4 h-4" />
+                  </div>
                   <span>Integrated simulation cycles for progressive die structures</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-700 font-medium">
-                  <Zap className="w-4 h-4 text-amber-600 shrink-0" />
+                <div className="flex items-center gap-4 text-sm text-zinc-700 font-bold">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-100">
+                    <Zap className="w-4 h-4" />
+                  </div>
                   <span>Fast prototyping loops reducing standard tool lead times by 35%</span>
                 </div>
               </div>
@@ -449,26 +560,26 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={springTransition}
-                className="bg-white border border-slate-200 rounded-xl p-6 relative overflow-hidden aspect-[1.6/1] shadow-sm hover:border-[#00A7FF]/40 transition-all duration-550 animate-border-shimmer"
+                className="bg-white border border-zinc-200 rounded-[2rem] p-8 relative overflow-hidden aspect-[1.6/1] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.15)] hover:border-[#2563EB]/30 transition-all duration-500 animate-border-shimmer group"
               >
                 {/* Tech blueprint grids */}
                 <div className="absolute inset-0 bg-[radial-gradient(#00a7ff0a_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
                 
                 {/* Scanning sweep bar animation - Solid line with opacity */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#00A7FF]/80 animate-scan-sweep pointer-events-none z-10"></div>
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#2563EB]/60 animate-scan-sweep pointer-events-none z-10"></div>
 
                 {/* Dynamic Coordinate Tag */}
-                <div className="absolute top-4 left-4 bg-white border border-slate-200 rounded-md px-3 py-1 font-sans text-[9px] text-[#00A7FF] flex items-center gap-2 shadow-sm font-bold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF5C00] animate-ping"></span>
+                <div className="absolute top-6 left-6 bg-white border border-zinc-200 rounded-lg px-4 py-2 font-sans text-xs text-[#2563EB] flex items-center gap-3 shadow-sm font-bold uppercase tracking-widest z-10">
+                  <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-pulse"></span>
                   CAD Axis Calibration
                 </div>
 
-                <div className="absolute top-4 right-4 text-[9px] font-sans text-slate-400 font-bold">
+                <div className="absolute top-4 right-4 text-sm font-sans text-zinc-400 font-bold">
                   System Version 4.01
                 </div>
 
                 {/* Detailed CAD drawing */}
-                <svg className="w-full h-full text-slate-500/40 pointer-events-none mt-6" viewBox="0 0 100 50">
+                <svg className="w-full h-full text-zinc-500/40 pointer-events-none mt-6" viewBox="0 0 100 50">
                   {/* Fine layout crosshairs */}
                   <line x1="5" y1="25" x2="95" y2="25" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1 1" />
                   <line x1="50" y1="5" x2="50" y2="45" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1 1" />
@@ -484,21 +595,21 @@ const About = () => {
                   <line x1="28" y1="18" x2="28" y2="32" stroke="currentColor" strokeWidth="0.2" />
 
                   {/* Punch Stage 2 (Main forming segment) */}
-                  <circle cx="50" cy="25" r="6.5" fill="none" stroke="#00A7FF" strokeWidth="0.65" />
-                  <circle cx="50" cy="25" r="3" fill="none" stroke="#00A7FF" strokeWidth="0.3" />
+                  <circle cx="50" cy="25" r="6.5" fill="none" stroke="#2563EB" strokeWidth="0.65" />
+                  <circle cx="50" cy="25" r="3" fill="none" stroke="#2563EB" strokeWidth="0.3" />
                   <motion.circle 
                     cx="50" 
                     cy="25" 
                     r="9.5" 
                     fill="none" 
-                    stroke="#00A7FF" 
+                    stroke="#2563EB" 
                     strokeWidth="0.25" 
                     strokeDasharray="2 2"
                     animate={{ rotate: 360 }}
                     transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
                   />
-                  <line x1="39" y1="25" x2="61" y2="25" stroke="#00A7FF" strokeWidth="0.2" />
-                  <line x1="50" y1="14" x2="50" y2="36" stroke="#00A7FF" strokeWidth="0.2" />
+                  <line x1="39" y1="25" x2="61" y2="25" stroke="#2563EB" strokeWidth="0.2" />
+                  <line x1="50" y1="14" x2="50" y2="36" stroke="#2563EB" strokeWidth="0.2" />
 
                   {/* Punch Stage 3 (Ejector node) */}
                   <circle cx="72" cy="25" r="5" fill="none" stroke="currentColor" strokeWidth="0.4" />
@@ -532,7 +643,7 @@ const About = () => {
                 </svg>
 
                 {/* Footnotes */}
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between font-sans text-[8px] text-slate-500 border-t border-slate-200/60 pt-3">
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between font-sans text-xs text-zinc-500 border-t border-zinc-200/60 pt-3">
                   <span>Staging: Pierce, Draw, Strip</span>
                   <span>Tolerance: +/-0.02mm</span>
                 </div>
@@ -544,18 +655,18 @@ const About = () => {
       </section>
 
       {/* --- Interactive Milestones Timeline --- */}
-      <section id="timeline" className="py-24 bg-[#FAFAFA] relative border-b border-slate-200/60">
+      <section id="timeline" className="py-20 bg-zinc-50 relative border-b border-zinc-200/60">
         <div className="container-custom">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
               CHRONOLOGY LOG
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight tracking-tight">
               Timeline & Historical Evolution
             </h2>
-            <div className="w-20 h-[3px] bg-[#00A7FF] mt-4 mx-auto"></div>
-            <p className="text-slate-550 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <div className="w-20 h-[3px] bg-[#2563EB] mt-4 mx-auto"></div>
+            <p className="text-zinc-600 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
               Thirty years of strategic transition from a regional fabricator to a global tier-1 supply network.
             </p>
           </div>
@@ -568,40 +679,43 @@ const About = () => {
             className="max-w-4xl mx-auto"
           >
             {/* Timeline selector bar */}
-            <div className="flex justify-between items-center relative border-b border-slate-200/80 pb-6 mb-12">
-              <div className="absolute bottom-[-1px] left-0 right-0 h-[1px] bg-slate-200"></div>
+            <div className="flex justify-between items-center relative pb-8 mb-16">
+              {/* Thicker, darker background track line */}
+              <div className="absolute bottom-[9px] left-0 right-0 h-[3px] bg-zinc-300 rounded-full"></div>
               
               {timelineData.map((item, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedTimelineIndex(idx)}
-                  className="flex flex-col items-center relative group z-10"
+                  className="flex flex-col items-center relative group z-10 w-24"
                 >
-                  <span className={`text-xs font-mono tracking-widest mb-3 transition-colors ${
-                    selectedTimelineIndex === idx ? 'text-[#FF5C00] font-bold' : 'text-slate-400 group-hover:text-slate-700'
+                  <span className={`text-sm font-mono tracking-widest mb-4 transition-all duration-300 ${
+                    selectedTimelineIndex === idx ? 'text-[#1E3A8A] font-black scale-110' : 'text-zinc-500 font-bold group-hover:text-zinc-800 group-hover:scale-105'
                   }`}>
                     {item.year}
                   </span>
                   
-                  {/* Sliding underline active bar for labels - Styled with Orange */}
+                  {/* Sliding underline active bar for labels */}
                   {selectedTimelineIndex === idx && (
                     <motion.div 
                       layoutId="activeYearUnderline"
-                      className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#FF5C00]"
+                      className="absolute bottom-8 left-1/4 right-1/4 h-1 bg-[#1E3A8A] rounded-full"
                       transition={springTransitionFast}
                     />
                   )}
 
-                  <div className={`w-3.5 h-3.5 rounded-full border-2 transition-all flex items-center justify-center relative`}>
-                    {/* Morphing active bullet circle using layoutId - Styled with Orange */}
+                  <div className={`w-[22px] h-[22px] rounded-full border-[4px] transition-all duration-300 flex items-center justify-center relative bg-zinc-50 z-20 ${
+                    selectedTimelineIndex === idx ? 'border-[#1E3A8A] shadow-md scale-110' : 'border-zinc-300 group-hover:border-zinc-400'
+                  }`}>
+                    {/* Morphing active bullet circle using layoutId */}
                     {selectedTimelineIndex === idx ? (
                       <motion.div 
                         layoutId="activeBulletCircle"
-                        className="w-2.5 h-2.5 bg-[#FF5C00] rounded-full"
+                        className="w-2.5 h-2.5 bg-[#1E3A8A] rounded-full"
                         transition={springTransitionFast}
                       />
                     ) : (
-                      <div className="w-1.5 h-1.5 bg-slate-200 group-hover:bg-slate-350 rounded-full" />
+                      <div className="w-2 h-2 bg-zinc-300 group-hover:bg-zinc-400 rounded-full transition-colors" />
                     )}
                   </div>
                 </button>
@@ -616,42 +730,45 @@ const About = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={springTransition}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-white border border-slate-200 p-8 lg:p-12 relative overflow-hidden shadow-sm animate-border-shimmer"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-white border border-zinc-100 p-10 lg:p-14 rounded-[2rem] relative overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.12)] hover:border-[#2563EB]/20 transition-all duration-500 group"
               >
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity z-20"></div>
+
                 {/* Decorative coordinate watermark */}
-                <div className="absolute right-4 bottom-4 font-sans text-[9px] text-slate-200 select-none uppercase tracking-widest font-black pointer-events-none">
-                  Year {timelineData[selectedTimelineIndex].year}
+                <div className="absolute -right-10 -bottom-10 font-sans text-9xl text-zinc-50 select-none uppercase tracking-tighter font-black pointer-events-none z-0">
+                  {timelineData[selectedTimelineIndex].year}
                 </div>
 
-                <div className="lg:col-span-8 flex flex-col justify-between space-y-6">
+                <div className="lg:col-span-8 flex flex-col justify-between space-y-8 relative z-10">
                   <div>
-                    <span className="text-[#00A7FF] text-[10px] font-mono tracking-widest block uppercase mb-2.5 font-bold">
+                    <span className="text-[#2563EB] text-xs font-bold tracking-widest block uppercase mb-3">
                       {timelineData[selectedTimelineIndex].badge}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 uppercase tracking-tight mb-4">
+                    <h3 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight mb-6 leading-tight">
                       {timelineData[selectedTimelineIndex].title}
                     </h3>
-                    <p className="text-slate-655 text-sm leading-relaxed font-medium font-sans">
+                    <p className="text-zinc-500 text-base leading-relaxed font-medium font-sans">
                       {timelineData[selectedTimelineIndex].desc}
                     </p>
                   </div>
                   
-                  <div className="border-t border-slate-100 pt-5 flex flex-wrap gap-6 items-center">
+                  <div className="border-t border-zinc-100 pt-6 flex flex-wrap gap-6 items-center">
                     <div>
-                      <span className="text-[9px] font-mono text-slate-400 uppercase block mb-1">METALLURGICAL KEYNOTE</span>
-                      <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      <span className="text-xs font-mono text-zinc-400 font-bold uppercase tracking-widest block mb-2">METALLURGICAL KEYNOTE</span>
+                      <span className="text-sm font-bold text-zinc-800 uppercase tracking-wider flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#2563EB]" />
                         {timelineData[selectedTimelineIndex].highlight}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 bg-slate-50 border border-slate-100 p-6 rounded-lg flex flex-col justify-center items-center text-center">
-                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest block mb-4">MILESTONE IMPACT</span>
-                  <div className="text-[#00A7FF] mb-2">
-                    <Award className="w-8 h-8 mx-auto animate-pulse" />
+                <div className="lg:col-span-4 bg-zinc-50 border border-zinc-100 p-8 rounded-2xl flex flex-col justify-center items-center text-center relative z-10 shadow-sm group-hover:border-[#2563EB]/20 transition-all duration-300">
+                  <span className="text-xs font-mono text-zinc-400 font-bold uppercase tracking-widest block mb-6">MILESTONE IMPACT</span>
+                  <div className="text-[#FF5C00] mb-4 bg-white p-4 rounded-xl shadow-sm">
+                    <Award className="w-8 h-8 mx-auto" />
                   </div>
-                  <span className="text-xs font-bold text-slate-700 font-sans leading-relaxed">
+                  <span className="text-base font-extrabold text-zinc-900 font-sans uppercase tracking-wider">
                     {timelineData[selectedTimelineIndex].stats}
                   </span>
                 </div>
@@ -664,41 +781,41 @@ const About = () => {
       </section>
 
       {/* --- Strategic Reach (Interactive Map Layout) --- */}
-      <section id="reach" className="py-24 bg-white relative border-b border-slate-200/60">
+      <section id="reach" className="py-20 bg-white relative border-b border-zinc-200/60">
         <div className="container-custom">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Map Interaction Details */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-10">
               <div>
-                <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+                <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
                   GEOGRAPHIC LOGISTICS
                 </span>
-                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight leading-tight">
-                  Localized Operations, Universal Standards
+                <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight leading-[1.1]">
+                  Localized Operations,<br/> Universal Standards
                 </h2>
-                <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
-                <p className="text-slate-555 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+                <div className="w-20 h-1 bg-[#FF5C00] mt-6"></div>
+                <p className="text-zinc-500 text-base mt-6 font-medium font-sans leading-relaxed">
                   We deploy localized manufacturing and distribution nodes across strategic continental points to cut logistics transit overheads for OEMs.
                 </p>
               </div>
 
               {/* Geographic buttons switcher with layoutsId indicators */}
-              <div className="flex gap-2 bg-slate-50 border border-slate-200 p-1.5 rounded-md relative">
+              <div className="flex gap-2 bg-zinc-50/50 border border-zinc-100 p-2 rounded-xl relative shadow-sm">
                 {(['apac', 'emea', 'americas'] as const).map((region) => (
                   <button
                     key={region}
                     onClick={() => setActiveRegion(region)}
-                    className="flex-1 py-2 text-[10px] font-bold uppercase tracking-wider relative transition-all rounded z-10"
+                    className="flex-1 py-3 text-xs font-bold uppercase tracking-wider relative transition-all rounded-lg z-10"
                   >
-                    <span className={activeRegion === region ? 'text-white transition-colors duration-250 font-extrabold' : 'text-slate-505 hover:text-slate-800'}>
+                    <span className={activeRegion === region ? 'text-white transition-colors duration-250 font-black' : 'text-zinc-400 hover:text-zinc-800 font-bold'}>
                       {region}
                     </span>
                     {activeRegion === region && (
                       <motion.div 
                         layoutId="activeMapRegionTab"
-                        className="absolute inset-0 bg-[#000EDD] rounded shadow-sm z-[-1]"
+                        className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] rounded-lg shadow-md z-[-1]"
                         transition={springTransitionFast}
                       />
                     )}
@@ -714,35 +831,44 @@ const About = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={springTransitionFast}
-                  className="bg-white border border-slate-150 p-6 rounded-lg space-y-4 shadow-sm animate-border-shimmer"
+                  className="bg-white border border-zinc-100 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.12)] hover:border-[#2563EB]/20 transition-all duration-300 relative group overflow-hidden"
                 >
-                  <div className="flex justify-between items-center border-b border-slate-200/60 pb-3">
-                    <h4 className="text-xs font-bold uppercase text-slate-800 tracking-wide">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl z-20"></div>
+                  
+                  <div className="flex justify-between items-center border-b border-zinc-100 pb-5 mb-5">
+                    <h4 className="text-sm font-bold uppercase text-zinc-900 tracking-wide">
                       {regionalData[activeRegion].title}
                     </h4>
-                    <span className="text-[9px] font-mono text-[#00A7FF] font-bold">
+                    <span className="text-sm font-mono text-white bg-[#1E3A8A] px-3 py-1 rounded-full font-bold shadow-sm">
                       {regionalData[activeRegion].stat}
                     </span>
                   </div>
-                  <div className="space-y-1">
-                    <div className="text-[9px] text-slate-400 font-mono uppercase">Operational Density:</div>
-                    <div className="text-xs text-slate-750 font-bold">{regionalData[activeRegion].plants}</div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <div className="text-xs text-zinc-400 font-mono font-bold uppercase mb-1">Operational Density:</div>
+                      <div className="text-sm text-zinc-800 font-bold">{regionalData[activeRegion].plants}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400 font-mono font-bold uppercase mb-1">Technological Focus:</div>
+                      <div className="text-sm text-zinc-600 font-medium leading-relaxed">{regionalData[activeRegion].focus}</div>
+                    </div>
+                    <div className="pt-4 border-t border-zinc-100 mt-4">
+                      <p className="text-sm text-zinc-500 font-sans leading-relaxed">
+                        {regionalData[activeRegion].details}
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <div className="text-[9px] text-slate-400 font-mono uppercase">Technological Focus:</div>
-                    <div className="text-xs text-slate-755 font-medium leading-relaxed">{regionalData[activeRegion].focus}</div>
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-sans leading-relaxed pt-2.5 border-t border-slate-200/60">
-                    {regionalData[activeRegion].details}
-                  </p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
             {/* Map Visualizer */}
             <div className="lg:col-span-7 relative">
-              <div className="bg-slate-50 border border-slate-200/60 rounded-xl p-8 shadow-sm relative animate-border-shimmer">
-                <svg className="w-full h-auto grayscale transition-all duration-300" viewBox="0 0 1000 480">
+              <div className="bg-white border border-zinc-100 rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.12)] hover:border-[#2563EB]/20 transition-all duration-500 relative group overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-[2rem] z-20"></div>
+                
+                <svg className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700 relative z-10" viewBox="0 0 1000 480">
                   {/* Detailed land outlines */}
                   <path fill="#CBD5E1" opacity="0.65" d="M150,110 L190,95 L220,110 L250,90 L280,115 L290,130 L270,160 L240,180 L200,165 Z" />
                   <path fill="#CBD5E1" opacity="0.65" d="M220,220 L250,200 L280,225 L310,280 L290,360 L270,410 L250,420 L230,360 Z" />
@@ -785,7 +911,7 @@ const About = () => {
                       <motion.path 
                         d="M 650 190 Q 565 130 480 110" 
                         fill="none" 
-                        stroke="#00A7FF" 
+                        stroke="#2563EB" 
                         strokeWidth="1.5" 
                         strokeDasharray="4 4"
                         initial={{ pathLength: 0, opacity: 0 }}
@@ -798,7 +924,7 @@ const About = () => {
                       <motion.path 
                         d="M 650 190 Q 430 110 210 140" 
                         fill="none" 
-                        stroke="#00A7FF" 
+                        stroke="#2563EB" 
                         strokeWidth="1.5" 
                         strokeDasharray="4 4"
                         initial={{ pathLength: 0, opacity: 0 }}
@@ -811,8 +937,8 @@ const About = () => {
                 </svg>
 
                 {/* Map HUD details overlay */}
-                <div className="absolute bottom-4 left-4 bg-white/95 border border-slate-200 rounded px-3 py-1.5 font-sans text-[8px] text-slate-500 shadow-sm">
-                   Coordinates: Lat 12.74, Lng 77.82 | Active Region: <span className="text-[#00A7FF] uppercase font-bold">{activeRegion}</span>
+                <div className="absolute bottom-4 left-4 bg-white/95 border border-zinc-200 rounded px-3 py-1.5 font-sans text-xs text-zinc-500 shadow-sm">
+                   Coordinates: Lat 12.74, Lng 77.82 | Active Region: <span className="text-[#2563EB] uppercase font-bold">{activeRegion}</span>
                 </div>
               </div>
             </div>
@@ -822,18 +948,18 @@ const About = () => {
       </section>
 
       {/* --- Visionary Leadership (Premium Profiles) --- */}
-      <section className="py-24 bg-[#FAFAFA] border-b border-slate-200/60">
+      <section className="py-20 bg-zinc-50 border-b border-zinc-200/60">
         <div className="container-custom">
           
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
               EXECUTIVE BOARD
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight tracking-tight">
               Visionary Leadership
             </h2>
-            <div className="w-20 h-[3px] bg-[#00A7FF] mt-4 mx-auto"></div>
-            <p className="text-slate-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
+            <div className="w-20 h-[3px] bg-[#2563EB] mt-4 mx-auto"></div>
+            <p className="text-zinc-500 text-xs sm:text-sm mt-4 font-medium font-sans leading-relaxed">
               Led by industry pioneers with decades of combined engineering expertise in sheet metal forming and robotics integration.
             </p>
           </div>
@@ -870,7 +996,7 @@ const About = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={springTransitionFast}
-                className="relative group h-[480px] overflow-hidden rounded-xl border border-slate-200 bg-white flex flex-col justify-end shadow-sm animate-border-shimmer"
+                className="relative group h-[480px] overflow-hidden rounded-xl border border-zinc-200 bg-white flex flex-col justify-end shadow-sm animate-border-shimmer"
               >
                 {/* Accent line on top of card using Orange */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-[#FF5C00] z-20 animate-[pulse_2.5s_infinite]"></div>
@@ -882,25 +1008,25 @@ const About = () => {
                     alt={leader.name} 
                     className="w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/15 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/15 to-transparent"></div>
                 </div>
 
                 {/* Profile detail text */}
-                <div className="relative z-10 p-6 bg-white border-t border-slate-100 backdrop-blur-md space-y-3.5">
-                  <span className="text-[#00A7FF] font-bold text-[9px] tracking-[0.2em] uppercase">
+                <div className="relative z-10 p-6 bg-white border-t border-zinc-100 backdrop-blur-md space-y-3.5">
+                  <span className="text-[#2563EB] font-bold text-sm tracking-[0.2em] uppercase">
                     {leader.role}
                   </span>
                   
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight uppercase leading-none">
+                  <h3 className="text-lg font-bold text-zinc-900 tracking-tight uppercase leading-none">
                     {leader.name}
                   </h3>
                   
-                  <p className="text-slate-655 text-xs leading-relaxed italic border-l-2 border-[#00A7FF] pl-3.5 pt-0.5 font-sans">
+                  <p className="text-zinc-600 text-xs leading-relaxed italic border-l-2 border-[#2563EB] pl-3.5 pt-0.5 font-sans">
                     "{leader.quote}"
                   </p>
 
-                  <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-sans text-[9px]">
-                    <Activity className="w-3 h-3 text-[#00A7FF]" />
+                  <div className="pt-2 border-t border-zinc-100 flex items-center gap-1.5 text-zinc-400 font-sans text-sm">
+                    <Activity className="w-3 h-3 text-[#2563EB]" />
                     Active Member
                   </div>
                 </div>
@@ -913,7 +1039,7 @@ const About = () => {
       </section>
 
       {/* --- Premium Light CTA Section --- */}
-      <section className="relative py-24 bg-white overflow-hidden">
+      <section className="relative py-20 bg-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#00a7ff07_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="container-custom relative z-10 max-w-4xl">
@@ -922,20 +1048,20 @@ const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={springTransition}
-            className="bg-[#F1F5F9]/50 border border-slate-200/60 rounded-2xl p-10 lg:p-16 text-center space-y-8 shadow-sm animate-border-shimmer"
+            className="bg-[#F1F5F9]/50 border border-zinc-200/60 rounded-2xl p-10 lg:p-16 text-center space-y-8 shadow-sm animate-border-shimmer"
           >
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#00A7FF]/5 border border-[#00A7FF]/15 rounded-md text-[10px] font-sans tracking-widest text-[#00A7FF] uppercase font-bold">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#2563EB]/5 border border-[#2563EB]/15 rounded-md text-xs font-sans tracking-widest text-[#2563EB] uppercase font-bold">
               Scaling Logistics & Capacity
             </span>
             
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 uppercase tracking-tight leading-none">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight leading-none">
               Ready to integrate with <br />
-              <span className="text-[#000EDD]">
+              <span className="text-[#1E3A8A]">
                 Our Precision Ecosystem?
               </span>
             </h2>
             
-            <p className="text-slate-655 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto font-medium font-sans">
+            <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto font-medium font-sans">
               Connect directly with our sales engineers to request customized progressive stamping quotes, view manufacturing capacities, or schedule a facility audit.
             </p>
 
@@ -944,7 +1070,7 @@ const About = () => {
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={springTransitionFast}
-                className="w-full sm:w-auto bg-[#000EDD] hover:bg-[#00A7FF] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
+                className="w-full sm:w-auto bg-[#1E3A8A] hover:bg-[#2563EB] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
               >
                 Partner With Us
               </motion.button>
@@ -952,7 +1078,7 @@ const About = () => {
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={springTransitionFast}
-                className="w-full sm:w-auto border border-slate-250 bg-white text-slate-655 px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors hover:text-slate-900 shadow-sm"
+                className="w-full sm:w-auto border border-zinc-250 bg-white text-zinc-600 px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors hover:text-zinc-900 shadow-sm"
               >
                 View Facility Details
               </motion.button>

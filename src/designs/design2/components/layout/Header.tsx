@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Settings, Layers, PenTool, Cpu, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -23,7 +23,37 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Product', path: '/product' },
+    { 
+      name: 'Products', 
+      path: '/product',
+      isMega: true,
+      dropdownItems: [
+        { 
+          name: 'Automotive Press Components', 
+          path: '/products/automotive-press-components',
+          desc: 'High-precision stamped parts for tier-1 automotive systems.',
+          icon: <Settings className="w-5 h-5 text-[#00A7FF]" />
+        },
+        { 
+          name: 'Automotive Fabrication Components', 
+          path: '/products/automotive-fabrication-components',
+          desc: 'Fabricated metal parts and sheet metal components for automobile manufacturers.',
+          icon: <Layers className="w-5 h-5 text-[#FF5C00]" />
+        },
+        { 
+          name: 'Non Automotive Parts', 
+          path: '/products/non-automotive-parts',
+          desc: 'Precision turned components for non-automotive industrial applications.',
+          icon: <Cpu className="w-5 h-5 text-[#000EDD]" />
+        },
+        { 
+          name: 'Press Tools', 
+          path: '/products/press-tools',
+          desc: 'High-quality press tools for varied industries and diverse applications.',
+          icon: <PenTool className="w-5 h-5 text-[#00A7FF]" />
+        }
+      ]
+    },
     { name: 'Machineries', path: '/machineries' },
     { name: 'CSR', path: '/csr' },
     { name: 'Gallery', path: '/gallery' },
@@ -45,21 +75,84 @@ const Header = () => {
         </div>
         
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-7 text-[13px] font-bold uppercase tracking-wider">
+        <div className="hidden lg:flex items-center gap-7 text-[13px] font-bold tracking-wider">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) => 
-                `transition-all duration-300 pb-1 border-b-2 ${
-                  isActive 
-                    ? 'text-[#000EDD] border-[#000EDD]' 
-                    : 'text-slate-500 border-transparent hover:text-[#000EDD] hover:border-slate-300'
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
+            <div key={link.path} className="relative group">
+              <NavLink
+                to={link.path}
+                className={({ isActive }) => 
+                  `uppercase transition-all duration-300 pb-1 border-b-2 flex items-center gap-1 ${
+                    isActive || (link.dropdownItems && location.pathname.includes(link.path))
+                      ? 'text-[#000EDD] border-[#000EDD]' 
+                      : 'text-slate-500 border-transparent hover:text-[#000EDD] hover:border-slate-300'
+                  }`
+                }
+              >
+                {link.name}
+                {link.dropdownItems && (
+                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                )}
+              </NavLink>
+
+              {/* Dropdown / Mega Menu */}
+              {/* Dropdown / Mega Menu */}
+              {link.dropdownItems && (
+                <div className={`absolute top-[100%] pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 z-50 ${link.isMega ? '-left-[350px] w-[1050px]' : 'left-0 w-[280px]'}`}>
+                  <div className={`bg-white/95 backdrop-blur-3xl shadow-[0_30px_100px_-15px_rgba(0,0,0,0.15)] overflow-hidden text-left rounded-[2rem] border border-slate-200/50 ${link.isMega ? 'p-3 flex flex-row gap-0' : 'flex flex-col p-2'}`}>
+                    
+                    {link.isMega && (
+                      <div className="w-[35%] bg-gradient-to-br from-[#00A7FF] to-[#000EDD] p-10 rounded-3xl flex flex-col justify-between relative overflow-hidden group/featured shadow-inner border border-white/10">
+                        {/* Decorative background grids and circles */}
+                        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+                        <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl group-hover/featured:bg-white/20 transition-colors duration-700"></div>
+                        
+                        <div className="relative z-10 flex flex-col h-full">
+                          <span className="text-[#FF5C00] text-xs font-bold uppercase tracking-widest mb-4 block">
+                            Platform Solutions
+                          </span>
+                          <h4 className="text-3xl font-extrabold text-white mb-4 tracking-tight leading-[1.1]">
+                            Precision <br/>Engineering
+                          </h4>
+                          <p className="text-sm text-white/80 leading-relaxed font-medium mb-10">
+                            Explore our comprehensive range of high-precision tier-1 components and heavy structural automotive assemblies.
+                          </p>
+                          <div className="mt-auto flex items-center gap-3 text-white text-xs font-black uppercase tracking-widest group-hover/featured:translate-x-3 transition-transform duration-500">
+                            <span className="bg-white/10 p-2 rounded-full backdrop-blur-md">
+                              <ArrowRight className="w-4 h-4 text-[#FF5C00]" />
+                            </span>
+                            Discover More
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    
+                    <div className={link.isMega ? "w-[65%] grid grid-cols-2 gap-x-6 gap-y-4 p-8" : "flex flex-col"}>
+                      {link.dropdownItems.map((item: any) => (
+                        <NavLink
+                          key={item.path}
+                          to={item.path}
+                          className={`group/item flex items-start transition-all duration-300 ${link.isMega ? 'gap-5 p-4 rounded-2xl hover:bg-slate-50 hover:translate-x-1' : 'px-4 py-3 hover:bg-slate-50 rounded-xl'}`}
+                        >
+                          {link.isMega && item.icon && (
+                            <div className="shrink-0 w-14 h-14 bg-white border border-slate-100 rounded-2xl flex items-center justify-center shadow-sm text-slate-400 group-hover/item:text-[#00A7FF] group-hover/item:shadow-md group-hover/item:border-[#00A7FF]/20 group-hover/item:-translate-y-2 transition-all duration-500">
+                              {item.icon}
+                            </div>
+                          )}
+                          <div className={`flex flex-col ${link.isMega ? 'pt-1' : ''}`}>
+                            <span className={link.isMega ? "text-base font-extrabold text-slate-900 group-hover/item:text-[#00A7FF] transition-colors leading-tight mb-1.5" : "text-sm font-bold text-slate-700 group-hover/item:text-[#00A7FF]"}>{item.name}</span>
+                            {link.isMega && item.desc && (
+                              <span className="text-sm text-slate-500 font-medium leading-relaxed">{item.desc}</span>
+                            )}
+                          </div>
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
@@ -67,7 +160,7 @@ const Header = () => {
         <motion.button 
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="hidden lg:block bg-[#000EDD] hover:bg-[#FF5C00] text-white px-6 py-2.5 text-[11px] font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15 hover:shadow-[#FF5C00]/20 hover:-translate-y-0.5 active:translate-y-0"
+          className="hidden lg:block bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 text-sm font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-sm shadow-brand-500/15 hover:shadow-brand-600/20 hover:-translate-y-0.5 active:translate-y-0"
         >
           Request Quote
         </motion.button>
@@ -90,28 +183,49 @@ const Header = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden w-full absolute top-[100%] left-0 bg-white border-b border-slate-200/80 shadow-xl py-6 px-6 space-y-4 flex flex-col z-[99] overflow-hidden"
+            className="lg:hidden w-full absolute top-[100%] left-0 bg-white border-b border-slate-200/80 shadow-md py-6 px-6 space-y-4 flex flex-col z-[99] overflow-hidden"
           >
             {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) => 
-                  `transition-all duration-300 py-2.5 border-b border-slate-100 font-bold text-xs uppercase tracking-wider block ${
-                    isActive 
-                      ? 'text-[#000EDD]' 
-                      : 'text-slate-750 hover:text-[#000EDD]'
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
+              <div key={link.path} className="flex flex-col">
+                <NavLink
+                  to={link.path}
+                  onClick={() => !link.dropdownItems && setIsOpen(false)}
+                  className={({ isActive }) => 
+                    `transition-all duration-300 py-2.5 border-b border-slate-100 font-bold text-xs uppercase tracking-wider flex justify-between items-center ${
+                      isActive || (link.dropdownItems && location.pathname.includes(link.path))
+                        ? 'text-[#000EDD]' 
+                        : 'text-slate-700 hover:text-[#000EDD]'
+                    }`
+                  }
+                >
+                  {link.name}
+                  {link.dropdownItems && (
+                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </NavLink>
+                {/* Mobile Dropdown Items */}
+                {link.dropdownItems && (
+                  <div className="pl-4 mt-2 flex flex-col border-l-2 border-[#00A7FF]/30 ml-1 mb-2">
+                    {link.dropdownItems.map((item) => (
+                      <NavLink
+                        key={item.path}
+                        to={item.path}
+                        onClick={() => setIsOpen(false)}
+                        className="py-2.5 text-xs font-semibold text-slate-600 hover:text-[#00A7FF] block"
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <motion.button 
               whileTap={{ scale: 0.96 }}
               onClick={() => setIsOpen(false)}
-              className="bg-[#000EDD] hover:bg-[#FF5C00] text-white w-full py-3.5 text-xs font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-md shadow-[#000EDD]/15"
+              className="bg-brand-500 hover:bg-brand-600 text-white w-full py-3.5 text-xs font-extrabold uppercase tracking-widest transition-all duration-300 rounded shadow-sm shadow-brand-500/15"
             >
               Request Quote
             </motion.button>

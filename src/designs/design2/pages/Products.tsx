@@ -151,10 +151,10 @@ const Products = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned Products Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Automated Robotic Welding Line */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -264,14 +264,14 @@ const Products = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 glass-panel-dark border border-white/10 rounded-xl shadow-2xl max-w-xs space-y-4 text-white"
+                className="p-8 glass-panel-dark border border-white/10 rounded-xl shadow-lg max-w-xs space-y-4 text-white"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                  <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
+                  <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     Engineering Stats
                   </h4>
-                  <span className="text-[9px] font-mono text-slate-400">VER_v4.02</span>
+                  <span className="text-sm font-mono text-slate-400">VER_v4.02</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-semibold">
@@ -287,7 +287,7 @@ const Products = () => {
                     <span className="text-[#00A7FF]">±0.02 mm</span>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-white/10 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
+                <div className="pt-3 border-t border-white/10 flex items-center gap-1.5 text-slate-400 font-mono text-xs justify-between">
                   <span>QA LEVEL: ISO_9001</span>
                   <span>CAL_OK</span>
                 </div>
@@ -298,7 +298,7 @@ const Products = () => {
       </section>
 
       {/* --- 2. Interactive Specifications Explorer Tool --- */}
-      <section id="explorer" className="py-24 bg-[#FAFAFA] border-b border-slate-200/60 relative">
+      <section id="explorer" className="py-20 bg-slate-50 border-b border-slate-200/60 relative">
         <div className="container-custom">
           
           <motion.div 
@@ -312,10 +312,10 @@ const Products = () => {
             {/* Interactive Sidebar Switcher */}
             <motion.div variants={fadeInUp} className="lg:col-span-3 space-y-6">
               <div>
-                <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-2 block">
+                <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-2 block">
                   TECHNICAL SEGMENTS
                 </span>
-                <h4 className="text-base font-bold text-slate-900 uppercase tracking-tight">Component Domains</h4>
+                <h4 className="text-base font-bold text-slate-900 tracking-tight">Component Domains</h4>
               </div>
 
               <ul className="space-y-3">
@@ -330,7 +330,7 @@ const Products = () => {
                       className="w-full flex items-center gap-4 py-4 px-6 border border-slate-200/60 bg-white rounded-lg text-left relative transition-all z-10 shadow-sm"
                     >
                       <cat.icon className={`w-4 h-4 transition-colors ${activeCategory === cat.id ? 'text-white' : 'text-slate-400'}`} />
-                      <span className={`text-[11px] font-bold tracking-wider uppercase transition-colors ${activeCategory === cat.id ? 'text-white' : 'text-slate-550'}`}>
+                      <span className={`text-sm font-bold tracking-wider uppercase transition-colors ${activeCategory === cat.id ? 'text-white' : 'text-slate-600'}`}>
                         {cat.name}
                       </span>
                       {activeCategory === cat.id && (
@@ -354,8 +354,8 @@ const Products = () => {
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
                   <div>
-                    <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-1 block">EXPLORER TOOL</span>
-                    <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight">Technical Material Matrix</h3>
+                    <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-1 block">EXPLORER TOOL</span>
+                    <h3 className="text-xl font-bold text-slate-900 tracking-tight">Technical Material Matrix</h3>
                   </div>
                   
                   {/* Material Switcher Tabs */}
@@ -368,7 +368,7 @@ const Products = () => {
                       <button
                         key={tab.id}
                         onClick={() => setActiveMaterial(tab.id)}
-                        className="flex-1 md:flex-initial px-6 py-2 text-[10px] font-bold uppercase tracking-wider relative transition-all rounded z-10"
+                        className="flex-1 md:flex-initial px-6 py-2 text-xs font-bold uppercase tracking-wider relative transition-all rounded z-10"
                       >
                         <span className={activeMaterial === tab.id ? 'text-white font-extrabold transition-colors' : 'text-slate-500 hover:text-slate-800'}>
                           {tab.label}
@@ -398,11 +398,11 @@ const Products = () => {
                     <table className="w-full text-left">
                       <thead className="bg-[#020522] text-white border-b border-[#020522]/10">
                         <tr>
-                          <th className="p-6 text-[10px] font-bold tracking-widest uppercase">STEEL GRADE</th>
-                          <th className="p-6 text-[10px] font-bold tracking-widest uppercase">THICKNESS (MM)</th>
-                          <th className="p-6 text-[10px] font-bold tracking-widest uppercase">TOLERANCE</th>
-                          <th className="p-6 text-[10px] font-bold tracking-widest uppercase">YIELD STRENGTH</th>
-                          <th className="p-6 text-[10px] font-bold tracking-widest uppercase">APPLICATION</th>
+                          <th className="p-6 text-xs font-bold tracking-widest uppercase">STEEL GRADE</th>
+                          <th className="p-6 text-xs font-bold tracking-widest uppercase">THICKNESS (MM)</th>
+                          <th className="p-6 text-xs font-bold tracking-widest uppercase">TOLERANCE</th>
+                          <th className="p-6 text-xs font-bold tracking-widest uppercase">YIELD STRENGTH</th>
+                          <th className="p-6 text-xs font-bold tracking-widest uppercase">APPLICATION</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -429,14 +429,14 @@ const Products = () => {
       </section>
 
       {/* --- 3. Dynamic Product Catalog Grid --- */}
-      <section className="py-24 bg-white border-b border-slate-200/60">
+      <section className="py-20 bg-white border-b border-slate-200/60">
         <div className="container-custom">
           
           <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               COMPONENT DOMAINS
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight tracking-tight">
               Precision Component Catalog
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
@@ -458,7 +458,7 @@ const Products = () => {
                   variants={fadeInUp}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={springTransitionFast}
-                  className="bg-white border border-slate-200/60 flex flex-col h-full overflow-hidden rounded-xl shadow-sm hover:shadow-md hover:border-[#00A7FF]/30 transition-all duration-300 animate-border-shimmer group relative"
+                  className="bg-white border border-slate-200/60 flex flex-col h-full overflow-hidden rounded-xl shadow-sm hover:shadow-sm hover:border-[#00A7FF]/30 transition-all duration-300 animate-border-shimmer group relative"
                 >
                   {/* Top color accent divider - Solid brand Sky Blue */}
                   <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-[#00A7FF] z-20"></div>
@@ -470,7 +470,7 @@ const Products = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
                     {product.bestSeller && (
-                      <div className="absolute top-5 left-5 bg-[#FF5C00] px-3.5 py-1.5 text-[9px] font-bold text-white uppercase tracking-widest shadow-md rounded">
+                      <div className="absolute top-5 left-5 bg-[#FF5C00] px-3.5 py-1.5 text-sm font-bold text-white uppercase tracking-widest shadow-sm rounded">
                         BEST SELLER
                       </div>
                     )}
@@ -480,10 +480,10 @@ const Products = () => {
                   <div className="p-8 flex flex-col justify-between flex-grow space-y-6">
                     <div>
                       <div className="flex justify-between items-start">
-                        <h3 className="text-lg font-bold text-slate-800 uppercase tracking-tight leading-tight">
+                        <h3 className="text-lg font-bold text-slate-800 tracking-tight leading-tight">
                           {product.name}
                         </h3>
-                        <span className="text-[9px] font-mono font-bold text-slate-455 uppercase tracking-wider pt-1">
+                        <span className="text-sm font-mono font-bold text-slate-455 uppercase tracking-wider pt-1">
                           #{product.id}
                         </span>
                       </div>
@@ -493,17 +493,17 @@ const Products = () => {
                       
                       <div className="flex gap-8 border-t border-slate-100 pt-5 mt-5">
                         <div>
-                          <p className="text-[9px] font-bold text-slate-455 uppercase tracking-widest mb-1.5">MATERIAL</p>
+                          <p className="text-sm font-bold text-slate-455 uppercase tracking-widest mb-1.5">MATERIAL</p>
                           <p className="text-xs font-bold text-slate-700">{product.material}</p>
                         </div>
                         <div className="border-l border-slate-100 pl-8">
-                          <p className="text-[9px] font-bold text-slate-455 uppercase tracking-widest mb-1.5">PROCESS</p>
+                          <p className="text-sm font-bold text-slate-455 uppercase tracking-widest mb-1.5">PROCESS</p>
                           <p className="text-xs font-bold text-slate-700">{product.process}</p>
                         </div>
                       </div>
                     </div>
 
-                    <button className="w-full py-3.5 bg-[#00A7FF] hover:bg-[#000EDD] text-white text-[11px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 rounded">
+                    <button className="w-full py-3.5 bg-[#00A7FF] hover:bg-[#000EDD] text-white text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 rounded">
                       ADD TO RFQ LIST
                     </button>
                   </div>
@@ -516,7 +516,7 @@ const Products = () => {
       </section>
 
       {/* --- 4. Quality Trust Grid --- */}
-      <section className="py-24 bg-[#FAFAFA]">
+      <section className="py-20 bg-slate-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             

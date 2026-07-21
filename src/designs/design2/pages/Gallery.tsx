@@ -103,9 +103,9 @@ const Gallery = () => {
     : archiveItems.filter(item => item.category === activeCategory);
 
   return (
-    <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
             {/* --- 1. Viewport-Aligned Gallery Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Laser Spark Machining */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -216,14 +216,14 @@ const Gallery = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-md max-w-xs space-y-4 animate-border-shimmer"
+                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-sm max-w-xs space-y-4 animate-border-shimmer"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
+                  <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     MEDIA SERVER
                   </h4>
-                  <span className="text-[9px] font-mono text-slate-400">SYNCED</span>
+                  <span className="text-sm font-mono text-slate-400">SYNCED</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-semibold">
@@ -239,7 +239,7 @@ const Gallery = () => {
                     <span className="text-[#00A7FF]">LBAP_MED_08</span>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-xs justify-between">
                   <span>QA LEVEL: ISO_9001</span>
                   <span>CAM_SECURE</span>
                 </div>
@@ -250,15 +250,15 @@ const Gallery = () => {
       </section>
 
       {/* --- 2. Interactive Category Filter Section --- */}
-      <section id="catalog" className="py-24 bg-white border-b border-slate-200/60">
+      <section id="catalog" className="py-20 bg-white border-b border-slate-200/60">
         <div className="container-custom">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
             <div>
-              <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+              <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
                 VISUAL ARCHIVE
               </span>
-              <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight tracking-tight">
                 Inspect Production Nodes
               </h2>
               <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
@@ -275,9 +275,9 @@ const Gallery = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategory(tab.id)}
-                  className="px-6 py-2 text-[10px] font-bold uppercase tracking-wider relative transition-all rounded z-10 flex-1 md:flex-initial"
+                  className="px-6 py-2 text-xs font-bold uppercase tracking-wider relative transition-all rounded z-10 flex-1 md:flex-initial"
                 >
-                  <span className={activeCategory === tab.id ? 'text-white font-extrabold transition-colors' : 'text-slate-505 hover:text-slate-800'}>
+                  <span className={activeCategory === tab.id ? 'text-white font-extrabold transition-colors' : 'text-slate-500 hover:text-slate-800'}>
                     {tab.label}
                   </span>
                   {activeCategory === tab.id && (
@@ -308,7 +308,7 @@ const Gallery = () => {
                   variants={fadeInUp}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={springTransitionFast}
-                  className="bg-white border border-slate-200/60 flex flex-col h-[320px] overflow-hidden rounded-xl shadow-sm hover:shadow-md hover:border-[#00A7FF]/30 transition-all duration-300 animate-border-shimmer relative group"
+                  className="bg-white border border-slate-200/60 flex flex-col h-[320px] overflow-hidden rounded-xl shadow-sm hover:shadow-sm hover:border-[#00A7FF]/30 transition-all duration-300 animate-border-shimmer relative group"
                 >
                   {/* Top color divider - Solid brand Sky Blue */}
                   <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-[#00A7FF] z-30"></div>
@@ -321,16 +321,16 @@ const Gallery = () => {
                   
                   {/* Hover detail overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 z-20">
-                    <span className="text-[#00A7FF] text-[8px] font-bold uppercase tracking-widest mb-1.5 block">
+                    <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-1.5 block">
                       {item.categoryName}
                     </span>
-                    <h4 className="text-white text-base font-bold uppercase tracking-tight mb-2">
+                    <h4 className="text-white text-base font-bold tracking-tight mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-white/80 text-[10px] leading-relaxed mb-4 font-sans font-medium">
+                    <p className="text-white/80 text-xs leading-relaxed mb-4 font-sans font-medium">
                       {item.desc}
                     </p>
-                    <div className="flex justify-between items-center pt-3 border-t border-white/10 text-[9px] font-mono text-slate-300">
+                    <div className="flex justify-between items-center pt-3 border-t border-white/10 text-sm font-mono text-slate-300">
                       <span>SPEC: {item.spec}</span>
                       <span className="flex items-center gap-1 font-bold text-[#FF5C00]">
                         <Eye className="w-3.5 h-3.5 text-[#FF5C00]" /> INSPECT
@@ -346,14 +346,14 @@ const Gallery = () => {
       </section>
 
       {/* --- 3. Feature/Video Production Cards --- */}
-      <section id="footage" className="py-24 bg-[#FAFAFA]">
+      <section id="footage" className="py-20 bg-slate-50">
         <div className="container-custom">
           
           <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               TECHNICAL FOOTAGE
             </span>
-            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight tracking-tight">
               Production Timelapse Loops
             </h2>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
@@ -372,19 +372,19 @@ const Gallery = () => {
                     <Play className="w-6 h-6 text-white fill-current" />
                   </div>
                 </div>
-                <div className="absolute top-5 left-5 bg-[#FF5C00] px-3.5 py-1.5 text-[9px] font-bold text-white uppercase tracking-widest shadow-md rounded">
+                <div className="absolute top-5 left-5 bg-[#FF5C00] px-3.5 py-1.5 text-sm font-bold text-white uppercase tracking-widest shadow-sm rounded">
                   TIMELAPSE: 120 FPS
                 </div>
               </div>
               
               <div className="p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">CNC Tooling Center Runs</h3>
-                  <p className="text-slate-505 text-xs sm:text-sm mt-3 leading-relaxed font-sans font-medium">
+                  <h3 className="text-xl font-bold text-slate-800 tracking-tight">CNC Tooling Center Runs</h3>
+                  <p className="text-slate-500 text-xs sm:text-sm mt-3 leading-relaxed font-sans font-medium">
                     Automated 5-axis tooling center fabricating complex die mold designs out of solid steel blocks, showcasing tool-path configurations.
                   </p>
                 </div>
-                <div className="pt-5 border-t border-slate-100 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider font-mono">
+                <div className="pt-5 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider font-mono">
                   <span className="text-[#00A7FF]">DURATION: 04:22</span>
                   <button className="flex items-center gap-2 text-slate-455 hover:text-[#00A7FF] transition-colors uppercase">
                     DOWNLOAD LOGS <Download className="w-4 h-4" />
@@ -404,19 +404,19 @@ const Gallery = () => {
                     <Play className="w-6 h-6 text-white fill-current" />
                   </div>
                 </div>
-                <div className="absolute top-5 left-5 bg-[#FF5C00] px-3.5 py-1.5 text-[9px] font-bold text-white uppercase tracking-widest shadow-md rounded">
+                <div className="absolute top-5 left-5 bg-[#FF5C00] px-3.5 py-1.5 text-sm font-bold text-white uppercase tracking-widest shadow-sm rounded">
                   PRESS CYCLE LAB
                 </div>
               </div>
               
               <div className="p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Press Shop Operations</h3>
-                  <p className="text-slate-505 text-xs sm:text-sm mt-3 leading-relaxed font-sans font-medium">
+                  <h3 className="text-xl font-bold text-slate-800 tracking-tight">Press Shop Operations</h3>
+                  <p className="text-slate-500 text-xs sm:text-sm mt-3 leading-relaxed font-sans font-medium">
                     High-tonnage progressive die stamping for structural chassis mount parts, capturing visual audits and sheet load offsets in real time.
                   </p>
                 </div>
-                <div className="pt-5 border-t border-slate-100 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider font-mono">
+                <div className="pt-5 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider font-mono">
                   <span className="text-[#00A7FF]">DURATION: 03:45</span>
                   <button className="flex items-center gap-2 text-slate-455 hover:text-[#00A7FF] transition-colors uppercase">
                     DOWNLOAD LOGS <Download className="w-4 h-4" />

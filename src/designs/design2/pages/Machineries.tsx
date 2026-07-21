@@ -65,10 +65,10 @@ const Machineries = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned Machineries Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-16 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Precision Stamping Factory Floor */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -179,30 +179,30 @@ const Machineries = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-md max-w-xs space-y-4 animate-border-shimmer"
+                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-sm max-w-xs space-y-4 animate-border-shimmer"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <h4 className="text-[#00A7FF] font-bold text-[10px] uppercase tracking-widest flex items-center gap-1.5">
+                  <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     SCADA SYSTEM
                   </h4>
-                  <span className="text-[9px] font-mono text-slate-400">NOMINAL</span>
+                  <span className="text-sm font-mono text-slate-400">NOMINAL</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-505">OEE Rating</span>
+                    <span className="text-slate-500">OEE Rating</span>
                     <span className="text-[#00A7FF] font-bold">94.8%</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-505">MTBF Level</span>
+                    <span className="text-slate-500">MTBF Level</span>
                     <span className="text-slate-800">8,420 Hrs</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-505">Live Load Factor</span>
+                    <span className="text-slate-500">Live Load Factor</span>
                     <span className="text-slate-800">88.5%</span>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-[8px] justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-slate-400 font-mono text-xs justify-between">
                   <span>PLANT_NODE_03</span>
                   <div className="flex items-center gap-1">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
@@ -216,14 +216,14 @@ const Machineries = () => {
       </section>
 
       {/* --- 2. Interactive CAD Factory Map Section --- */}
-      <section id="blueprint" className="py-24 bg-white border-b border-slate-200/60 relative">
+      <section id="blueprint" className="py-20 bg-white border-b border-slate-200/60 relative">
         <div className="container-custom">
           
           <div className="mb-12">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               CAD SCHEMATICS
             </span>
-            <h3 className="text-2xl font-black text-slate-905 uppercase tracking-tight">
+            <h3 className="text-2xl font-black text-slate-905 tracking-tight">
               Interactive Factory Blueprint
             </h3>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
@@ -243,10 +243,10 @@ const Machineries = () => {
                   onMouseLeave={() => setActiveZone(null)}
                   onClick={() => setActiveZone(activeZone === 'zoneA' ? null : 'zoneA')}
                   className={`absolute top-[10%] left-[5%] w-[28%] h-[38%] border border-dashed rounded-lg p-5 text-left transition-all duration-300 z-10 flex flex-col justify-between ${
-                    activeZone === 'zoneA' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-md shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
+                    activeZone === 'zoneA' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-sm shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
                   }`}
                 >
-                  <span className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneA' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone A</span>
+                  <span className={`text-sm font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneA' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone A</span>
                   <h4 className="text-sm font-bold text-slate-800 uppercase">Stamping Hub</h4>
                 </button>
 
@@ -256,13 +256,13 @@ const Machineries = () => {
                   onMouseLeave={() => setActiveZone(null)}
                   onClick={() => setActiveZone(activeZone === 'zoneB' ? null : 'zoneB')}
                   className={`absolute top-[10%] left-[36%] w-[58%] h-[38%] border border-dashed rounded-lg p-5 text-left transition-all duration-300 z-10 flex flex-col justify-between ${
-                    activeZone === 'zoneB' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-md shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
+                    activeZone === 'zoneB' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-sm shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
                   }`}
                 >
-                  <span className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneB' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone B</span>
+                  <span className={`text-sm font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneB' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone B</span>
                   <div>
                     <h4 className="text-sm font-bold text-slate-800 uppercase">Robotic Welding Cluster</h4>
-                    <span className="text-[8px] text-slate-400 mt-1 block font-mono">HOVER TO INSPECT ACTIVE PRESS CELLS</span>
+                    <span className="text-xs text-slate-400 mt-1 block font-mono">HOVER TO INSPECT ACTIVE PRESS CELLS</span>
                   </div>
                 </button>
 
@@ -272,10 +272,10 @@ const Machineries = () => {
                   onMouseLeave={() => setActiveZone(null)}
                   onClick={() => setActiveZone(activeZone === 'zoneC' ? null : 'zoneC')}
                   className={`absolute bottom-[10%] left-[5%] w-[38%] h-[38%] border border-dashed rounded-lg p-5 text-left transition-all duration-300 z-10 flex flex-col justify-between ${
-                    activeZone === 'zoneC' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-md shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
+                    activeZone === 'zoneC' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-sm shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
                   }`}
                 >
-                  <span className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneC' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone C</span>
+                  <span className={`text-sm font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneC' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone C</span>
                   <h4 className="text-sm font-bold text-slate-800 uppercase">Metrology & QC Lab</h4>
                 </button>
 
@@ -285,16 +285,16 @@ const Machineries = () => {
                   onMouseLeave={() => setActiveZone(null)}
                   onClick={() => setActiveZone(activeZone === 'zoneD' ? null : 'zoneD')}
                   className={`absolute bottom-[10%] left-[46%] w-[48%] h-[38%] border border-dashed rounded-lg p-5 text-left transition-all duration-300 z-10 flex flex-col justify-between ${
-                    activeZone === 'zoneD' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-md shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
+                    activeZone === 'zoneD' ? 'bg-[#00A7FF]/10 border-[#00A7FF] shadow-sm shadow-[#00A7FF]/5' : 'border-slate-300 hover:border-[#00A7FF]'
                   }`}
                 >
-                  <span className={`text-[9px] font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneD' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone D</span>
+                  <span className={`text-sm font-mono font-bold uppercase tracking-wider ${activeZone === 'zoneD' ? 'text-[#00A7FF]' : 'text-slate-400'}`}>Zone D</span>
                   <h4 className="text-sm font-bold text-slate-800 uppercase">Final Assembly</h4>
                 </button>
 
                 {/* Midways Center Logistics */}
                 <div className="absolute top-[48%] left-[44%] w-[2%] h-[4%] flex items-center justify-center opacity-30">
-                  <span className="text-[8px] font-mono text-slate-300 uppercase tracking-widest italic font-bold">LOGISTICS</span>
+                  <span className="text-xs font-mono text-slate-300 uppercase tracking-widest italic font-bold">LOGISTICS</span>
                 </div>
               </div>
             </div>
@@ -312,18 +312,18 @@ const Machineries = () => {
                   onClick={() => setActiveZone(activeZone === zone.id ? null : zone.id as any)}
                   className={`w-full py-4 px-6 border rounded-lg text-left transition-all duration-300 ${
                     activeZone === zone.id 
-                      ? 'bg-[#FF5C00] text-white border-[#FF5C00] shadow-md shadow-[#FF5C00]/20' 
+                      ? 'bg-[#FF5C00] text-white border-[#FF5C00] shadow-sm shadow-[#FF5C00]/20' 
                       : 'bg-white border-slate-200/80 text-slate-800 hover:border-[#00A7FF]'
                   }`}
                 >
-                  <span className={`text-[10px] font-mono block uppercase ${activeZone === zone.id ? 'text-white/80' : 'text-slate-400'}`}>Telemetry Option</span>
+                  <span className={`text-xs font-mono block uppercase ${activeZone === zone.id ? 'text-white/80' : 'text-slate-400'}`}>Telemetry Option</span>
                   <span className="text-sm font-bold block">{zone.name}</span>
                 </button>
               ))}
             </div>
 
             <div className="lg:col-span-4 h-full">
-              <div className="bg-[#020522] border border-white/10 p-8 rounded-xl h-full shadow-2xl relative min-h-[220px] flex flex-col justify-between text-white">
+              <div className="bg-[#020522] border border-white/10 p-8 rounded-xl h-full shadow-lg relative min-h-[220px] flex flex-col justify-between text-white">
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF]"></div>
                 
                 <AnimatePresence mode="wait">
@@ -337,20 +337,20 @@ const Machineries = () => {
                       className="space-y-4"
                     >
                       <div>
-                        <span className="text-[#00A7FF] text-[9px] font-mono font-bold uppercase tracking-[0.25em] mb-1 block">ZONE DETAILS</span>
-                        <h4 className="text-base font-bold text-white uppercase tracking-tight">{zoneDetails[activeZone].title}</h4>
+                        <span className="text-[#00A7FF] text-sm font-mono font-bold uppercase tracking-widest mb-1 block">ZONE DETAILS</span>
+                        <h4 className="text-base font-bold text-white tracking-tight">{zoneDetails[activeZone].title}</h4>
                       </div>
                       <div className="space-y-2">
                         <div>
-                          <p className="text-[8px] font-bold text-slate-400 uppercase tracking-wider">Operational Units</p>
+                          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Operational Units</p>
                           <p className="text-xs text-slate-100 font-bold">{zoneDetails[activeZone].machines}</p>
                         </div>
                         <div>
-                          <p className="text-[8px] font-bold text-slate-400 uppercase tracking-wider">Specifications Matrix</p>
+                          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Specifications Matrix</p>
                           <p className="text-xs text-slate-300 font-medium font-sans leading-relaxed">{zoneDetails[activeZone].specs}</p>
                         </div>
                       </div>
-                      <div className="pt-4 border-t border-white/10 flex justify-between items-center text-[9px] font-mono">
+                      <div className="pt-4 border-t border-white/10 flex justify-between items-center text-sm font-mono">
                         <span className="text-slate-400">OEE Rating Target</span>
                         <span className="text-[#00A7FF] font-bold">{zoneDetails[activeZone].nominal}</span>
                       </div>
@@ -364,7 +364,7 @@ const Machineries = () => {
                     >
                       <Layers className="w-8 h-8 text-slate-500 stroke-[1.5]" />
                       <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Select a Zone</h4>
-                      <p className="text-[11px] text-slate-500 font-sans max-w-[200px] leading-relaxed">
+                      <p className="text-sm text-slate-500 font-sans max-w-[200px] leading-relaxed">
                         Hover or click any segment of the factory floor to inspect active machinery specs.
                       </p>
                     </motion.div>
@@ -379,7 +379,7 @@ const Machineries = () => {
       </section>
 
       {/* --- 3. SCADA Equipment Reliability Stats Section --- */}
-      <section id="reliability" className="py-24 bg-[#FAFAFA] border-b border-slate-200/60">
+      <section id="reliability" className="py-20 bg-slate-50 border-b border-slate-200/60">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
@@ -393,10 +393,10 @@ const Machineries = () => {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                   <div>
-                    <p className="text-[9px] font-bold text-slate-455 uppercase tracking-widest mb-3">Mean Time Between Failure (MTBF)</p>
+                    <p className="text-sm font-bold text-slate-455 uppercase tracking-widest mb-3">Mean Time Between Failure (MTBF)</p>
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-4xl font-black text-slate-900 tracking-tight">8,420</span>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Hours</span>
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Hours</span>
                     </div>
                     {/* Solid Sky Blue progress bar */}
                     <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -405,10 +405,10 @@ const Machineries = () => {
                   </div>
                   
                   <div>
-                    <p className="text-[9px] font-bold text-slate-455 uppercase tracking-widest mb-3">Overall Equipment Effectiveness (OEE)</p>
+                    <p className="text-sm font-bold text-slate-455 uppercase tracking-widest mb-3">Overall Equipment Effectiveness (OEE)</p>
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-4xl font-black text-slate-900 tracking-tight">94.8</span>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">%</span>
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">%</span>
                     </div>
                     {/* Solid Orange progress bar */}
                     <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -418,7 +418,7 @@ const Machineries = () => {
                 </div>
               </div>
 
-              <div className="mt-10 pt-6 border-t border-slate-100 flex justify-between items-center text-[9px] font-mono">
+              <div className="mt-10 pt-6 border-t border-slate-100 flex justify-between items-center text-sm font-mono">
                 <span className="text-slate-400 font-bold uppercase">Real-time data synced from SCADA Control Deck</span>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -428,10 +428,10 @@ const Machineries = () => {
             </div>
 
             {/* Capacity Download Deck - Clean Solid Royal Blue Layout */}
-            <div className="bg-[#000EDD] p-10 text-white rounded-xl flex flex-col justify-between shadow-md relative overflow-hidden">
+            <div className="bg-[#000EDD] p-10 text-white rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
               <div>
-                <span className="text-[#00A7FF] text-[9px] font-bold uppercase tracking-widest mb-4 block">TECHNICAL RESOURCE</span>
+                <span className="text-[#00A7FF] text-sm font-bold uppercase tracking-widest mb-4 block">TECHNICAL RESOURCE</span>
                 <h3 className="text-2xl font-black mb-4 leading-tight tracking-tight uppercase">Full Capacity Deck</h3>
                 <p className="text-xs text-white/80 leading-relaxed font-sans font-medium">
                   Download detailed specifications, tonnage charts, and layout matrices of our 150+ operational press and welding lines.
@@ -441,7 +441,7 @@ const Machineries = () => {
                 <div className="bg-white/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-white/10">
                   <Download className="w-6 h-6 text-white" />
                 </div>
-                <button className="w-full bg-white text-[#000EDD] hover:bg-[#00A7FF] hover:text-white py-3.5 text-[11px] font-bold uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2 shadow-sm border border-transparent hover:border-[#FF5C00]">
+                <button className="w-full bg-white text-[#000EDD] hover:bg-[#00A7FF] hover:text-white py-3.5 text-sm font-bold uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2 shadow-sm border border-transparent hover:border-[#FF5C00]">
                   Download capacity PDF <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -452,14 +452,14 @@ const Machineries = () => {
       </section>
 
       {/* --- 4. Machinery Asset List Grid --- */}
-      <section className="py-24 bg-white border-b border-slate-200/60">
+      <section className="py-20 bg-white border-b border-slate-200/60">
         <div className="container-custom">
           
           <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block">
+            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
               ASSET INVENTORY
             </span>
-            <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight">
+            <h3 className="text-2xl font-black text-slate-900 tracking-tight">
               Machinery Asset Catalog
             </h3>
             <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
@@ -543,7 +543,7 @@ const Machineries = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransitionFast}
-                className="bg-white border border-slate-200/60 flex flex-col h-full overflow-hidden rounded-xl shadow-sm hover:shadow-md hover:border-[#00A7FF]/20 transition-all duration-300 animate-border-shimmer group relative"
+                className="bg-white border border-slate-200/60 flex flex-col h-full overflow-hidden rounded-xl shadow-sm hover:shadow-sm hover:border-[#00A7FF]/20 transition-all duration-300 animate-border-shimmer group relative"
               >
                 {/* Top color accent divider - Solid brand Sky Blue */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
@@ -553,13 +553,13 @@ const Machineries = () => {
                 </div>
                 <div className="p-6 flex flex-col justify-between flex-grow space-y-6">
                   <div>
-                    <span className="text-[9px] font-bold text-[#00A7FF] uppercase tracking-widest mb-1.5 block">{machine.type}</span>
-                    <h4 className="text-base font-bold text-slate-800 uppercase tracking-tight leading-tight">{machine.name}</h4>
+                    <span className="text-sm font-bold text-[#00A7FF] uppercase tracking-widest mb-1.5 block">{machine.type}</span>
+                    <h4 className="text-base font-bold text-slate-800 tracking-tight leading-tight">{machine.name}</h4>
                     <p className="text-slate-500 text-xs mt-3 leading-relaxed font-sans font-medium">{machine.desc}</p>
                   </div>
                   <div className="flex justify-between items-center pt-5 border-t border-slate-100">
                     <span className="text-xs font-bold text-slate-900 font-sans">{machine.spec}</span>
-                    <span className="text-[9px] font-mono font-bold text-slate-350 uppercase tracking-wider">{machine.origin}</span>
+                    <span className="text-sm font-mono font-bold text-slate-350 uppercase tracking-wider">{machine.origin}</span>
                   </div>
                 </div>
               </motion.div>

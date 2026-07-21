@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="py-20 bg-slate-950 text-white border-t border-white/5 relative">
+    <footer className="py-20 glass-panel-dark text-white border-t border-white/5 relative">
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff01_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
       
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">

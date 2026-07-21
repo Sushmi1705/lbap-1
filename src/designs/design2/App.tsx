@@ -9,6 +9,10 @@ import CSR from './pages/CSR';
 import Gallery from './pages/Gallery';
 import Career from './pages/Career';
 import Contact from './pages/Contact';
+import AutomotivePressComponents from './pages/AutomotivePressComponents';
+import AutomotiveFabricationComponents from './pages/AutomotiveFabricationComponents';
+import NonAutomotiveParts from './pages/NonAutomotiveParts';
+import PressTools from './pages/PressTools';
 
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
@@ -23,6 +27,10 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/product" element={<PageTransition><Products /></PageTransition>} />
+        <Route path="/products/automotive-press-components" element={<PageTransition><AutomotivePressComponents /></PageTransition>} />
+        <Route path="/products/automotive-fabrication-components" element={<PageTransition><AutomotiveFabricationComponents /></PageTransition>} />
+        <Route path="/products/non-automotive-parts" element={<PageTransition><NonAutomotiveParts /></PageTransition>} />
+        <Route path="/products/press-tools" element={<PageTransition><PressTools /></PageTransition>} />
         <Route path="/machineries" element={<PageTransition><Machineries /></PageTransition>} />
         <Route path="/csr" element={<PageTransition><CSR /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
