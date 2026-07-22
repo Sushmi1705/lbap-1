@@ -32,6 +32,8 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
   const elementRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    // Capture ref value inside the effect so cleanup always has the correct reference
+    const element = elementRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -42,8 +44,8 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
       { threshold: 0.1 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => observer.disconnect();

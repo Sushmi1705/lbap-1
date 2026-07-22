@@ -5,7 +5,11 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Delay matches PageTransition exit duration (0.2s) + small buffer
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 220);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;

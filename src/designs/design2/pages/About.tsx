@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
   Settings, 
@@ -30,6 +30,8 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
   const elementRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    // Capture ref value inside the effect so cleanup always has the correct reference
+    const element = elementRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -40,8 +42,8 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
       { threshold: 0.1 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => observer.disconnect();
@@ -83,10 +85,6 @@ const About = () => {
   const [selectedTimelineIndex, setSelectedTimelineIndex] = useState(0);
   const [activeRegion, setActiveRegion] = useState<'apac' | 'emea' | 'americas'>('apac');
 
-  const { scrollY } = useScroll();
-  const heroBgY = useTransform(scrollY, [0, 1000], [0, 300]);
-  const statsTiltX = useTransform(scrollY, [0, 500], [0, 15]);
-  const statsTiltY = useTransform(scrollY, [0, 500], [0, -15]);
 
   const springTransition = { type: "spring", stiffness: 70, damping: 18 };
   const springTransitionFast = { type: "spring", stiffness: 200, damping: 22 };
@@ -184,9 +182,8 @@ const About = () => {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          style={{ y: heroBgY, scale: 1.15 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
-          className="absolute inset-0 z-0 pointer-events-none origin-top"
+          className="absolute inset-0 z-0 pointer-events-none"
         >
           <img 
             src="/about_hero_bg.png" 
@@ -263,7 +260,7 @@ const About = () => {
             <div className="lg:col-span-4 flex justify-center lg:justify-end" style={{ perspective: "1000px" }}>
               <motion.div 
                 variants={fadeInUp}
-                style={{ rotateX: statsTiltX, rotateY: statsTiltY }}
+                style={{}}
                 whileHover={{ scale: 1.05, rotateX: 0, rotateY: 0 }}
                 transition={springTransitionFast}
                 className="relative w-64 h-64 rounded-full border border-zinc-200/80 flex flex-col items-center justify-center p-8 bg-white backdrop-blur-md shadow-2xl hover:shadow-[0_20px_50px_rgba(0,167,255,0.25)] hover:border-[#2563EB]/50 transition-all duration-500 animate-border-shimmer group z-20"

@@ -69,14 +69,12 @@ const Header = () => {
   ];
 
   return (
-    <nav className={`sticky top-0 w-full z-[100] transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm ${
-      scrolled ? 'py-2.5' : 'py-4'
+    <nav className={`sticky top-0 w-full z-[100] transition-shadow duration-300 bg-white/95 backdrop-blur-md border-b py-3 ${
+      scrolled ? 'border-slate-200/80 shadow-md' : 'border-slate-200/40 shadow-sm'
     }`}>
       <div className="container-custom flex justify-between items-center relative">
         <div className="flex items-center gap-3">
-          <div className={`transition-all duration-300 flex items-center justify-center shrink-0 ${
-            scrolled ? 'h-14 w-28' : 'h-18 w-36'
-          }`}>
+          <div className="flex items-center justify-center shrink-0 h-14 w-28">
             <img src="/logo.png" alt="LAB Automotive Logo" className="h-full w-full object-contain" />
           </div>
         </div>

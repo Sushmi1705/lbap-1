@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Mail, 
@@ -21,6 +21,14 @@ import {
 const Contact = () => {
   const [queryType, setQueryType] = useState<'rfq' | 'supplier' | 'technical'>('rfq');
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const submitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clean up any pending timer when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (submitTimerRef.current) clearTimeout(submitTimerRef.current);
+    };
+  }, []);
 
   const springTransition = { type: "spring", stiffness: 70, damping: 18 };
   const springTransitionFast = { type: "spring", stiffness: 200, damping: 22 };
@@ -47,7 +55,8 @@ const Contact = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
-    setTimeout(() => {
+    if (submitTimerRef.current) clearTimeout(submitTimerRef.current);
+    submitTimerRef.current = setTimeout(() => {
       setFormSubmitted(false);
     }, 5000);
   };

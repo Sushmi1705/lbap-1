@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Phone, Clock, Activity, ChevronRight } from 'lucide-react';
 
@@ -45,17 +46,28 @@ const Footer = () => {
                 Quick Navigation
               </h4>
               <ul className="space-y-3 flex flex-col items-start lg:items-start w-fit mx-auto lg:mx-0">
-                {['HOME', 'ABOUT US', 'PRODUCT', 'CAREER', 'CLIENT', 'CONTACT US'].map((link) => (
-                  <li key={link}>
-                    <motion.a 
-                      whileHover={{ x: 6, color: "#00A7FF" }}
+                {[
+                  { label: 'HOME', path: '/' },
+                  { label: 'ABOUT US', path: '/about' },
+                  { label: 'PRODUCT', path: '/product' },
+                  { label: 'CAREER', path: '/career' },
+                  { label: 'GALLERY', path: '/gallery' },
+                  { label: 'CONTACT US', path: '/contact' },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <motion.div
+                      whileHover={{ x: 6 }}
                       transition={linkTransition}
-                      href="#" 
-                      className="text-[12px] text-slate-500 hover:text-[#00A7FF] transition-colors font-bold uppercase tracking-wider flex items-center gap-1 group justify-start lg:justify-start"
+                      className="inline-block"
                     >
-                      <ChevronRight className="w-3 h-3 text-[#FF5C00] opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
-                      {link}
-                    </motion.a>
+                      <Link
+                        to={item.path}
+                        className="text-[12px] text-slate-500 hover:text-[#00A7FF] transition-colors font-bold uppercase tracking-wider flex items-center gap-1 group justify-start lg:justify-start"
+                      >
+                        <ChevronRight className="w-3 h-3 text-[#FF5C00] opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
+                        {item.label}
+                      </Link>
+                    </motion.div>
                   </li>
                 ))}
               </ul>
@@ -137,8 +149,8 @@ const Footer = () => {
           </p>
           
           <div className="flex gap-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-[#00A7FF] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#00A7FF] transition-colors">Terms of Service</a>
+            <Link to="/contact" className="hover:text-[#00A7FF] transition-colors">Privacy Policy</Link>
+            <Link to="/contact" className="hover:text-[#00A7FF] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
