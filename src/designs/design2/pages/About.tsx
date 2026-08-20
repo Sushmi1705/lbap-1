@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Settings, 
-  Box, 
-  Database, 
-  Cpu, 
-  Mail, 
-  MapPin, 
-  Phone, 
-  Globe, 
-  Activity, 
-  ShieldCheck, 
-  Zap, 
-  Layers, 
+import {
+  ArrowRight,
+  Settings,
+  Box,
+  Database,
+  Cpu,
+  Mail,
+  MapPin,
+  Phone,
+  Globe,
+  Activity,
+  ShieldCheck,
+  Zap,
+  Layers,
   Award,
   CheckCircle2,
   TrendingUp,
@@ -58,7 +58,7 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
       const duration = 1.5;
       const totalMiliseconds = duration * 1000;
       const incrementTime = Math.max(Math.floor(totalMiliseconds / end), 12);
-      
+
       const timer = setInterval(() => {
         const step = Math.ceil(end / 80);
         start += step;
@@ -101,8 +101,8 @@ const About = () => {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 35 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: springTransition
     }
@@ -115,37 +115,37 @@ const About = () => {
   };
 
   const timelineData = [
-    { 
-      year: "1994", 
-      title: "Founding & Press Shop Node Setup", 
+    {
+      year: "1994",
+      title: "Founding & Press Shop Node Setup",
       desc: "LBAP starts local operations in South India, setting up 3 primary manual mechanical press frames to supply basic steel brackets to truck and trailer builders.",
-      stats: "3 Press Units", 
-      highlight: "Steel Bracket Forming", 
-      badge: "ORIGIN" 
+      stats: "3 Press Units",
+      highlight: "Steel Bracket Forming",
+      badge: "ORIGIN"
     },
-    { 
-      year: "2004", 
-      title: "Automated Line Expansion & IATF Certification", 
+    {
+      year: "2004",
+      title: "Automated Line Expansion & IATF Certification",
       desc: "We configure our first multi-station progressive stamping line, integrating automatic coil decHandlers and acquiring global standard quality clearances.",
-      stats: "15T Press Tonnage", 
-      highlight: "Progressive Die Integration", 
-      badge: "EXPANSION" 
+      stats: "15T Press Tonnage",
+      highlight: "Progressive Die Integration",
+      badge: "EXPANSION"
     },
-    { 
-      year: "2014", 
-      title: "Cleanroom Metrology & Robotic Assembly Loops", 
+    {
+      year: "2014",
+      title: "Cleanroom Metrology & Robotic Assembly Loops",
       desc: "Establishment of specialized CMM cleanroom labs and integration of 6-axis ABB robotic spot-welding cells, securing Tier-1 supplier status with international automotive OEMs.",
-      stats: "99.8% QA Pass", 
-      highlight: "Sub-Micron Laser CMM Quality", 
-      badge: "PRECISION" 
+      stats: "99.8% QA Pass",
+      highlight: "Sub-Micron Laser CMM Quality",
+      badge: "PRECISION"
     },
-    { 
-      year: "2024", 
-      title: "Green Industrial Systems Integration", 
+    {
+      year: "2024",
+      title: "Green Industrial Systems Integration",
       desc: "Rollout of 3.5MW rooftop solar power array grids across plants, achieving 98% Zero Liquid Discharge water circularity and initiating net-zero automotive stamping.",
-      stats: "3.5MW Solar Output", 
-      highlight: "Decarbonized Manufacturing", 
-      badge: "SUSTAINABILITY" 
+      stats: "3.5MW Solar Output",
+      highlight: "Decarbonized Manufacturing",
+      badge: "SUSTAINABILITY"
     }
   ];
 
@@ -175,19 +175,19 @@ const About = () => {
 
   return (
     <div className="bg-zinc-50 text-zinc-800 font-sans selection:bg-[#2563EB]/20 selection:text-[#2563EB] overflow-x-hidden min-h-screen">
-      
+
       {/* --- 1. Viewport-Aligned About Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#0F172A] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(70vh-80px)] lg:h-[calc(70vh-80px)] flex items-center py-14 lg:py-0 bg-[#0F172A] border-b border-white/10 overflow-hidden">
         {/* Background - Industrial stamping plant with scroll-linked parallax */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
           className="absolute inset-0 z-0 pointer-events-none"
         >
-          <img 
-            src="/about_hero_bg.png" 
-            alt="Robotic manufacturing line telemetry dashboard" 
+          <img
+            src="/about_hero_bg.png"
+            alt="Robotic manufacturing line telemetry dashboard"
             className="w-full h-full object-cover object-center opacity-90"
           />
           {/* Logo color tint overlay - faded dark blue with variable transparency for text readability */}
@@ -201,20 +201,20 @@ const About = () => {
         <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#2563EB]/10 rounded-full blur-[120px] pointer-events-none z-1"></div>
 
         <div className="container-custom relative z-10">
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.05 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           >
-            
-            <div className="lg:col-span-8 space-y-8">
+
+            <div className="lg:col-span-8 space-y-4">
 
 
-              <motion.h1 
+              <motion.h1
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-white"
               >
                 <span>Crafting The Future of</span>
                 <br />
@@ -223,33 +223,32 @@ const About = () => {
                 </span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 variants={fadeInUp}
-                className="text-zinc-200 text-sm sm:text-base leading-relaxed max-w-2xl font-medium font-sans"
+                className="text-zinc-200 text-xs sm:text-sm leading-relaxed max-w-2xl font-medium font-sans"
               >
                 Laxmi Balaji Automotive Products Pvt. Ltd. (LBAP) represents three decades of zero-defect metal stamping, clinical tool design, and robotic component sub-assemblies. As a Tier-1 partner to global automotive OEMs, we design for performance, safety, and scale.
               </motion.p>
 
-              {/* Action Buttons - Solid color themes */}
               <motion.div
                 variants={fadeInUp}
-                className="flex flex-wrap gap-4 pt-2"
+                className="flex flex-wrap gap-3"
               >
-                <motion.a 
-                  whileHover={{ y: -3, scale: 1.02 }}
+                <motion.a
+                  whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
-                  href="#timeline" 
-                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#2563EB] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
+                  href="#timeline"
+                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#2563EB] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded transition-colors"
                 >
-                  Explore Our Legacy <ArrowRight className="w-4 h-4" />
+                  Explore Our Legacy <ArrowRight className="w-3.5 h-3.5" />
                 </motion.a>
-                <motion.a 
-                  whileHover={{ y: -3, scale: 1.02 }}
+                <motion.a
+                  whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
-                  href="#reach" 
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1E3A8A] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  href="#reach"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1E3A8A] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded transition-colors"
                 >
                   Global Operations
                 </motion.a>
@@ -258,24 +257,24 @@ const About = () => {
 
             {/* Hero Interactive Stats Circle */}
             <div className="lg:col-span-4 flex justify-center lg:justify-end" style={{ perspective: "1000px" }}>
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 style={{}}
                 whileHover={{ scale: 1.05, rotateX: 0, rotateY: 0 }}
                 transition={springTransitionFast}
-                className="relative w-64 h-64 rounded-full border border-zinc-200/80 flex flex-col items-center justify-center p-8 bg-white backdrop-blur-md shadow-2xl hover:shadow-[0_20px_50px_rgba(0,167,255,0.25)] hover:border-[#2563EB]/50 transition-all duration-500 animate-border-shimmer group z-20"
+                className="relative w-48 h-48 rounded-full border border-zinc-200/80 flex flex-col items-center justify-center p-6 bg-white backdrop-blur-md shadow-2xl hover:shadow-[0_20px_50px_rgba(0,167,255,0.25)] hover:border-[#2563EB]/50 transition-all duration-500 animate-border-shimmer group z-20"
               >
                 <div className="absolute inset-0 rounded-full border border-dashed border-[#2563EB]/30 animate-[spin_40s_linear_infinite] group-hover:border-[#FF5C00]/50 transition-colors duration-500"></div>
                 <div className="absolute inset-2 rounded-full border border-dashed border-[#1E3A8A]/10 animate-[spin_60s_linear_infinite_reverse]"></div>
-                
-                <span className="text-6xl font-black tracking-tighter leading-none">
+
+                <span className="text-4xl font-black tracking-tighter leading-none">
                   <AnimatedCounter value={30} suffix="+" />
                 </span>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] mt-4 text-center leading-normal">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] mt-2 text-center leading-normal">
                   Years of Sector Reputation
                 </span>
-                
-                <div className="absolute -bottom-3.5 bg-zinc-50 px-3 py-1 border border-zinc-200/60 rounded text-sm font-sans font-bold text-zinc-500 shadow-sm">
+
+                <div className="absolute -bottom-3 bg-zinc-50 px-2 py-0.5 border border-zinc-200/60 rounded text-xs font-sans font-bold text-zinc-500 shadow-sm">
                   Hosur Plant
                 </div>
               </motion.div>
@@ -288,7 +287,7 @@ const About = () => {
       <section className="py-24 bg-zinc-50 border-b border-zinc-200/60 relative overflow-hidden">
         {/* Decorative Grid Patterns */}
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.05)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0"></div>
-        <motion.div 
+        <motion.div
           animate={pulseAnimation}
           className="absolute right-0 top-0 w-[600px] h-[600px] bg-[#2563EB]/5 rounded-full blur-[120px] pointer-events-none z-0"
         ></motion.div>
@@ -306,7 +305,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Purpose Card */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -326,7 +325,7 @@ const About = () => {
             </motion.div>
 
             {/* Vision Card */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -347,7 +346,7 @@ const About = () => {
             </motion.div>
 
             {/* Mission Card */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -372,8 +371,8 @@ const About = () => {
       {/* --- Global Infrastructure (Bento Grid) --- */}
       <section className="py-20 bg-zinc-50 border-b border-zinc-200/60 relative">
         <div className="container-custom">
-          
-          <motion.div 
+
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -392,16 +391,16 @@ const About = () => {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-12 gap-6"
           >
-            
+
             {/* Bento Card 1: Total Footprint */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               whileHover={{ y: -5, scale: 1.005 }}
               transition={springTransitionFast}
@@ -452,9 +451,9 @@ const About = () => {
 
             {/* Info Cards Column */}
             <div className="md:col-span-4 flex flex-col gap-6">
-              
+
               {/* Bento Card 2: Active Locations */}
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.015 }}
                 transition={springTransitionFast}
@@ -475,7 +474,7 @@ const About = () => {
               </motion.div>
 
               {/* Bento Card 3: Workforce Scale */}
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.015 }}
                 transition={springTransitionFast}
@@ -506,8 +505,8 @@ const About = () => {
       <section className="py-20 bg-white relative border-b border-zinc-200/60">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -519,15 +518,15 @@ const About = () => {
                   METALLURGICAL LOGIC
                 </span>
                 <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight leading-[1.1]">
-                  In-House CAD Synthesis <br/> & Tooling Room
+                  In-House CAD Synthesis <br /> & Tooling Room
                 </h2>
                 <div className="w-20 h-1 bg-[#FF5C00] mt-6"></div>
               </div>
-              
+
               <p className="text-zinc-500 text-base leading-relaxed font-medium font-sans">
                 By eliminating third-party design vendors, we manage tool fabrication from conceptual drawing down to final press calibrators. Our tool designers utilize advanced progressive stress-simulations to optimize material yield and structural stability.
               </p>
-              
+
               <div className="space-y-4 pt-4 border-t border-zinc-100">
                 <div className="flex items-center gap-4 text-sm text-zinc-700 font-bold">
                   <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
@@ -552,7 +551,7 @@ const About = () => {
 
             {/* Interactive Blueprint SVG (Highly detailed CAD style with scanning sweep line) */}
             <div className="lg:col-span-7">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -561,7 +560,7 @@ const About = () => {
               >
                 {/* Tech blueprint grids */}
                 <div className="absolute inset-0 bg-[radial-gradient(#00a7ff0a_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
-                
+
                 {/* Scanning sweep bar animation - Solid line with opacity */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#2563EB]/60 animate-scan-sweep pointer-events-none z-10"></div>
 
@@ -584,7 +583,7 @@ const About = () => {
                   {/* Mechanical press frame lines */}
                   <rect x="15" y="10" width="70" height="30" fill="none" stroke="currentColor" strokeWidth="0.25" strokeDasharray="3 1" />
                   <rect x="17" y="12" width="66" height="26" fill="none" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1" />
-                  
+
                   {/* Punch Stage 1 (Circular cutouts) */}
                   <circle cx="28" cy="25" r="5" fill="none" stroke="currentColor" strokeWidth="0.4" />
                   <circle cx="28" cy="25" r="7" fill="none" stroke="currentColor" strokeWidth="0.15" strokeDasharray="1" />
@@ -594,13 +593,13 @@ const About = () => {
                   {/* Punch Stage 2 (Main forming segment) */}
                   <circle cx="50" cy="25" r="6.5" fill="none" stroke="#2563EB" strokeWidth="0.65" />
                   <circle cx="50" cy="25" r="3" fill="none" stroke="#2563EB" strokeWidth="0.3" />
-                  <motion.circle 
-                    cx="50" 
-                    cy="25" 
-                    r="9.5" 
-                    fill="none" 
-                    stroke="#2563EB" 
-                    strokeWidth="0.25" 
+                  <motion.circle
+                    cx="50"
+                    cy="25"
+                    r="9.5"
+                    fill="none"
+                    stroke="#2563EB"
+                    strokeWidth="0.25"
                     strokeDasharray="2 2"
                     animate={{ rotate: 360 }}
                     transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -627,11 +626,11 @@ const About = () => {
                   <text x="94" y="26" fontSize="2" fill="currentColor" textAnchor="start" fontFamily="monospace" transform="rotate(90 94 26)">HEIGHT: 30.00mm</text>
 
                   {/* Material Feed Progressive Path */}
-                  <motion.path 
-                    d="M 10 37 Q 25 37 28 29 T 50 17 T 72 29 T 90 37" 
-                    fill="none" 
-                    stroke="rgba(0, 167, 255, 0.45)" 
-                    strokeWidth="0.65" 
+                  <motion.path
+                    d="M 10 37 Q 25 37 28 29 T 50 17 T 72 29 T 90 37"
+                    fill="none"
+                    stroke="rgba(0, 167, 255, 0.45)"
+                    strokeWidth="0.65"
                     strokeDasharray="100"
                     strokeDashoffset="100"
                     animate={{ strokeDashoffset: 0 }}
@@ -654,7 +653,7 @@ const About = () => {
       {/* --- Interactive Milestones Timeline --- */}
       <section id="timeline" className="py-20 bg-zinc-50 relative border-b border-zinc-200/60">
         <div className="container-custom">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
               CHRONOLOGY LOG
@@ -668,7 +667,7 @@ const About = () => {
             </p>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -679,34 +678,32 @@ const About = () => {
             <div className="flex justify-between items-center relative pb-8 mb-16">
               {/* Thicker, darker background track line */}
               <div className="absolute bottom-[9px] left-0 right-0 h-[3px] bg-zinc-300 rounded-full"></div>
-              
+
               {timelineData.map((item, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedTimelineIndex(idx)}
                   className="flex flex-col items-center relative group z-10 w-24"
                 >
-                  <span className={`text-sm font-mono tracking-widest mb-4 transition-all duration-300 ${
-                    selectedTimelineIndex === idx ? 'text-[#1E3A8A] font-black scale-110' : 'text-zinc-500 font-bold group-hover:text-zinc-800 group-hover:scale-105'
-                  }`}>
+                  <span className={`text-sm font-mono tracking-widest mb-4 transition-all duration-300 ${selectedTimelineIndex === idx ? 'text-[#1E3A8A] font-black scale-110' : 'text-zinc-500 font-bold group-hover:text-zinc-800 group-hover:scale-105'
+                    }`}>
                     {item.year}
                   </span>
-                  
+
                   {/* Sliding underline active bar for labels */}
                   {selectedTimelineIndex === idx && (
-                    <motion.div 
+                    <motion.div
                       layoutId="activeYearUnderline"
                       className="absolute bottom-8 left-1/4 right-1/4 h-1 bg-[#1E3A8A] rounded-full"
                       transition={springTransitionFast}
                     />
                   )}
 
-                  <div className={`w-[22px] h-[22px] rounded-full border-[4px] transition-all duration-300 flex items-center justify-center relative bg-zinc-50 z-20 ${
-                    selectedTimelineIndex === idx ? 'border-[#1E3A8A] shadow-md scale-110' : 'border-zinc-300 group-hover:border-zinc-400'
-                  }`}>
+                  <div className={`w-[22px] h-[22px] rounded-full border-[4px] transition-all duration-300 flex items-center justify-center relative bg-zinc-50 z-20 ${selectedTimelineIndex === idx ? 'border-[#1E3A8A] shadow-md scale-110' : 'border-zinc-300 group-hover:border-zinc-400'
+                    }`}>
                     {/* Morphing active bullet circle using layoutId */}
                     {selectedTimelineIndex === idx ? (
-                      <motion.div 
+                      <motion.div
                         layoutId="activeBulletCircle"
                         className="w-2.5 h-2.5 bg-[#1E3A8A] rounded-full"
                         transition={springTransitionFast}
@@ -748,7 +745,7 @@ const About = () => {
                       {timelineData[selectedTimelineIndex].desc}
                     </p>
                   </div>
-                  
+
                   <div className="border-t border-zinc-100 pt-6 flex flex-wrap gap-6 items-center">
                     <div>
                       <span className="text-xs font-mono text-zinc-400 font-bold uppercase tracking-widest block mb-2">METALLURGICAL KEYNOTE</span>
@@ -780,9 +777,9 @@ const About = () => {
       {/* --- Strategic Reach (Interactive Map Layout) --- */}
       <section id="reach" className="py-20 bg-white relative border-b border-zinc-200/60">
         <div className="container-custom">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
+
             {/* Map Interaction Details */}
             <div className="lg:col-span-5 space-y-10">
               <div>
@@ -790,7 +787,7 @@ const About = () => {
                   GEOGRAPHIC LOGISTICS
                 </span>
                 <h2 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight leading-[1.1]">
-                  Localized Operations,<br/> Universal Standards
+                  Localized Operations,<br /> Universal Standards
                 </h2>
                 <div className="w-20 h-1 bg-[#FF5C00] mt-6"></div>
                 <p className="text-zinc-500 text-base mt-6 font-medium font-sans leading-relaxed">
@@ -810,7 +807,7 @@ const About = () => {
                       {region}
                     </span>
                     {activeRegion === region && (
-                      <motion.div 
+                      <motion.div
                         layoutId="activeMapRegionTab"
                         className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] rounded-lg shadow-md z-[-1]"
                         transition={springTransitionFast}
@@ -831,7 +828,7 @@ const About = () => {
                   className="bg-white border border-zinc-100 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.12)] hover:border-[#2563EB]/20 transition-all duration-300 relative group overflow-hidden"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl z-20"></div>
-                  
+
                   <div className="flex justify-between items-center border-b border-zinc-100 pb-5 mb-5">
                     <h4 className="text-sm font-bold uppercase text-zinc-900 tracking-wide">
                       {regionalData[activeRegion].title}
@@ -840,7 +837,7 @@ const About = () => {
                       {regionalData[activeRegion].stat}
                     </span>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <div className="text-xs text-zinc-400 font-mono font-bold uppercase mb-1">Operational Density:</div>
@@ -864,7 +861,7 @@ const About = () => {
             <div className="lg:col-span-7 relative">
               <div className="bg-white border border-zinc-100 rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,167,255,0.12)] hover:border-[#2563EB]/20 transition-all duration-500 relative group overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#1E3A8A] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-[2rem] z-20"></div>
-                
+
                 <svg className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700 relative z-10" viewBox="0 0 1000 480">
                   {/* Detailed land outlines */}
                   <path fill="#CBD5E1" opacity="0.65" d="M150,110 L190,95 L220,110 L250,90 L280,115 L290,130 L270,160 L240,180 L200,165 Z" />
@@ -876,16 +873,16 @@ const About = () => {
 
                   {/* Pulsing hotspots styled with Orange #FF5C00 */}
                   <circle cx="210" cy="140" r="14" fill="rgba(255, 92, 0, 0.15)" />
-                  <motion.circle 
+                  <motion.circle
                     cx="210" cy="140" r="14" fill="none" stroke="#FF5C00" strokeWidth="0.75"
                     initial={{ scale: 0.8, opacity: 0.8 }}
                     animate={{ scale: 2, opacity: 0 }}
                     transition={{ repeat: Infinity, duration: 2.5, ease: "easeOut" }}
                   />
                   <circle cx="210" cy="140" r="4.5" fill="#FF5C00" />
-                  
+
                   <circle cx="480" cy="110" r="14" fill="rgba(255, 92, 0, 0.15)" />
-                  <motion.circle 
+                  <motion.circle
                     cx="480" cy="110" r="14" fill="none" stroke="#FF5C00" strokeWidth="0.75"
                     initial={{ scale: 0.8, opacity: 0.8 }}
                     animate={{ scale: 2, opacity: 0 }}
@@ -894,7 +891,7 @@ const About = () => {
                   <circle cx="480" cy="110" r="4.5" fill="#FF5C00" />
 
                   <circle cx="650" cy="190" r="20" fill="rgba(255, 92, 0, 0.2)" />
-                  <motion.circle 
+                  <motion.circle
                     cx="650" cy="190" r="20" fill="none" stroke="#FF5C00" strokeWidth="0.75"
                     initial={{ scale: 0.8, opacity: 0.8 }}
                     animate={{ scale: 2, opacity: 0 }}
@@ -905,11 +902,11 @@ const About = () => {
                   {/* Dynamic drawing connecting paths connecting APAC Hub to active region */}
                   <AnimatePresence>
                     {activeRegion === 'emea' && (
-                      <motion.path 
-                        d="M 650 190 Q 565 130 480 110" 
-                        fill="none" 
-                        stroke="#2563EB" 
-                        strokeWidth="1.5" 
+                      <motion.path
+                        d="M 650 190 Q 565 130 480 110"
+                        fill="none"
+                        stroke="#2563EB"
+                        strokeWidth="1.5"
                         strokeDasharray="4 4"
                         initial={{ pathLength: 0, opacity: 0 }}
                         animate={{ pathLength: 1, opacity: 0.75 }}
@@ -918,11 +915,11 @@ const About = () => {
                       />
                     )}
                     {activeRegion === 'americas' && (
-                      <motion.path 
-                        d="M 650 190 Q 430 110 210 140" 
-                        fill="none" 
-                        stroke="#2563EB" 
-                        strokeWidth="1.5" 
+                      <motion.path
+                        d="M 650 190 Q 430 110 210 140"
+                        fill="none"
+                        stroke="#2563EB"
+                        strokeWidth="1.5"
                         strokeDasharray="4 4"
                         initial={{ pathLength: 0, opacity: 0 }}
                         animate={{ pathLength: 1, opacity: 0.75 }}
@@ -935,7 +932,7 @@ const About = () => {
 
                 {/* Map HUD details overlay */}
                 <div className="absolute bottom-4 left-4 bg-white/95 border border-zinc-200 rounded px-3 py-1.5 font-sans text-xs text-zinc-500 shadow-sm">
-                   Coordinates: Lat 12.74, Lng 77.82 | Active Region: <span className="text-[#2563EB] uppercase font-bold">{activeRegion}</span>
+                  Coordinates: Lat 12.74, Lng 77.82 | Active Region: <span className="text-[#2563EB] uppercase font-bold">{activeRegion}</span>
                 </div>
               </div>
             </div>
@@ -947,7 +944,7 @@ const About = () => {
       {/* --- Visionary Leadership (Premium Profiles) --- */}
       <section className="py-20 bg-zinc-50 border-b border-zinc-200/60">
         <div className="container-custom">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-[#2563EB] text-xs font-bold uppercase tracking-widest mb-3 block">
               EXECUTIVE BOARD
@@ -961,7 +958,7 @@ const About = () => {
             </p>
           </div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -969,27 +966,27 @@ const About = () => {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {[
-              { 
-                name: "Vikram Malhotra", 
-                role: "CHAIRMAN & CEO", 
+              {
+                name: "Vikram Malhotra",
+                role: "CHAIRMAN & CEO",
                 quote: "Precision is not an optimization metric, it is a structural baseline of OEM safety.",
-                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" 
+                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop"
               },
-              { 
-                name: "Ananya Singh", 
-                role: "CHIEF OPERATIONS OFFICER", 
+              {
+                name: "Ananya Singh",
+                role: "CHIEF OPERATIONS OFFICER",
                 quote: "Production predictability and direct JIT logistics synchronization are the foundation of client partnership.",
-                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
+                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
               },
-              { 
-                name: "Dr. Rajesh Iyer", 
-                role: "CHIEF TECHNOLOGY OFFICER", 
+              {
+                name: "Dr. Rajesh Iyer",
+                role: "CHIEF TECHNOLOGY OFFICER",
                 quote: "By aligning advanced materials simulation with robotic tooling assemblies, we eliminate manufacturing deviations.",
-                img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600&auto=format&fit=crop" 
+                img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600&auto=format&fit=crop"
               }
             ].map((leader, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 variants={fadeInUp}
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={springTransitionFast}
@@ -1000,10 +997,10 @@ const About = () => {
 
                 {/* Background profile image */}
                 <div className="absolute inset-0 z-0">
-                  <img 
-                    src={leader.img} 
-                    alt={leader.name} 
-                    className="w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105" 
+                  <img
+                    src={leader.img}
+                    alt={leader.name}
+                    className="w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/15 to-transparent"></div>
                 </div>
@@ -1013,11 +1010,11 @@ const About = () => {
                   <span className="text-[#2563EB] font-bold text-sm tracking-[0.2em] uppercase">
                     {leader.role}
                   </span>
-                  
+
                   <h3 className="text-lg font-bold text-zinc-900 tracking-tight uppercase leading-none">
                     {leader.name}
                   </h3>
-                  
+
                   <p className="text-zinc-600 text-xs leading-relaxed italic border-l-2 border-[#2563EB] pl-3.5 pt-0.5 font-sans">
                     "{leader.quote}"
                   </p>
@@ -1040,7 +1037,7 @@ const About = () => {
         <div className="absolute inset-0 bg-[radial-gradient(#00a7ff07_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
         <div className="container-custom relative z-10 max-w-4xl">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -1050,20 +1047,20 @@ const About = () => {
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#2563EB]/5 border border-[#2563EB]/15 rounded-md text-xs font-sans tracking-widest text-[#2563EB] uppercase font-bold">
               Scaling Logistics & Capacity
             </span>
-            
+
             <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight leading-none">
               Ready to integrate with <br />
               <span className="text-[#1E3A8A]">
                 Our Precision Ecosystem?
               </span>
             </h2>
-            
+
             <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto font-medium font-sans">
               Connect directly with our sales engineers to request customized progressive stamping quotes, view manufacturing capacities, or schedule a facility audit.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-2">
-              <motion.button 
+              <motion.button
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={springTransitionFast}
@@ -1071,7 +1068,7 @@ const About = () => {
               >
                 Partner With Us
               </motion.button>
-              <motion.button 
+              <motion.button
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={springTransitionFast}

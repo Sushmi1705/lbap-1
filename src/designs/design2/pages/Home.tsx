@@ -83,9 +83,46 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
   );
 };
 
+import Footer from '../components/layout/Footer';
+
+// Customer Logos
+import ashokLogo from '../../../assets/logos/ashok.png';
+import alfLogo from '../../../assets/logos/alf.png';
+import autolineLogo from '../../../assets/logos/autoline.png';
+import exedyLogo from '../../../assets/logos/exedy.png';
+import greavesLogo from '../../../assets/logos/greaves.png';
+import obenLogo from '../../../assets/logos/oben.png';
+import rsbLogo from '../../../assets/logos/rsb.png';
+import simpsonLogo from '../../../assets/logos/simpson.png';
+import kpfLogo from '../../../assets/logos/kpf.png';
+import seapackLogo from '../../../assets/logos/seapack.png';
+import switchgearLogo from '../../../assets/logos/switchgear.png';
+import stellerLogo from '../../../assets/logos/steller.png';
+import quantumLogo from '../../../assets/logos/quantum.png';
+import klnLogo from '../../../assets/logos/kln.png';
+import balajiLogo from '../../../assets/logos/balaji.png';
+
 const Home = () => {
   const [activeCategory, setActiveCategory] = useState<'sheet' | 'fab' | 'press'>('sheet');
   const [activeService, setActiveService] = useState(0);
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+
+  const heroImages = [
+    "/hero_press_line.jpg",        // Automated stamping press line with robots
+    "/fanuc_robot.png",            // FANUC robotic welding cell – sparks flying
+    "/hero_press_row.png",         // Row of stamping presses on factory floor
+    "/machineries_hero_bg.png"     // Industrial precision machinery
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveHeroSlide((prev) => (prev + 1) % heroImages.length);
+    }, 7000);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
+
+  const prevHeroSlide = () => setActiveHeroSlide((p) => (p === 0 ? heroImages.length - 1 : p - 1));
+  const nextHeroSlide = () => setActiveHeroSlide((p) => (p === heroImages.length - 1 ? 0 : p + 1));
 
   const springTransition = { type: "spring", stiffness: 70, damping: 18 };
   const springTransitionFast = { type: "spring", stiffness: 200, damping: 22 };
@@ -159,24 +196,26 @@ const Home = () => {
     <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Cinematic Light Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
-        {/* Background - Automated Robotic Assembly Line (Natural colors with logo color overlays) */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.5, ease: "easeOut" }}
-          className="absolute inset-0 z-0 pointer-events-none"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=2000" 
-            alt="Robotic Assembly Line Stamping Press" 
-            className="w-full h-full object-cover object-center opacity-90"
-          />
+      <section className="relative min-h-[calc(85vh-80px)] lg:h-[calc(85vh-80px)] flex items-center py-14 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+        {/* Background Slider */}
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence initial={false}>
+            <motion.img 
+              key={activeHeroSlide}
+              src={heroImages[activeHeroSlide]}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.92 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              alt="Industrial Assembly Background" 
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          </AnimatePresence>
           {/* Logo color tint overlay - faded dark blue with variable transparency for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03072c]/80 via-[#03072c]/55 to-[#03072c]/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#03072c]/80 via-[#03072c]/55 to-[#03072c]/25 pointer-events-none"></div>
           {/* Bottom-to-top blend mask */}
-          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FAFAFA] to-transparent"></div>
-        </motion.div>
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FAFAFA] to-transparent pointer-events-none"></div>
+        </div>
 
         {/* Decorative Grid Patterns */}
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-1"></div>
@@ -185,23 +224,43 @@ const Home = () => {
           className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#00A7FF]/10 rounded-full blur-[120px] pointer-events-none z-1"
         ></motion.div>
 
+        {/* Hero Slider Navigation Arrows */}
+        <div className="absolute inset-y-0 left-4 md:left-8 flex items-center z-20">
+          <button 
+            onClick={prevHeroSlide}
+            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/30 hover:scale-110 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+        </div>
+        <div className="absolute inset-y-0 right-4 md:right-8 flex items-center z-20">
+          <button 
+            onClick={nextHeroSlide}
+            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/30 hover:scale-110 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+            aria-label="Next Slide"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
         <div className="container-custom relative z-10">
           <motion.div 
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.05 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           >
             
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 space-y-4">
               
 
 
               {/* Enhanced Hero Headline */}
               <motion.h1 
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-white"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white"
               >
                 Engineering the Future of
                 <br />
@@ -213,7 +272,7 @@ const Home = () => {
               {/* Sub-text summary */}
               <motion.p 
                 variants={fadeInUp}
-                className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl font-medium font-sans"
+                className="text-slate-200 text-xs sm:text-sm leading-relaxed max-w-xl font-medium font-sans"
               >
                 Laxmi Balaji Automotive Products Pvt. Ltd. (LBAP) delivers advanced sheet metal fabrication, clinical tool die design, and robotic component sub-assemblies for global commercial vehicle, Tier-1 systems, and electric vehicle (EV) chassis platforms.
               </motion.p>
@@ -221,22 +280,22 @@ const Home = () => {
               {/* Hero Value Points - Styled with Brand Orange Accent Checkmarks */}
               <motion.div 
                 variants={fadeInUp}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg text-xs text-slate-200 font-bold font-sans"
+                className="grid grid-cols-2 gap-2 max-w-lg text-xs text-slate-200 font-bold font-sans"
               >
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5C00] shrink-0" />
                   <span>Zero-Defect Mechanical Stamping</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5C00] shrink-0" />
                   <span>Robotic Welding Structural Assemblies</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5C00] shrink-0" />
                   <span>In-House Progressive CAD Simulation</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5C00] shrink-0" />
                   <span>JIT Lineside OEM Delivery Solutions</span>
                 </div>
               </motion.div>
@@ -244,43 +303,43 @@ const Home = () => {
               {/* Stats Highlights directly in Hero */}
               <motion.div 
                 variants={fadeInUp}
-                className="flex items-center gap-8 pt-2 border-t border-white/10 max-w-md"
+                className="flex items-center gap-6 pt-1 border-t border-white/10 max-w-md"
               >
                 <div>
-                  <span className="text-xs text-slate-400 font-mono block">ESTABLISHED</span>
-                  <span className="text-base font-bold text-white">1994</span>
+                  <span className="text-[10px] text-slate-400 font-mono block">ESTABLISHED</span>
+                  <span className="text-sm font-bold text-white">1994</span>
                 </div>
-                <div className="h-8 w-[1px] bg-white/10"></div>
+                <div className="h-6 w-[1px] bg-white/10"></div>
                 <div>
-                  <span className="text-xs text-slate-400 font-mono block">GLOBAL SITES</span>
-                  <span className="text-base font-bold text-white">12 Plants</span>
+                  <span className="text-[10px] text-slate-400 font-mono block">GLOBAL SITES</span>
+                  <span className="text-sm font-bold text-white">12 Plants</span>
                 </div>
-                <div className="h-8 w-[1px] bg-white/10"></div>
+                <div className="h-6 w-[1px] bg-white/10"></div>
                 <div>
-                  <span className="text-xs text-slate-400 font-mono block">CERTIFICATIONS</span>
-                  <span className="text-base font-bold text-white">IATF 16949</span>
+                  <span className="text-[10px] text-slate-400 font-mono block">CERTIFICATIONS</span>
+                  <span className="text-sm font-bold text-white">IATF 16949</span>
                 </div>
               </motion.div>
               
               <motion.div 
                 variants={fadeInUp} 
-                className="flex flex-wrap gap-4 pt-1"
+                className="flex flex-wrap gap-3"
               >
                 <motion.a 
-                  whileHover={{ y: -3, scale: 1.02 }}
+                  whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="/product" 
-                  className="flex items-center gap-2 bg-gradient-to-r from-[#FF5C00] to-[#E05000] hover:from-[#E05000] hover:to-[#C04000] text-white shadow-lg shadow-[#FF5C00]/25 px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm shadow-[#FF5C00]/20 transition-all duration-300"
+                  className="flex items-center gap-2 bg-gradient-to-r from-[#FF5C00] to-[#E05000] hover:from-[#E05000] hover:to-[#C04000] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded transition-all duration-300"
                 >
-                  Explore Solutions <ArrowRight className="w-4 h-4" />
+                  Explore Solutions <ArrowRight className="w-3.5 h-3.5" />
                 </motion.a>
                 <motion.a 
-                  whileHover={{ y: -3, scale: 1.02 }}
+                  whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="/machineries" 
-                  className="flex items-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-all duration-300 shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded transition-all duration-300"
                 >
                   Technical Data
                 </motion.a>
@@ -294,21 +353,21 @@ const Home = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={slideInRight}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 animate={floatingAnimation}
-                className="p-8 glass-panel-dark border border-white/10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] max-w-xs space-y-4 text-white hover:border-[#00A7FF]/50 transition-colors cursor-default"
+                className="p-5 glass-panel-dark border border-white/10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] max-w-xs space-y-3 text-white hover:border-[#00A7FF]/50 transition-colors cursor-default"
               >
-                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
                   <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#FF5C00] animate-pulse shadow-sm shadow-[#FF5C00]/50"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF5C00] animate-pulse shadow-sm shadow-[#FF5C00]/50"></span>
                     Live Production Feed
                   </h4>
-                  <span className="text-sm font-mono text-slate-400">PLANT_01</span>
+                  <span className="text-xs font-mono text-slate-400">PLANT_01</span>
                 </div>
                 <p className="text-xs text-slate-200 leading-relaxed font-medium">
                   Batch L97 #6254 progressive stamping run is currently in final verification. Quality pass: 100%.
                 </p>
-                <div className="pt-2 flex justify-between items-center text-xs font-mono text-slate-400">
+                <div className="flex justify-between items-center text-[10px] font-mono text-slate-400">
                   <span>RATE: 85 STROKES/MIN</span>
                   <span>TEMP: 22.4 °C</span>
                 </div>
@@ -319,8 +378,11 @@ const Home = () => {
         </div>
       </section>
 
+      {/* GLOBAL GLOW WRAPPER WITH CLASSY MESH GRADIENT */}
+      <div className="relative classy-mesh-bg overflow-hidden z-10">
+
       {/* --- 2. Partners Strip --- */}
-      <section className="bg-white border-b border-slate-200/60 py-5 relative overflow-hidden shadow-sm z-20">
+      <section className="bg-white/40 backdrop-blur-md border-b border-white/20 py-5 relative overflow-hidden z-20">
         
         <div className="container-custom relative z-10 flex flex-col md:flex-row items-center gap-6">
           
@@ -339,10 +401,41 @@ const Home = () => {
             >
               {[...Array(4)].map((_, i) => (
                 <React.Fragment key={i}>
-                  {['VOLT-AUTO', 'NEXUS-MOTORS', 'APEX-PARTS', 'TITAN-ENGINEERING', 'FLUX-DYNAMICS', 'CORE-TECH'].map((p) => (
-                    <span key={p + i} className="text-2xl font-black tracking-tighter text-slate-800 hover:text-[#FF5C00] transition-colors cursor-default mr-20">
-                      {p}
-                    </span>
+                  {[
+                    { name: 'AL', logo: ashokLogo },
+                    { name: 'ALF', logo: alfLogo },
+                    { name: 'Autoline', logo: autolineLogo },
+                    { name: 'Balaji Casting', logo: balajiLogo },
+                    { name: 'Excedy Clutch', logo: exedyLogo },
+                    { name: 'Greaves Electric', logo: greavesLogo },
+                    { name: 'KLN Engineering', logo: klnLogo },
+                    { name: 'Oben Electric', logo: obenLogo },
+                    { name: 'Quantum', logo: quantumLogo },
+                    { name: 'RSB Transmission', logo: rsbLogo },
+                    { name: 'Simpson', logo: simpsonLogo },
+                    { name: 'Steller SP', logo: stellerLogo },
+                    { name: 'Switch Gear', logo: switchgearLogo },
+                    { name: 'Seapack', logo: seapackLogo },
+                    { name: 'KPF', logo: kpfLogo }
+                  ].map((p, idx) => (
+                    <div key={p.name + i + idx} className="flex flex-col items-center justify-center mr-16 md:mr-24 hover:-translate-y-2 transition-transform duration-500 group cursor-default w-32 md:w-40 shrink-0">
+                      {p.logo ? (
+                        <>
+                          <img 
+                            src={p.logo} 
+                            alt={p.name} 
+                            className={`h-14 md:h-16 w-full object-contain mb-3 group-hover:scale-110 transition-transform duration-500 drop-shadow-sm ${p.name !== 'Autoline' && p.name !== 'Quantum' ? 'mix-blend-multiply' : ''}`} 
+                          />
+                          <span className="text-xs md:text-sm font-bold tracking-wide text-slate-500 group-hover:text-[#00A7FF] transition-colors duration-300 text-center">
+                            {p.name}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-lg md:text-xl font-black tracking-tight text-slate-700 group-hover:text-[#00A7FF] transition-colors duration-300 text-center">
+                          {p.name}
+                        </span>
+                      )}
+                    </div>
                   ))}
                 </React.Fragment>
               ))}
@@ -353,7 +446,7 @@ const Home = () => {
       </section>
 
       {/* --- Welcome & Corporate Mandate Section --- */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200/60 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute left-0 top-0 w-96 h-96 bg-[#00A7FF]/5 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -364,7 +457,7 @@ const Home = () => {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={slideInLeft}
-              className="lg:col-span-5 space-y-6"
+              className="lg:col-span-5 space-y-6 premium-glass rounded-[32px] p-8 md:p-12 shadow-sm border border-white/80"
             >
               <div>
                 <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
@@ -471,7 +564,7 @@ const Home = () => {
       </section>
 
       {/* --- 3. Core Capabilities --- */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200/60 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         {/* Decorative Grid Patterns */}
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.05)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-0"></div>
         <motion.div 
@@ -638,7 +731,7 @@ const Home = () => {
       </section>
 
       {/* --- New Section: Strategic Value Pillars --- */}
-      <section className="py-20 bg-white border-b border-slate-200/60 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden">
         <motion.div 
           animate={pulseAnimation}
           className="absolute right-0 top-0 w-80 h-80 bg-[#00A7FF]/5 rounded-full blur-[80px] pointer-events-none"
@@ -715,7 +808,7 @@ const Home = () => {
       </section>
 
       {/* --- 4. Mass Production Section - Premium Solid White/Slate Layout --- */}
-      <section className="py-24 bg-[#00A7FF]/5 text-slate-800 relative border-b border-slate-200/60 overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,221,0.03)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
         
         <div className="container-custom relative z-10">
@@ -806,7 +899,7 @@ const Home = () => {
       </section>
 
       {/* --- 5. Metrics Section --- */}
-      <section className="bg-white py-24 border-b border-slate-200/60 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         {/* Very subtle glow effects for premium feel */}
         <motion.div 
           animate={pulseAnimation}
@@ -830,7 +923,7 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
           >
             {[
               { label: "ANNUAL UNITS PRODUCED", value: 4.2, suffix: "M" },
@@ -854,7 +947,7 @@ const Home = () => {
       </section>
 
       {/* --- New Section: Certified Quality Standards --- */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200/60 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <motion.div 
           animate={pulseAnimation}
           className="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#00A7FF]/5 rounded-full blur-[100px] pointer-events-none"
@@ -930,7 +1023,7 @@ const Home = () => {
       </section>
 
       {/* --- 6. Machinery Specification --- */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <motion.div 
           animate={pulseAnimation}
           className="absolute right-0 bottom-0 w-[800px] h-[800px] bg-[#00A7FF]/5 rounded-full blur-[120px] pointer-events-none"
@@ -954,7 +1047,7 @@ const Home = () => {
                 <h4 className="text-base font-bold text-slate-900 tracking-tight">Machineries Categories</h4>
               </div>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 premium-glass rounded-3xl p-4 border border-white/80 shadow-sm">
                 {[
                   { id: 'sheet', name: 'SHEET METAL' },
                   { id: 'fab', name: 'FABRICATION' },
@@ -1026,7 +1119,7 @@ const Home = () => {
       </section>
 
       {/* --- 8. Final CTA Section --- */}
-      <section className="relative py-32 bg-slate-50 overflow-hidden border-t border-slate-200">
+      <section className="relative py-32 relative overflow-hidden">
         <motion.div 
           animate={pulseAnimation}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00A7FF]/5 rounded-full blur-[150px] pointer-events-none"
@@ -1034,7 +1127,7 @@ const Home = () => {
         
         <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.03)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
 
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
+        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto premium-glass rounded-[40px] p-8 md:p-16 shadow-[0_20px_60px_-15px_rgba(27,63,143,0.1)] border border-white/80">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -1076,6 +1169,7 @@ const Home = () => {
         </div>
       </section>
 
+      </div>
     </div>
   );
 };

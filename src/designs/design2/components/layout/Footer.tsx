@@ -17,10 +17,10 @@ const Footer = () => {
       </div>
       
       {/* Subtle decorative background blur blobs */}
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#00A7FF]/3 rounded-full blur-[80px] pointer-events-none"></div>
-      <div className="absolute top-12 left-10 w-[200px] h-[200px] bg-slate-100 rounded-full blur-[60px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#00A7FF]/4 rounded-full blur-[80px] pointer-events-none"></div>
+      <div className="absolute top-12 left-10 w-[200px] h-[200px] bg-[#FF5C00]/3 rounded-full blur-[60px] pointer-events-none"></div>
 
-      <div className="bg-slate-50/30 pt-20 pb-10 relative z-10">
+      <div className="bg-gradient-to-b from-white via-[#F8FAFC] to-[#F0F7FF] pt-20 pb-10 relative z-10">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
             
@@ -30,11 +30,11 @@ const Footer = () => {
                 <img src="/logo.png" alt="Laxmi Balaji Logo" className="h-32 w-auto object-contain" />
               </div>
               
-              <p className="text-[13px] text-slate-600 leading-[1.8] font-medium font-sans max-w-sm">
+              <p className="text-[13px] text-slate-500 leading-relaxed font-medium font-sans max-w-sm">
                 Laxmi Balaji Automotive Products Pvt. Ltd. (LBAP) is one of the premier manufacturers and suppliers of heavy-duty Pressed components, Fabricated Parts, and robotic Sub-assemblies matching Tier-1 global quality benchmarks.
               </p>
 
-              <div className="flex items-center gap-2 font-sans text-xs text-[#00A7FF] font-bold bg-[#00A7FF]/5 border border-[#00A7FF]/10 w-fit px-3 py-1.5 rounded-md">
+              <div className="flex items-center gap-2 font-sans text-xs text-[#00A7FF] font-bold bg-[#00A7FF]/5 border border-[#00A7FF]/10 w-fit px-3 py-1.5 rounded-full">
                 <Activity className="w-3.5 h-3.5 animate-pulse text-[#FF5C00]" />
                 ISO 9001:2015 Certified Plant
               </div>
@@ -42,7 +42,7 @@ const Footer = () => {
 
             {/* Column 2: Quick Links (span 2) */}
             <div className="lg:col-span-2 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <h4 className="text-sm font-bold text-slate-900 tracking-widest uppercase">
+              <h4 className="text-xs font-bold text-slate-800 tracking-widest uppercase">
                 Quick Navigation
               </h4>
               <ul className="space-y-3 flex flex-col items-start lg:items-start w-fit mx-auto lg:mx-0">
@@ -56,7 +56,7 @@ const Footer = () => {
                 ].map((item) => (
                   <li key={item.label}>
                     <motion.div
-                      whileHover={{ x: 6 }}
+                      whileHover={{ x: 4 }}
                       transition={linkTransition}
                       className="inline-block"
                     >
@@ -75,18 +75,18 @@ const Footer = () => {
 
             {/* Column 3: Digital QR (span 2) */}
             <div className="lg:col-span-2 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <h4 className="text-sm font-bold text-slate-900 tracking-widest uppercase">
+              <h4 className="text-xs font-bold text-slate-800 tracking-widest uppercase">
                 Digital ID
               </h4>
               <div className="space-y-3.5 flex flex-col items-center lg:items-start">
-                <div className="bg-white p-3 border border-slate-200/60 rounded-xl shadow-sm hover:shadow-sm transition-shadow duration-300 relative overflow-hidden w-fit animate-border-shimmer">
+                <div className="bg-white p-3 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden w-fit animate-border-shimmer">
                   <img 
                     src="/footer_qr_code_1778314288081.png" 
                     alt="LBAP QR Code" 
                     className="w-28 h-28 object-contain"
                   />
                 </div>
-                <span className="text-sm font-sans font-bold text-slate-500 tracking-wider block uppercase">
+                <span className="text-[10px] font-sans font-bold text-slate-400 tracking-widest block uppercase">
                   Scan for Audit Certificate
                 </span>
               </div>
@@ -94,7 +94,7 @@ const Footer = () => {
 
             {/* Column 4: Contact details (span 4) */}
             <div className="lg:col-span-4 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <h4 className="text-sm font-bold text-slate-900 tracking-widest uppercase">
+              <h4 className="text-xs font-bold text-slate-800 tracking-widest uppercase">
                 Corporate Office
               </h4>
               
@@ -144,11 +144,11 @@ const Footer = () => {
       {/* Bottom Copyright Bar */}
       <div className="bg-white py-6 border-t border-slate-100 relative z-10">
         <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs font-bold text-slate-400 tracking-[0.12em] uppercase text-center md:text-left">
-            COPYRIGHT © 2026 <span className="text-slate-800 font-extrabold border-b border-slate-200 pb-0.5">LAXMI BALAJI AUTOMOTIVE PRODUCTS PVT. LTD.</span> ALL RIGHTS RESERVED.
+          <p className="text-[10px] font-bold text-slate-400 tracking-[0.12em] uppercase text-center md:text-left">
+            COPYRIGHT © 2026 <span className="text-slate-700 font-black border-b border-slate-100 pb-0.5">LAXMI BALAJI AUTOMOTIVE PRODUCTS PVT. LTD.</span> ALL RIGHTS RESERVED.
           </p>
           
-          <div className="flex gap-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <div className="flex gap-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
             <Link to="/contact" className="hover:text-[#00A7FF] transition-colors">Privacy Policy</Link>
             <Link to="/contact" className="hover:text-[#00A7FF] transition-colors">Terms of Service</Link>
           </div>

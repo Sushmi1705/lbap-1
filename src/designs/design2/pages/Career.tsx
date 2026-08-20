@@ -118,7 +118,7 @@ const Career = () => {
     <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned Career Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(70vh-80px)] lg:h-[calc(70vh-80px)] flex items-center py-14 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
         {/* Background - Engineering console */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -147,16 +147,16 @@ const Career = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.05 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           >
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 space-y-4">
               
 
 
               {/* Mixed-Case Headline */}
               <motion.h1 
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-white"
               >
                 <span>Join the</span>
                 <br />
@@ -168,7 +168,7 @@ const Career = () => {
               {/* Sub-text */}
               <motion.p 
                 variants={fadeInUp}
-                className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl font-medium font-sans"
+                className="text-slate-200 text-xs sm:text-sm leading-relaxed max-w-xl font-medium font-sans"
               >
                 LBAP is not just a factory; it's a precision laboratory. We are looking for the next generation of engineers to define the future of automotive excellence.
               </motion.p>
@@ -206,7 +206,7 @@ const Career = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#openings" 
-                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#00A7FF] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
+                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#00A7FF] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded transition-colors"
                 >
                   Explore Openings <ArrowRight className="w-4 h-4" />
                 </motion.a>
@@ -215,7 +215,7 @@ const Career = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#culture"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
                 >
                   View pathways
                 </motion.a>

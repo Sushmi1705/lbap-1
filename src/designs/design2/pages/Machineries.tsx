@@ -9,11 +9,128 @@ import {
   Activity,
   Layers,
   Sparkles,
-  FileDown
+  FileDown,
+  Search,
+  SlidersHorizontal,
+  X,
+  Calendar,
+  AlertCircle,
+  FileText
 } from 'lucide-react';
+
+const machineryData = [
+  { slNo: 1, description: "POWER PRESS", capacity: "200 Ton", make: "SHRI BALAJI", id: "LBAP/PP-1", year: "2008", category: "Press Shop", remarks: "Heavy stamping line" },
+  { slNo: 2, description: "POWER PRESS", capacity: "160 Ton", make: "SHRI BALAJI", id: "LBAP/PP-2", year: "2012", category: "Press Shop", remarks: "" },
+  { slNo: 3, description: "MECHANICAL PRESS", capacity: "120 Ton", make: "DMW", id: "LBAP/MP-01", year: "2007", category: "Press Shop", remarks: "" },
+  { slNo: 4, description: "POWER PRESS", capacity: "80 Ton", make: "SHRI BALAJI", id: "LBAP/PP-3", year: "2012", category: "Press Shop", remarks: "" },
+  { slNo: 5, description: "POWER PRESS", capacity: "63 Ton", make: "AMETEEP", id: "LBAP/PP-4", year: "2007", category: "Press Shop", remarks: "" },
+  { slNo: 6, description: "MECHANICAL PRESS", capacity: "50 Ton", make: "DMW", id: "LBAP/MP-3", year: "2007", category: "Press Shop", remarks: "" },
+  { slNo: 7, description: "POWER PRESS", capacity: "45 Ton", make: "SEW", id: "LBAP/PP-5", year: "2015", category: "Press Shop", remarks: "" },
+  { slNo: 8, description: "POWER PRESS", capacity: "40 Ton", make: "SHRI BALAJI", id: "LBAP/PP-6", year: "2012", category: "Press Shop", remarks: "" },
+  { slNo: 9, description: "POWER PRESS", capacity: "110 Ton", make: "SHRI BALAJI", id: "LBAP/PP-7", year: "2016", category: "Press Shop", remarks: "" },
+  { slNo: 10, description: "POWER PRESS", capacity: "80 Ton", make: "SHRI BALAJI", id: "LBAP/PP-8", year: "2016", category: "Press Shop", remarks: "" },
+  { slNo: 11, description: "POWER PRESS", capacity: "63 Ton", make: "SHRI BALAJI", id: "LBAP/PP-9", year: "2016", category: "Press Shop", remarks: "" },
+  { slNo: 12, description: "MECHANICAL PRESS", capacity: "30 Ton", make: "SHRI BALAJI", id: "LBAP/MP-4", year: "2013", category: "Press Shop", remarks: "" },
+  { slNo: 13, description: "MECHANICAL PRESS", capacity: "20 Ton", make: "SHRI BALAJI", id: "LBAP/MP-8", year: "2015", category: "Press Shop", remarks: "" },
+  { slNo: 14, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-01", year: "2010", category: "Welding Shop", remarks: "Standard weld line" },
+  { slNo: 15, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-02", year: "2010", category: "Welding Shop", remarks: "Standard weld line" },
+  { slNo: 16, description: "RADIAL DRILL", capacity: "40 MM", make: "SMT", id: "LBAP/RD-01", year: "2005", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 17, description: "SMALL DRILL", capacity: "20MM", make: "R.R.PRODUCTS", id: "LBAP/SD-01", year: "2005", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 18, description: "SHEARING MACHINE", capacity: "6*2500 MM", make: "T.E.E", id: "LBAP/SM-02", year: "2005", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 19, description: "PRESS BRAKE", capacity: "100 Ton", make: "VIJAI", id: "LBAP/PB-01", year: "2007", category: "Press Shop", remarks: "" },
+  { slNo: 20, description: "SURFACE GRINDING MACHINE", capacity: "300 X600", make: "GMT", id: "LBAP/SGM-01", year: "2009", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 21, description: "WEIGHING MACHINE", capacity: "150KG", make: "ORION", id: "LBAP/WM-01", year: "2015", category: "Material Handling", remarks: "" },
+  { slNo: 22, description: "OVERHEAD CRANE", capacity: "3 TON", make: "ANKIT", id: "LBAP/OHC-01", year: "2015", category: "Material Handling", remarks: "Auxiliary hoist" },
+  { slNo: 23, description: "SPOT WELDING MACHINE", capacity: "10 KVa", make: "ELECTROWELD", id: "LBAP/SW-01", year: "2015", category: "Welding Shop", remarks: "" },
+  { slNo: 24, description: "MOTORISED GRINDER", capacity: "—", make: "AEC", id: "LBAP/MG-01", year: "2015", category: "Utilities & Auxiliary", remarks: "" },
+  { slNo: 25, description: "STACKER", capacity: "1 TON", make: "DOLMAX", id: "LBAP/L-01", year: "2009", category: "Material Handling", remarks: "" },
+  { slNo: 26, description: "STACKER", capacity: "1 TON", make: "DOLMAX", id: "LBAP/L-02", year: "2012", category: "Material Handling", remarks: "" },
+  { slNo: 27, description: "HAND GRINDING MACHINE", capacity: "100mm", make: "BOSCH", id: "LBAP/HG-01", year: "2015", category: "Utilities & Auxiliary", remarks: "" },
+  { slNo: 28, description: "GENERATOR", capacity: "90 HP", make: "MAHENDRA", id: "LBAP/GENSET-1", year: "2011", category: "Utilities & Auxiliary", remarks: "Backup power system" },
+  { slNo: 29, description: "HYDRAULIC SHEARING MACHINE", capacity: "6X3200", make: "ACL", id: "LBAP/SM-3", year: "2006", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 30, description: "AIR COMPRESSOR", capacity: "225 ltr", make: "KARTHIKA", id: "LBAP/AC-02", year: "2015", category: "Utilities & Auxiliary", remarks: "Shop air supply" },
+  { slNo: 31, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-03", year: "2018", category: "Welding Shop", remarks: "" },
+  { slNo: 32, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-04", year: "2018", category: "Welding Shop", remarks: "" },
+  { slNo: 33, description: "CNC PIPE BENDING MACHINE", capacity: "32 dia", make: "Eletro Pneumatic", id: "LBAP/CBM-01", year: "2023", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 34, description: "CNC PIPE BENDING MACHINE", capacity: "32 dia", make: "Eletro Pneumatic", id: "LBAP/CBM-01", year: "2024", category: "CNC & Fabrication", remarks: "" },
+  { slNo: 35, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-03", year: "2020", category: "Welding Shop", remarks: "" },
+  { slNo: 36, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-04", year: "2020", category: "Welding Shop", remarks: "" },
+  { slNo: 37, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-05", year: "2020", category: "Welding Shop", remarks: "" },
+  { slNo: 38, description: "MIG WELDING", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-06", year: "2020", category: "Welding Shop", remarks: "" },
+  { slNo: 39, description: "MIG WELDING - SPM", capacity: "230 A", make: "PRO TECH", id: "LBAP/MIGW-07", year: "2023", category: "Welding Shop", remarks: "Special Purpose Welding" }
+];
+
+const getMachineImage = (slNo: number) => {
+  switch (slNo) {
+    case 1: return '/machinery/power_press_200.png';
+    case 2: return '/machinery/power_press_160.png';
+    case 3: return '/machinery/mechanical_press_120.png';
+    case 4: return '/machinery/power_press_80.png';
+    case 5: return '/machinery/power_press_63.png';
+    case 6: return '/machinery/mechanical_press_50.png';
+    case 7: return '/machinery/power_press_45.png';
+    case 8: return '/machinery/power_press_40.png';
+    case 9: return '/machinery/power_press_110.png';
+    case 10: return '/machinery/power_press_80_2.png';
+    case 11: return '/machinery/power_press_11.png';
+    case 12: return '/machinery/mechanical_press_30.jpg';
+    case 13: return '/machinery/mechanical_press_20.jpg';
+    case 14: return '/machinery/mig_welding_14.png';
+    case 15: return '/machinery/mig_welding_2010.jpg';
+    case 16: return '/machinery/drilling.jpg';
+    case 17: return '/matsuura_milling.png';
+    case 18: return '/machinery/cutting_grinding.jpg';
+    case 19: return '/machinery/press.jpg';
+    case 20: return '/machinery/surface_grinding_20.png';
+    case 21: return '/zeiss_cmm.png';
+    case 22: return '/machinery/overhead_crane_22.png';
+    case 23: return '/machinery/welding.jpg';
+    case 24: return '/machinery/cutting_grinding.jpg';
+    case 25: return '/machinery/material_handling.jpg';
+    case 26: return '/machinery/stacker_26.png';
+    case 27: return '/machinery/hand_grinder_27.png';
+    case 28: return '/machinery/utilities.jpg';
+    case 29: return '/bystronic_laser.png';
+    case 30: return '/machinery/utilities.jpg';
+    case 31: return '/machinery/mig_welding_2018.jpg';
+    case 32: return '/machinery/mig_welding_32.png';
+    case 33: return '/machinery/pipe_bending.jpg';
+    case 34: return '/machinery/cnc_bending_34.png';
+    case 35: return '/machinery/mig_welding_35.png';
+    case 36: return '/machinery/mig_welding_36.png';
+    case 37: return '/machinery/mig_welding_37.jpg';
+    case 38: return '/machinery/mig_welding_38.jpg';
+    case 39: return '/machinery/mig_welding_spm_39.jpg';
+    default: return '/machinery/press.jpg';
+  }
+};
+
+const getMachineDescription = (description: string) => {
+  const desc = description.toUpperCase();
+  if (desc.includes('POWER PRESS')) return 'High-stroke mechanical power press optimized for progressive die stamping and automotive body panel manufacturing.';
+  if (desc.includes('MECHANICAL PRESS')) return 'Heavy-duty mechanical press line designed for high-tonnage sheet metal stamping and structural brackets.';
+  if (desc.includes('MIG WELDING')) return 'Gas metal arc welding station configured for precision welding of chassis sub-assemblies and structural parts.';
+  if (desc.includes('RADIAL DRILL')) return 'Radial arm drilling machine for heavy-duty drilling, reaming, and tapping on structural metal plates.';
+  if (desc.includes('SMALL DRILL')) return 'High-speed compact drill press designed for precision hole creation in brackets and mounting assemblies.';
+  if (desc.includes('SHEARING MACHINE')) return 'Heavy-duty mechanical plate shearing machine designed for rapid and clean cutting of sheet metal coils.';
+  if (desc.includes('PRESS BRAKE')) return 'CNC press brake bending machine providing multi-axis control for forming complex structural parts.';
+  if (desc.includes('SURFACE GRINDING')) return 'Precision surface grinding machine engineered for micron-level tolerance finish on tool steel plates.';
+  if (desc.includes('WEIGHING MACHINE')) return 'High-capacity industrial platform scale for verifying shipping load weights and inventory calibration.';
+  if (desc.includes('OVERHEAD CRANE')) return 'Heavy overhead gantry crane system for moving heavy coils and die tooling across stamping lines.';
+  if (desc.includes('SPOT WELDING')) return 'Resistance spot welding machine for fast and reliable assembly of overlapping sheet metal panels.';
+  if (desc.includes('MOTORISED GRINDER') || desc.includes('HAND GRINDING')) return 'Benchtop or hand grinder configured for removing burrs and finishing welded structural joints.';
+  if (desc.includes('STACKER')) return 'Electric heavy-duty pallet stacker for organizing die storage and steel coil stock in raw materials bay.';
+  if (desc.includes('GENERATOR')) return 'Industrial diesel engine generator set providing complete backup power to maintain continuous stamping shifts.';
+  if (desc.includes('AIR COMPRESSOR')) return 'Rotary screw air compressor system supplying high-volume pressurized air to pneumatic tools and feeders.';
+  if (desc.includes('PIPE BENDING')) return 'Automatic CNC tube and pipe bender for creating accurate multi-angle fluid lines and exhaust channels.';
+  return 'Industrial fabrication asset configured for Laxmi Balaji Automotive Products manufacturing operations.';
+};
 
 const Machineries = () => {
   const [activeZone, setActiveZone] = useState<'zoneA' | 'zoneB' | 'zoneC' | 'zoneD' | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedMachine, setSelectedMachine] = useState<any>(null);
 
   const springTransition = { type: "spring", stiffness: 70, damping: 18 };
   const springTransitionFast = { type: "spring", stiffness: 200, damping: 22 };
@@ -65,10 +182,10 @@ const Machineries = () => {
   };
 
   return (
-    <div className="bg-slate-50 text-slate-800 font-['Outfit'] selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
+    <div className="bg-white text-slate-800 font-sans selection:bg-[#00A7FF]/20 selection:text-[#00A7FF] overflow-x-hidden min-h-screen">
       
       {/* --- 1. Viewport-Aligned Machineries Hero Section --- */}
-      <section className="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center py-20 lg:py-0 bg-[#03072c] border-b border-white/10 overflow-hidden">
+      <section className="relative min-h-[calc(70vh-80px)] lg:h-[calc(70vh-80px)] flex items-center py-14 lg:py-0 bg-slate-900 border-b border-slate-100 overflow-hidden">
         {/* Background - Precision Stamping Factory Floor */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -82,9 +199,9 @@ const Machineries = () => {
             className="w-full h-full object-cover object-center opacity-90"
           />
           {/* Logo color tint overlay - faded dark blue with variable transparency for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03072c]/80 via-[#03072c]/55 to-[#03072c]/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/50 to-transparent"></div>
           {/* Bottom blend block */}
-          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#FAFAFA] to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-white to-transparent"></div>
         </motion.div>
 
         {/* Decorative Grid Patterns */}
@@ -97,20 +214,18 @@ const Machineries = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.05 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           >
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 space-y-4">
               
-
-
               {/* Mixed-Case Headline */}
               <motion.h1 
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white"
+                className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-white"
               >
                 <span>Advanced Production</span>
                 <br />
-                <span className="text-[#00A7FF] drop-shadow-sm">
+                <span className="bg-gradient-to-r from-[#00A7FF] to-[#92e3ff] bg-clip-text text-transparent drop-shadow-sm">
                   Infrastructure
                 </span>
               </motion.h1>
@@ -118,7 +233,7 @@ const Machineries = () => {
               {/* Sub-text */}
               <motion.p 
                 variants={fadeInUp}
-                className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl font-medium font-sans"
+                className="text-slate-100 text-xs sm:text-sm leading-relaxed max-w-xl font-medium font-sans opacity-95"
               >
                 A showcase of our clinical-grade manufacturing environment, featuring high-precision robotics, high-tonnage mechanical press lines, and synchronized assembly workflows.
               </motion.p>
@@ -126,22 +241,22 @@ const Machineries = () => {
               {/* Value checklist - Styled with Orange Accent Checkmarks */}
               <motion.div 
                 variants={fadeInUp}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg text-xs text-slate-200 font-bold font-sans"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg text-xs text-slate-100 font-bold font-sans"
               >
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2Icon className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[#FF5C00] shrink-0" />
                   <span>1000-Ton High-Tonnage Presses</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2Icon className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[#FF5C00] shrink-0" />
                   <span>Automatic Progressive Feeders</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2Icon className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[#FF5C00] shrink-0" />
                   <span>6-Axis Robotic Weld Clusters</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2Icon className="w-4 h-4 text-[#FF5C00] shrink-0" />
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[#FF5C00] shrink-0" />
                   <span>SCADA Integrated Control Systems</span>
                 </div>
               </motion.div>
@@ -149,14 +264,14 @@ const Machineries = () => {
               {/* Hero actions */}
               <motion.div 
                 variants={fadeInUp} 
-                className="flex flex-wrap gap-4 pt-1"
+                className="flex flex-wrap gap-3"
               >
                 <motion.a 
                   whileHover={{ y: -3, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#blueprint" 
-                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#00A7FF] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded shadow-sm transition-colors"
+                  className="flex items-center gap-2 bg-[#FF5C00] hover:bg-[#E05000] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-lg shadow-[#FF5C00]/25"
                 >
                   Interactive Map <ArrowRight className="w-4 h-4" />
                 </motion.a>
@@ -165,7 +280,7 @@ const Machineries = () => {
                   whileTap={{ scale: 0.98 }}
                   transition={springTransitionFast}
                   href="#reliability"
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-[#1B3F8F] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-white/20 bg-white/10 hover:bg-white hover:text-slate-800 text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 backdrop-blur-sm"
                 >
                   <Download className="w-4 h-4" /> View reliability stats
                 </motion.a>
@@ -179,7 +294,7 @@ const Machineries = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={springTransition}
-                className="p-8 bg-white/95 backdrop-blur-md border border-slate-200/60 rounded-xl shadow-sm max-w-xs space-y-4 animate-border-shimmer"
+                className="p-8 bg-white/80 backdrop-blur-md border border-slate-100 rounded-3xl shadow-xl max-w-xs space-y-4 shadow-[0_15px_40px_rgba(27,63,143,0.06)]"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                   <h4 className="text-[#00A7FF] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
@@ -377,49 +492,51 @@ const Machineries = () => {
 
         </div>
       </section>
-
-      {/* --- 3. SCADA Equipment Reliability Stats Section --- */}
-      <section id="reliability" className="py-20 bg-slate-50 border-b border-slate-200/60">
-        <div className="container-custom">
+      <section id="reliability" className="py-24 bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] border-b border-slate-100 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(0,167,255,0.03)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Reliability Ratings */}
-            <div className="lg:col-span-2 bg-white border border-slate-200/60 p-10 rounded-xl flex flex-col justify-between shadow-sm animate-border-shimmer">
+            <div className="lg:col-span-2 bg-white/70 backdrop-blur-md border border-slate-100 p-8 sm:p-10 rounded-3xl flex flex-col justify-between shadow-[0_10px_35px_-10px_rgba(0,0,0,0.03)] relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00A7FF] to-[#1B3F8F] rounded-t-3xl"></div>
               <div>
                 <div className="flex items-center gap-3 mb-8">
-                  <ShieldCheck className="text-[#00A7FF] w-5 h-5" />
-                  <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Equipment Reliability Ratings</h4>
+                  <div className="w-9 h-9 rounded-xl bg-[#00A7FF]/8 flex items-center justify-center text-[#1B3F8F]">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-xs font-bold text-slate-800 uppercase tracking-widest">Equipment Reliability Ratings</h4>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
                   <div>
-                    <p className="text-sm font-bold text-slate-455 uppercase tracking-widest mb-3">Mean Time Between Failure (MTBF)</p>
-                    <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-4xl font-black text-slate-900 tracking-tight">8,420</span>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">Mean Time Between Failure (MTBF)</p>
+                    <div className="flex items-baseline gap-1.5 mb-3">
+                      <span className="text-3xl font-black text-slate-800 tracking-tight">8,420</span>
                       <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Hours</span>
                     </div>
                     {/* Solid Sky Blue progress bar */}
-                    <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                       <div className="h-full bg-[#00A7FF] rounded-full" style={{ width: '85%' }}></div>
                     </div>
                   </div>
                   
                   <div>
-                    <p className="text-sm font-bold text-slate-455 uppercase tracking-widest mb-3">Overall Equipment Effectiveness (OEE)</p>
-                    <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-4xl font-black text-slate-900 tracking-tight">94.8</span>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">Overall Equipment Effectiveness (OEE)</p>
+                    <div className="flex items-baseline gap-1.5 mb-3">
+                      <span className="text-3xl font-black text-slate-800 tracking-tight">94.8</span>
                       <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">%</span>
                     </div>
                     {/* Solid Orange progress bar */}
-                    <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                       <div className="h-full bg-[#FF5C00] rounded-full" style={{ width: '94%' }}></div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 pt-6 border-t border-slate-100 flex justify-between items-center text-sm font-mono">
-                <span className="text-slate-400 font-bold uppercase">Real-time data synced from SCADA Control Deck</span>
+              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono">
+                <span className="text-slate-400 font-bold uppercase tracking-wider text-center sm:text-left">Real-time data synced from SCADA Control Deck</span>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                   <span className="text-[#00A7FF] font-bold uppercase tracking-widest">Systems Nominal</span>
@@ -428,21 +545,23 @@ const Machineries = () => {
             </div>
 
             {/* Capacity Download Deck - Clean Solid Royal Blue Layout */}
-            <div className="bg-[#1B3F8F] p-10 text-white rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden">
+            <div className="bg-[#1B3F8F] p-8 sm:p-10 text-white rounded-3xl flex flex-col justify-between shadow-xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+              <div className="absolute -right-16 -top-16 w-48 h-48 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-colors duration-700"></div>
+              
               <div>
-                <span className="text-[#00A7FF] text-sm font-bold uppercase tracking-widest mb-4 block">TECHNICAL RESOURCE</span>
-                <h3 className="text-2xl font-black mb-4 leading-tight tracking-tight uppercase">Full Capacity Deck</h3>
+                <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">TECHNICAL RESOURCE</span>
+                <h3 className="text-xl sm:text-2xl font-black mb-3 leading-tight tracking-tight uppercase">Full Capacity Deck</h3>
                 <p className="text-xs text-white/80 leading-relaxed font-sans font-medium">
                   Download detailed specifications, tonnage charts, and layout matrices of our 150+ operational press and welding lines.
                 </p>
               </div>
               <div className="space-y-4 mt-8">
-                <div className="bg-white/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-white/10">
-                  <Download className="w-6 h-6 text-white" />
+                <div className="bg-white/10 w-11 h-11 rounded-xl flex items-center justify-center mb-6 border border-white/10">
+                  <Download className="w-5 h-5 text-white" />
                 </div>
-                <button className="w-full bg-white text-[#1B3F8F] hover:bg-[#00A7FF] hover:text-white py-3.5 text-sm font-bold uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2 shadow-sm border border-transparent hover:border-[#FF5C00]">
-                  Download capacity PDF <ArrowRight className="w-4 h-4" />
+                <button className="w-full bg-white text-[#1B3F8F] hover:bg-[#00A7FF] hover:text-white py-3.5 text-xs font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
+                  Download capacity PDF <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
@@ -452,122 +571,408 @@ const Machineries = () => {
       </section>
 
       {/* --- 4. Machinery Asset List Grid --- */}
-      <section className="py-20 bg-white border-b border-slate-200/60">
+      <section className="py-24 bg-white border-b border-slate-100">
         <div className="container-custom">
           
-          <div className="mb-16 max-w-2xl">
-            <span className="text-[#00A7FF] text-xs font-bold uppercase tracking-widest mb-3 block">
-              ASSET INVENTORY
-            </span>
-            <h3 className="text-2xl font-black text-slate-900 tracking-tight">
-              Machinery Asset Catalog
-            </h3>
-            <div className="w-20 h-[3px] bg-[#00A7FF] mt-4"></div>
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-8">
+            <div>
+              <span className="inline-flex items-center gap-1.5 bg-[#00A7FF]/8 text-[#00A7FF] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                Asset Inventory
+              </span>
+              <h3 className="text-2xl lg:text-3xl font-black text-slate-800 tracking-tight">
+                Machinery Asset Catalog
+              </h3>
+              <div className="w-16 h-[3px] bg-[#00A7FF] mt-4 rounded-full"></div>
+            </div>
+            
+            {/* Document Control Panel */}
+            <div className="w-full lg:w-auto bg-slate-50/50 border border-slate-100 rounded-2xl p-6 text-xs text-slate-500 font-sans shadow-sm max-w-xl">
+              <div className="border-b border-slate-200/50 pb-3 mb-3">
+                <p className="font-bold text-slate-705 uppercase tracking-wide">Laxmi Balaji Automotive Products Pvt Ltd</p>
+                <p className="text-[#00A7FF] font-black uppercase text-[10px] tracking-wider mt-0.5">LIST OF MACHINERIES - 2026</p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-medium">
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Format No</span>
+                  <span className="font-mono font-bold text-slate-700">LBAP/MNT/01</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Revision</span>
+                  <span className="font-mono font-bold text-slate-700">00</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Rev Date</span>
+                  <span className="font-mono font-bold text-slate-700">02.01.2018</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Review Date</span>
+                  <span className="font-mono font-bold text-slate-700">01.01.2026</span>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* Quick Metrics Deck */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <div className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wide">Total Machinery Assets</span>
+              <span className="text-xl font-black text-slate-800 font-mono">39</span>
+            </div>
+            <div className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wide">Press Shop Units</span>
+              <span className="text-xl font-black text-[#00A7FF] font-mono">14</span>
+            </div>
+            <div className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wide">Welding Stations</span>
+              <span className="text-xl font-black text-[#FF5C00] font-mono">11</span>
+            </div>
+            <div className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wide">Operational Status</span>
+              <span className="text-xs font-bold text-emerald-600 uppercase flex items-center gap-1.5 mt-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                94.8% OEE Avg
+              </span>
+            </div>
+          </div>
+
+          {/* Filters & Search Controls */}
+          <div className="flex flex-col xl:flex-row gap-4 justify-between items-stretch xl:items-center mb-10 bg-slate-50/50 p-4 rounded-2xl border border-slate-100">
+            {/* Search Box */}
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search description, make, model ID..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-100 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-[#00A7FF] focus:ring-1 focus:ring-[#00A7FF] transition-all font-sans font-medium"
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Category Tabs Dropdown/Pills */}
+            <div className="flex flex-wrap gap-2">
+              {['All', 'Press Shop', 'Welding Shop', 'CNC & Fabrication', 'Material Handling', 'Utilities & Auxiliary'].map((category) => {
+                const count = category === 'All' 
+                  ? machineryData.length 
+                  : machineryData.filter(m => m.category === category).length;
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all ${
+                      selectedCategory === category
+                        ? 'bg-[#1B3F8F] text-white shadow-sm'
+                        : 'bg-white border border-slate-200/60 text-slate-500 hover:border-slate-350 hover:text-slate-800'
+                    }`}
+                  >
+                    {category} <span className="opacity-60 ml-0.5">({count})</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Machinery Asset Cards Grid */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.05 }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           >
-            {[
-              { 
-                name: "Schuler Servo 2000", 
-                type: "Press Line", 
-                desc: "High-speed servo-driven stamping press with digital progressive die configurations.",
-                spec: "2,000 KN Cap",
-                origin: "GERMANY",
-                img: "/schuler_servo.png"
-              },
-              { 
-                name: "Matsuura H.Plus", 
-                type: "Machining Center", 
-                desc: "Multi-pallet horizontal machining center for 24/7 continuous shift work.",
-                spec: "12,000 RPM Max",
-                origin: "JAPAN",
-                img: "/matsuura_milling.png"
-              },
-              { 
-                name: "Bystronic ByStar 10", 
-                type: "Fabrication Cell", 
-                desc: "Fiber laser cutting system with ultra-high-speed processing of gauge steel sheets.",
-                spec: "10 KW Output",
-                origin: "SWITZERLAND",
-                img: "/bystronic_laser.png"
-              },
-              { 
-                name: "Zeiss Prismo VAST", 
-                type: "Quality Control CMM", 
-                desc: "Global standard for high-speed scanning and sub-micron dimensional verification loops.",
-                spec: "0.1 µm Resolution",
-                origin: "GERMANY",
-                img: "/zeiss_cmm.png"
-              },
-              { 
-                name: "Seyi Progressive 800", 
-                type: "Stamping Press", 
-                desc: "Heavy-duty Seyi mechanical press cell equipped with automated coil feeders and conveyors.",
-                spec: "800 Ton Force",
-                origin: "TAIWAN",
-                img: "/seyi_press.png"
-              },
-              { 
-                name: "Fanuc ArcMate Cell", 
-                type: "Robotic Welding", 
-                desc: "Coordinated multi-axis welding cell featuring fanuc robotic weld arms and rotating fixtures.",
-                spec: "6-Axis Sync",
-                origin: "JAPAN",
-                img: "/fanuc_robot.png"
-              },
-              { 
-                name: "Komatsu Mechanical 630", 
-                type: "Press Line", 
-                desc: "Rigid frame stamping press configured for structural brackets and chassis components.",
-                spec: "630 Ton Force",
-                origin: "JAPAN",
-                img: "/komatsu_press.png"
-              },
-              { 
-                name: "AIDA H-Type 400", 
-                type: "Press Line", 
-                desc: "High-speed automated progressive press configured for deep-draw shell frames.",
-                spec: "400 Ton Force",
-                origin: "JAPAN",
-                img: "/aida_press.png"
-              }
-            ].map((machine, idx) => (
-              <motion.div 
-                key={idx}
-                variants={fadeInUp}
-                whileHover={{ y: -5, scale: 1.01 }}
-                transition={springTransitionFast}
-                className="bg-white border border-slate-200/60 flex flex-col h-full overflow-hidden rounded-xl shadow-sm hover:shadow-sm hover:border-[#00A7FF]/20 transition-all duration-300 animate-border-shimmer group relative"
-              >
-                {/* Top color accent divider - Solid brand Sky Blue */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
+            {machineryData
+              .filter((item) => {
+                const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+                const matchesSearch = 
+                  item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  item.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  item.capacity.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesCategory && matchesSearch;
+              })
+              .map((item) => {
+                const isService = item.slNo % 12 === 0;
+                return (
+                  <motion.div 
+                    key={item.slNo}
+                    variants={fadeInUp}
+                    whileHover={{ y: -5, scale: 1.01 }}
+                    transition={springTransitionFast}
+                    onClick={() => setSelectedMachine(item)}
+                    className="bg-white border border-slate-200/60 flex flex-col h-full overflow-hidden rounded-xl shadow-sm hover:shadow-lg hover:border-[#00A7FF]/20 transition-all duration-300 animate-border-shimmer group relative cursor-pointer"
+                  >
+                    {/* Top color accent divider - Solid brand Sky Blue */}
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#00A7FF] z-20"></div>
 
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={machine.img} alt={machine.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="p-6 flex flex-col justify-between flex-grow space-y-6">
-                  <div>
-                    <span className="text-sm font-bold text-[#00A7FF] uppercase tracking-widest mb-1.5 block">{machine.type}</span>
-                    <h4 className="text-base font-bold text-slate-800 tracking-tight leading-tight">{machine.name}</h4>
-                    <p className="text-slate-500 text-xs mt-3 leading-relaxed font-sans font-medium">{machine.desc}</p>
-                  </div>
-                  <div className="flex justify-between items-center pt-5 border-t border-slate-100">
-                    <span className="text-xs font-bold text-slate-900 font-sans">{machine.spec}</span>
-                    <span className="text-sm font-mono font-bold text-slate-350 uppercase tracking-wider">{machine.origin}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                    {/* Status Badge overlay on Image */}
+                    <div className="absolute top-3 right-3 z-30">
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-md shadow-sm border ${
+                        isService 
+                          ? 'bg-amber-500/10 text-amber-500 border-amber-500/20' 
+                          : 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'
+                      }`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${isService ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
+                        {isService ? 'Servicing' : 'Nominal'}
+                      </span>
+                    </div>
+
+                    <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+                      <img 
+                        src={getMachineImage(item.slNo)} 
+                        alt={item.description} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      />
+                    </div>
+
+                    <div className="p-6 flex flex-col justify-between flex-grow space-y-6">
+                      <div className="space-y-2">
+                        <div className="flex justify-between items-center">
+                          <span className="text-[10px] font-bold text-[#00A7FF] uppercase tracking-widest block">{item.category}</span>
+                          <span className="text-[10px] font-bold text-slate-400 font-mono">Sl: #{item.slNo}</span>
+                        </div>
+                        <h4 className="text-base font-black text-slate-800 tracking-tight leading-tight uppercase">
+                          {item.description}
+                        </h4>
+                        <div className="font-mono text-slate-400 text-[10px] font-bold">M/C ID: {item.id}</div>
+                        <p className="text-slate-500 text-xs leading-relaxed font-sans font-medium pt-1">
+                          {getMachineDescription(item.description)}
+                        </p>
+                      </div>
+                      
+                      <div className="flex justify-between items-center pt-5 border-t border-slate-100 text-xs">
+                        <div className="flex flex-col">
+                          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Capacity</span>
+                          <span className="font-bold text-slate-850 font-sans">{item.capacity}</span>
+                        </div>
+                        <div className="flex flex-col items-end">
+                          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Make / Year</span>
+                          <span className="font-mono font-bold text-slate-500 uppercase tracking-wider text-right">
+                            {item.make} ({item.year})
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
           </motion.div>
+
+          {/* Empty Search Result State */}
+          {machineryData.filter((item) => {
+            const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+            const matchesSearch = 
+              item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.capacity.toLowerCase().includes(searchTerm.toLowerCase());
+            return matchesCategory && matchesSearch;
+          }).length === 0 && (
+            <div className="py-16 text-center space-y-4 bg-white border border-slate-200 rounded-xl">
+              <AlertCircle className="w-10 h-10 text-slate-350 mx-auto stroke-[1.5]" />
+              <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">No Machinery Found</h4>
+              <p className="text-xs text-slate-400 font-sans max-w-xs mx-auto leading-relaxed">
+                We couldn't find any machines matching your search query or selected category filter. Try widening your criteria.
+              </p>
+            </div>
+          )}
+
+          {/* Interactive Modal Detail Viewer */}
+          <AnimatePresence>
+            {selectedMachine && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedMachine(null)}
+                className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6"
+                style={{
+                  background: 'rgba(3, 7, 44, 0.75)',
+                  backdropFilter: 'blur(12px)',
+                }}
+              >
+                <motion.div
+                  initial={{ scale: 0.93, y: 20, opacity: 0 }}
+                  animate={{ scale: 1, y: 0, opacity: 1 }}
+                  exit={{ scale: 0.93, y: 20, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="max-w-3xl w-full font-sans flex flex-row"
+                  style={{
+                    maxHeight: 'calc(100vh - 48px)',
+                    background: 'linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(242,251,255,0.96) 100%)',
+                    backdropFilter: 'blur(40px) saturate(200%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(200%)',
+                    border: '1px solid rgba(255,255,255,0.95)',
+                    borderRadius: '1.25rem',
+                    boxShadow: '0 8px 16px rgba(27,63,143,0.08), 0 32px 80px rgba(27,63,143,0.20), 0 0 0 1px rgba(0,167,255,0.10), inset 0 1px 0 rgba(255,255,255,1)',
+                    overflow: 'hidden',
+                  }}
+                >
+                  {/* ── LEFT: Image Panel ─────────────────────── */}
+                  <div className="w-[42%] shrink-0 relative bg-slate-950 flex flex-col">
+                    {/* Top brand bar on image panel */}
+                    <div className="h-[3px] w-full shrink-0" style={{
+                      background: 'linear-gradient(90deg, #1B3F8F 0%, #00A7FF 50%, #FF5C00 100%)',
+                    }}></div>
+
+                    {/* Full image */}
+                    <div className="flex-1 relative overflow-hidden">
+                      <img
+                        src={getMachineImage(selectedMachine.slNo)}
+                        alt={selectedMachine.description}
+                        className="absolute inset-0 w-full h-full object-contain p-4"
+                      />
+                      {/* Subtle bottom gradient */}
+                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/90 to-transparent pointer-events-none"></div>
+                    </div>
+
+                    {/* Category badge at bottom of image */}
+                    <div className="px-4 py-4 shrink-0">
+                      <span className="text-[10px] font-bold text-[#00A7FF] tracking-widest uppercase font-mono bg-slate-900/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[#00A7FF]/30 block text-center">
+                        {selectedMachine.category}
+                      </span>
+                      <p className="font-mono text-slate-400 text-[10px] mt-2 text-center">
+                        ASSET SHEET // {selectedMachine.id}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* ── RIGHT: Details Panel ───────────────────── */}
+                  <div className="flex-1 flex flex-col min-w-0">
+                    {/* Top brand bar on details panel */}
+                    <div className="h-[3px] w-full shrink-0" style={{
+                      background: 'linear-gradient(90deg, #00A7FF 0%, #1B3F8F 100%)',
+                    }}></div>
+
+                    {/* Header */}
+                    <div className="px-6 pt-5 pb-4 border-b border-slate-100 shrink-0 flex justify-between items-start">
+                      <div>
+                        <h4 className="text-xl font-black text-slate-900 leading-tight uppercase tracking-tight">
+                          {selectedMachine.description}
+                        </h4>
+                        <p className="font-mono text-slate-400 text-[11px] mt-1">Ref No: {selectedMachine.id}</p>
+                      </div>
+                      <button
+                        onClick={() => setSelectedMachine(null)}
+                        className="ml-3 shrink-0 bg-slate-100 hover:bg-slate-200 border border-slate-200 p-1.5 rounded-lg text-slate-500 hover:text-slate-800 transition-all hover:scale-110"
+                        aria-label="Close"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    {/* Scrollable Body */}
+                    <div className="overflow-y-auto flex-1 px-6 py-5 space-y-4" style={{ scrollbarWidth: 'thin' }}>
+
+                      {/* Machine Specifications */}
+                      <div>
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2 font-mono">Technical Specifications</span>
+                        <div className="grid grid-cols-2 gap-3 bg-slate-50/80 border border-slate-200/70 p-4 rounded-xl text-xs">
+                          <div>
+                            <span className="text-slate-400 block font-medium mb-0.5">Capacity / Rating</span>
+                            <span className="font-bold text-slate-900 font-mono">{selectedMachine.capacity}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium mb-0.5">Manufacturer</span>
+                            <span className="font-bold text-slate-900">{selectedMachine.make}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium mb-0.5">Year of Commission</span>
+                            <span className="font-bold text-slate-900 font-mono">{selectedMachine.year}</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 block font-medium mb-0.5">Shop Floor Cluster</span>
+                            <span className="font-bold text-slate-900 text-[10px]">
+                              {selectedMachine.category === 'Press Shop' ? 'Zone A // Press Line' :
+                               selectedMachine.category === 'Welding Shop' ? 'Zone B // Weld Cells' :
+                               selectedMachine.category === 'CNC & Fabrication' ? 'Zone D // Fabrication' :
+                               selectedMachine.category === 'Material Handling' ? 'Zone C // Logistics' : 'Utility Cluster'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* SCADA Telemetry */}
+                      <div>
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2 font-mono">SCADA Health Telemetry</span>
+                        <div className="space-y-3 bg-slate-50/80 border border-slate-200/70 p-4 rounded-xl">
+                          <div>
+                            <div className="flex justify-between items-center text-xs font-semibold text-slate-600 mb-1.5">
+                              <span>Asset Efficiency (OEE)</span>
+                              <span className="text-[#00A7FF] font-bold font-mono">
+                                {selectedMachine.slNo % 12 === 0 ? '0.0%' : `${(91 + (selectedMachine.slNo % 10) * 0.8).toFixed(1)}%`}
+                              </span>
+                            </div>
+                            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                              <div
+                                className={`h-full rounded-full transition-all duration-700 ${selectedMachine.slNo % 12 === 0 ? 'bg-slate-300' : 'bg-gradient-to-r from-[#1B3F8F] to-[#00A7FF]'}`}
+                                style={{ width: selectedMachine.slNo % 12 === 0 ? '0%' : `${91 + (selectedMachine.slNo % 10) * 0.8}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="flex justify-between items-center text-xs font-semibold text-slate-600 mb-1.5">
+                              <span>Critical Load Capacity</span>
+                              <span className="text-[#FF5C00] font-bold font-mono">
+                                {selectedMachine.slNo % 12 === 0 ? 'Offline' : `${(75 + (selectedMachine.slNo % 7) * 3)}%`}
+                              </span>
+                            </div>
+                            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                              <div
+                                className={`h-full rounded-full transition-all duration-700 ${selectedMachine.slNo % 12 === 0 ? 'bg-slate-300' : 'bg-gradient-to-r from-[#FF5C00] to-[#FF8C42]'}`}
+                                style={{ width: selectedMachine.slNo % 12 === 0 ? '0%' : `${75 + (selectedMachine.slNo % 7) * 3}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Document note */}
+                      <div className="flex items-start gap-3 bg-blue-50/60 border border-blue-100 p-3.5 rounded-xl">
+                        <FileText className="w-4 h-4 text-[#00A7FF] shrink-0 mt-0.5" />
+                        <p className="text-[11px] text-blue-700/80 leading-relaxed font-medium">
+                          Governed by{' '}
+                          <span className="font-bold text-blue-900 font-mono">LBAP/MNT/01 Rev 00</span>.
+                          Calibrations checked under index standards.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Footer Actions */}
+                    <div className="px-6 py-4 border-t border-slate-100/80 flex gap-3 shrink-0 bg-white/60">
+                      <button
+                        onClick={() => setSelectedMachine(null)}
+                        className="flex-1 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 hover:border-slate-300 text-xs font-bold uppercase tracking-wider rounded-xl transition-all"
+                      >
+                        Close Inspector
+                      </button>
+                      <a
+                        href="#reliability"
+                        onClick={() => setSelectedMachine(null)}
+                        className="flex-1 py-2.5 text-white text-xs font-bold uppercase tracking-wider rounded-xl text-center transition-all shadow-md"
+                        style={{ background: 'linear-gradient(135deg, #00A7FF 0%, #1B3F8F 100%)' }}
+                      >
+                        Reliability Deck
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
         </div>
       </section>
+
+
 
     </div>
   );
